@@ -1,0 +1,49 @@
+{
+  "name": "autobid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "bidengine:install": "cd bidengine && rm -rf env && python3 -m venv env && source ./env/bin/activate && pip install -r requirements.txt",
+    "analysis:install": "cd job-analysis-toolkit && rm -rf env && python3 -m venv env && source ./env/bin/activate && pip install -r requirements.txt",
+    "pyjengine:install": "cd pyjengine && rm -rf env && python3 -m venv env && source ./env/bin/activate && pip install -r requirements.txt",
+    "skilltree:install": "cd skill-tree && rm -rf env && python3 -m venv env && source ./env/bin/activate && pip install -r requirements.txt",
+    "email-dump:install": "cd email-dump && yarn install",
+    "frontend:install": "cd frontend && npm i",
+    "assist:install": "cd interview-prepare-assist && npm i",
+    "jengine:install": "cd jengine && npm i",
+    "install-all": "concurrently \"npm run bidengine:install\" \"npm run email-dump:install\"",
+
+    "jengine:dev": "cd jengine && npm run dev",
+    "pyjengine:dev": "cd pyjengine && source ./env/bin/activate && python main.py",
+    "bidengine:dev": "cd bidengine && source ./env/bin/activate && python main.py",
+    "frontend:dev": "cd frontend && npm start",
+    "dev": "concurrently \"jengine:dev\" \"npm run pyjengine:dev\" \"jengine:dev\" \"npm run frontend:dev\"",
+
+    "jengine:start": "cd jengine && npm start",
+    "pyjengine:start": "cd pyjengine && source ./env/bin/activate && python main.py",
+    "bidengine:start": "cd bidengine && source ./env/bin/activate && python main.py",
+    "start": "concurrently \"jengine:start\" \"npm run pyjengine:start\" \"jengine:start\"",
+
+    "analysis:start": "cd job-analysis-toolkit && source ./env/bin/activate && python main.py",
+
+    "skilltree:start": "cd skill-tree && source ./env/bin/activate && python main.py",
+
+    "email-dump:start": "cd email-dump && yarn install",
+
+    "assist:start": "cd interview-prepare-assist && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iforcenick/autobid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iforcenick/autobid/issues"
+  },
+  "homepage": "https://github.com/iforcenick/autobid#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
