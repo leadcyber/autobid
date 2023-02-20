@@ -1,0 +1,427 @@
+---
+  "///(^First Name$)|(Legal First Name)|(^Preferred First Name$)": "Michael"
+  "///(^Last Name$)|(Legal Last Name)|(^Preferred Last Name$)": "Chilelli"
+  "///(^Name$)|(^Full Name$)|(^Your Name)|(Full Legal Name)|(preferred first(.*?)last name)|(first(.*?)last name)": "Michael Chilelli"
+  "///Middle Name": ""
+  "///Middle Initial": "A"
+  "Second last name": ""
+  "Given name - (Kanji)": ""
+  "Family name (Kanji)": ""
+  "Name Pronunciation": ""
+  "///(^Phone$)|(^Cell Phone$)|(Phone number)": "5203653313"
+  "///Phone country": [ "United States (+1)", "///United States", "///\\+1/D" ]
+  "//Video Link": ""
+  "//^suffix": [ "Sr.", "///Sr\\." ]
+
+  "///^Employee ID": ""
+
+  "///name of(.*?)current company": "SoluLab"
+  "///current company(.*?)start(.*?)date": "02/01/2020"
+  "///^Current company": "SoluLab"
+
+  "What is your preferred name?": "N/A"
+  "///if(.*?)differ(.*?)legal name(.*?)list": ""
+  "Preferred first name": ""
+  "///(.*?)preferred name(.*?)": "N/A"
+  "///What name(.*?)go by(.*?)birth name(.*?)": ""
+
+  "///(Are|is|do) your phone number(.*?)listed(.*?)resume": [ "Yes" ]
+
+  "///(^Pronouns$)|(you(.*?)pronoun)|(personal(.*?)pronoun)|(^What pronouns do you use)": ["He/him", "///(Him|His)" ]
+  "///other Pronouns": [ "" ]
+
+  "///Are you(.*?)18(.*?)(years|old)(.*?)": [ "Yes", "///yes" ]
+  "///Are you(.*?)age(.*?)18": [ "Yes", "///yes" ]
+  "///Are you(.*?)40(.*?)(years|old)(.*?)": [ "No", "///no" ]
+  "///Age group": [ "32", "///25-" ]
+
+  "///(Address Line(.*?)1)|(^Street Address$)|(enter(.*?)Street Address)": "7950 E Stella Rd"
+  "///Address Line(.*?)2": ""
+  "///Mailing(.*?)address 2": ""
+  "///(^Location$)|(confirm(.*?)location)|(^Location: City, Country not URL$)": "7950 E Stella Rd, Tucson, AZ"
+  "///(Street address(.*?)city(.*?)state(.*?)zip code)|((physical|residen)(.*?)(address|location))|(Mailing(.*?)address)|(^Address)": "7950 E Stella Rd, Tucson, AZ, 85730"
+  "///(^Postal Code$)|(Zip(.*?)(Postal|code))|(^Zip)": "85730"
+  "///(list your(.*?)city(.*?)state)|(If you selected(.*?)other(.*?)where are you currently located)|((what|which) city(.*?)you(.*?)(reside|locate|based|live))|(where do you plan to work from most)|((What|Which) City(.*?)target(.*?)work)|(indicate(.*?)your(.*?)location preference)|(^Location \\(City\\)$)|(^City of residence$)|(^city(.*?)state)": [ "Tucson, Arizona", "Other, but will not relocate to one of the above cities" ]
+  "///(^City$)|(enter(.*?)city)|(What US city do you spend most of your time in)": "Tucson"
+  "County": "Pima"
+  "///(home/mailing address)|(current location$)|(current permanent address)|(^Your current city$)|(Where(.*?)(located|based)(.*?)(country(.*?)city))|(current city(.*?)state(.*?)reside)": "Tucson, AZ, United States"
+  "///(Do|have|Are) you(.*?)liv(.*?)(United States|U\\.S)?": "YES"
+  "///Are you(.*?)(located|based)(.*?)(US|United States)(.*?)": "Yes"
+  "///What time(.*?)zone(.*?)you(.*?)": [ "MST", "American Time Zones", "///Mountain", "///MST" ]
+  "///(can|could|would|will|are)(.*?)(work|located)(.*?)(EST|CST|MST|PST|timezone|central hour|time zone)": [ "Yes" ]
+  "///Time zone": [ "MST", "American Time Zones", "///Mountain", "///MST" ]
+  "///(are|do) you (.*?)liv(.*?)(united states|US|U\\.S)": "Yes"
+  "///(^State$)|(^province$)|(State(.*?)(Province|residen|region))|((What|Which) state (do|are|will) you(.*?)(reside|live|locate|work))|(^What US state do you spend most of your time)|(Province(.*?)State)|(you(.*?)live(.*?)following state)": [ "Arizona", "AZ" ]
+  "///(Are|do) you(.*?)(reside|live)(.*?)Texas": "No"
+
+  "///(Do|can|could) you(.*?)driver(.*?)license": "Yes"
+  "///Are You(.*?)H1B Holder": "Yes"
+  "///Which country(.*?)based(.*?)": [ "United States", "United States of America", "USA" ]
+  "///(Do|Are) you(.*?)(U\\.S\\.|US) based": [ "Yes" ]
+  "///(What|Which) country are you located in\\?": [ "USA", "United States" ]
+  "///Where are you(.*?)located?": [ "US", "North America", "Arizona" ]
+  "///Where(.*?)located(.*?)Canada(.*?)": "I am not located in Canada"
+  "When can you start if you’re hired?": [ "2 weeks" ]
+  "///When(.*?)available(.*?)start(.*?)": "I can start this position ASAP!"
+  "///Date Available(.*?)": ""
+  "///Do you have(.*?)deadline(.*?)time(.*?)": "No"
+  "Country": [ "USA", "United States", "United States of America" ]
+  "///(.*?)North Korea(.*?)": "No"
+  "///(.*?)willing to work at U\\.S\\. Business hours(.*?)": "Yes"
+  "///(Are|do) you(.*?)take a(.*?)video": "Yes"
+  "///(Do you speak(.*?)languages other(.*?)English)|(Other than English)": "No"
+  "///what language(.*?)other(.*?)English(.*?)you": "N/A"
+  "///(Do|Are|Can) you(.*?)(proficient|speak|fluent|convers)(.*?)English": "Yes"
+  "///(Do|Are|Can) you(.*?)English certificat": "Yes"
+  "///(English Level|level(.*?)English)": [ "Professional", "fluent", "///fluent" ]
+  "///(.*?)(What|which) language(.*?)speak(.*?)(fluent|business level)(.*?)": "English"
+  "///(.*?)indicate(.*?)proficiency(.*?)English(.*?)":
+    - It is standard policy for Cardinal Health recruiting operations to support the primary language in the country in which a candidate is applying. However, in some areas, recruiters may request additional application materials in English. Please indicate below your proficiency with the English language. Advanced – able to participate in most formal and informal conversations on practical, social and professional topics. Able to read standard newspaper, routine correspondence, reports, technical materials in the individual’s field. required
+
+  "///(^Github)|(GitHub(.*?)(URL|link))|((URL|link)(.*?)Github)|(Git Hub)": "https://github.com/iforcenick"
+  "///website(.*?)you(.*?)worked": "https://apptoto.com"
+  "///((How|Where)(.*?)you(.*?)(hear|learn|find out) about (.*?)\\?)|(where did you(.*?)find(.*?)job)": [ "LinkedIn", "///linkedin", "///Job Board" ]
+  "///Did you learn(.*?)from(.*?)": [ "Yes", "///^(yes)" ]
+  "///Twitter(.*?)": ""
+  "///Portfolio(.*?)": ""
+  "///Instagram(.*?)": ""
+  "///TikTok(.*?)": ""
+  "///Plume(.*?)": ""
+  "///Dribbble(.*?)": ""
+  "///Website or links(.*?)you'd like(.*?)": ""
+  "Social Media Links": ""
+  "Other website": ""
+  "Other links": ""
+  "RECESS": ""
+
+  "NMLS": "N/A"
+
+  "///(Are|Do) you(.*?)work(.*?)stock option(.*?)": "No"
+  "///(I authorize (.*?) to obtain information about me)|(confirm(.*?)you(.*?)(read|understand))": [ "I confirm", "///I confirm", "///I agree" ]
+  "///(Have|Are|Do)(.*?)(signed|subject|bound|have|willing)(.*?)(non-compet|non-disclosure|impact)(.*?)": "No"
+  "///Are you(.*?)bound(.*?)affect(.*?)employment": "No"
+
+  "///Would you(.*?)email notification": "Yes"
+
+  "///(Are|Do) you (comfortable|happy)(.*?)(compensation|salary)": "Yes"
+  "///(would|are|do|will|could|can) you(.*?)negotiate(.*?)(salary|compensation)": [ "Yes", "///^Yes" ]
+  "///(what salary(.*?)target(.*?))|(^How much would you expect to earn)|((compensation|salary) (range|expectation|requirement|compensation))|((base|desired|annual|total)(.*?)(salary|compensation|pay))|(what(.*?)look(.*?)term(.*?)compensation)|((salary|compensation) you(.*?)request)|(^pay rate)|(annual rate)": [ "$150K/yr", "///150", "$150-175K", "$151-160K", "///150", "///151", "///160", "///140" ]
+  "///local currency": [ "USD", "US dollar" ]
+  "///(.*?)hourly(.*?)(salary|compensation|rate)(.*?)": [ "$75/hr" ]
+  "Desired Bonus/Commission/Other": "N/A"
+  "///(.*?)kindly select the minimum rate(.*?)": "Only above 70 $/h"
+  "///What would be your availability to work on(.*?)projects in h/week?": "40 h or more"
+  "///Did someone(.*?)refer you(.*?)": "No"
+  "///If you (.*?)through a referral, please(.*?) name(.*?)": ""
+  "///If(.*?)Referral(.*?)specify(.*?)": ""
+  "///(.*?)Are you(.*?)former(.*?)employee(.*?)": "No"
+  "///(.*?)will you(.*?)work(.*?)addition(.*?)standard schedule(.*?)": "Yes"
+  "///(.*?)meet(.*?)minimum(.*?)age(.*?)require(.*?)": "Yes"
+  "///have(.*?)right(.*?)work": "Yes"
+  "///(.*?)Do you know anyone(.*?)": "No"
+  "///(.*?)Do you have any agreements(.*?)employers(.*?)": "Yes"
+  "///(.*?)What(.*?)you hold with(.*?)Government?": "N/A"
+  "///(.*?)How is the position connected(.*?)": ""
+  "///(.*?)What(.*?)responsibility(.*?)did you have(.*?)": "I was in a senior level of engineering team."
+  "///(.*?)How personally and/or substantially did your role(.*?)": ""
+  "///caregiver status": [ "No", "///am not", "///^No" ]
+  "///Is(.*?)your(.*?)(Work|Visa) (Status|Authorization)(.*?)limited": [ "No", "///^No" ]
+  "///(Are|Do) you(.*?)F-1(.*?)status": [ "No" ]
+  "///security clearance": [ "None", "///do not have", "No" ]
+  "///Do(.*?)play(.*?)musical instrument(.*?)": "Piano"
+  "///(.*?)PLEASE READ THE FOLLOWING STATEMENTS CAREFULLY(.*?)": "I confirm I have read, understand, and agree to the statement above."
+  "///Any (Federal|Gov)(.*?)experience": "No"
+
+  "///(recent|current)(.*?)job(.*?)title": "Senior Software Engineer"
+  "///College/University attended(.*?)": "4"
+  "School": "National University of Singapore"
+  "///School(.*?)Other": ""
+  "Discipline": "Computer Science"
+  "Start Date": "2009"
+  "End Date": "2013"
+
+  "///(Highest(.*?)education)|(^Degree$)|(degree(.*?)hold)|(highest(.*?)(degree|level)(.*?)school)": [ "Master's Degree", "!!!(.*?)Master(.*?)Art(.*?)", "///Master(.*?)(Science|Computer)", "Master", "MS", "///Master(.*?)", "///^MS", "///MS$" ]
+  "///^(do|are|have|did) you (.*?)Bachelor": [ "Yes" ]
+  "///^(do|are|have|did) you (.*?)computer science(.*?)degree": [ "Yes", "///Yes" ]
+  "///^(do|are|have|did) you (.*?)degree in": [ "Yes", "///Yes" ]
+  "///(.*?)completed(.*?)Master": "Yes"
+
+  "///(.*?)Hispanic(.*?)Lati(.*?)": "No"
+  "///(Race|racial|ethnicit)|(your racial, ethnic and origin identities)|(select(.*?)ethnic group(.*?)identify)": [ "Asian", "///^Asian", "///^South Asian", "!!!\\(No(.*?)hispanic", "///No(.*?)hispanic" ]
+
+  "///(.*?)transgender(.*?)": "No"
+  "///(^Gender)|( gender)|(gender identity)": [ "Male", "Man", "!!!trans", "///^(Male|Man)(.*?)", "/// (Male|Man)" ]
+  "///(.*?)sexual orientation(.*?)": [ "Heterosexual", "///(straight|hetero)" ]
+
+  "///(.*?)age range(.*?)": [ "32" ]
+  "///(Please indicate(.*?)you agree(.*?)policy)|(By applying(.*?)I agree(.*?)Policy)": [ "Yes", "I understand", "///^Yes" ]
+  "///Would you accept(.*?)request": [ "Yes" ]
+
+  "///(have legal US work authorization)|((able|allowed)(.*?)(work) in(.*?)(U\\.S|US|United States))|(authorized|eligible|permitted|entitled)(.*?)(work|employ)|((Are|Do) you(.*?)exempt(.*?)sponsorship)": [ "Yes", "///^I am authorized", "///^(Yes)", "///eligible", "///all(.*?)employers" ]
+  "///(Will|Do|would)(.*?)(require|need)(.*?)(sponsor|authorization|right to work|support|citizenship)": [ "No", "///(.*?)no(.*?)", "///Other", "///I understand" ]
+  "///(provid|furnish)(.*?)eligibility(.*?)": [ "Yes", "///yes" ]
+  "///Have you applied to other": ["No", "///^no"]
+  "///Please read the entire form before": [ "I understand" ]
+  "///What's your citizenship(.*?)": [ "I am a U.S. Citizen/Permanent Resident", "///citizen" ]
+  "///(provide(.*?)work authorization sponsorship)|(specify(.*?)sponsorship)": "I am a US citizen."
+  "///Are you(.*?)(US|U\\.S)(.*?)citizen": "Yes"
+  "///Are you(.*?)(US|U\\.S) citizen(.*?)or(.*?)green(.*?)card": [ "U.S. citizen", "///citizen" ]
+  "///describe(.*?)sponsorship(.*?)you require.": "I am a US citizen."
+  "///If you(.*?)visa(.*?)what(.*?)type": [ "US citizen", "///No" ]
+  "///^visa(.*?)usc": "Yes"
+  "///(Employment|immigration) Status": [ "I'm authorized to work in the United States", "///Citizen", "///Full(.*?)time" ]
+  "///((Work|Visa) (Status|Authorization))|(^Current status type)": [ "US citizen", "///am authorized", "///citizen", "///^Yes" ]
+  "///(Are|Do) you(.*?)work visa": [ "No", "///no" ]
+  "///nationality": [ "United States" ]
+
+  "///(Will|Can|Would|Are) you(.*?)perform(.*?)essential(.*?)function(.*?)": "Yes"
+  "///are you(.*?)(willing|able)(.*?)perform(.*?)function(.*?)": "Yes"
+  "///(Did|Have) you(.*?)terminat(.*?)(performance|behavior)(.*?)": "No"
+  "///(Did|Have) you(.*?)been(.*?)involun(.*?)(discharged|released(.*?)job)(.*?)": [ "No", "///^No" ]
+  "///(Are|Do) you (.*?)work(.*?)state": [ "Yes", "///yes" ]
+  "///(.*?)vaccinat(.*?)": [ "Yes", "///I(.*?)(read|understand|acknowledge|consent)", "///^Yes", "///check(.*?)you(.*?)read(.*?)policy" ]
+  "///serve(.*?)(Military|force)(.*?)": [ "No", "///(.*?)am no(.*?)", "///^(no)(.*?)" ]
+  "///(.*?)(Veteran|Military)(.*?)": [ "I am not a protected veteran", "///(.*?)am no(.*?)", "///^(no)(.*?)", "///(do not|don't)(.*?)veteran", "///never" ]
+  "///(served(.*?)the U.S(.*?)Arm)|((are|have) you(.*?)armed force)": [ "No", "///^No" ]
+  "///Disability": [ "No, I don't have a disability, or a history/record of having a disability", "!!!not to say", "!!!wish to answer", "///(.*?)(no|don't)(.*?)" ]
+  "Do you identify with any of the following?": "None"
+  "///(.*?)living in(.*?)US(.*?)": [ "Yes" ]
+  "Country of residence": "United States"
+  "///(Are|Do) you(.*?)(reside|resident)(.*?)(US|United States|country)(.*?)": "Yes"
+  "///(What|Which) country(.*?)(reside|work)(.*?)": "United States"
+  "Where is your current location country?": "United States"
+  "///(.*?)acknowledge(.*?)((Candidate|Employee) Privacy|application agreement|CCPA|NDA)": [ "I acknowledge that I have read and understand the Gather Town Candidate Privacy Statement and all answers provided by me within this application are true and correct.", "///^I Agree", "Acknowledge" ]
+  "///(.*?)acknowledge(.*?)covid(.*?)": [ "I acknowledge", "///I (acknowledge|have read)" ]
+  "///processing(.*?)personal data": [ "I Acknowledge", "///(acknowledge|confirm)" ]
+  "///(Privacy Policy)|(Privacy Notice)": [ "Acknowledge/Confirm", "///I (Agree|acknowledge)" ]
+  "///(.*?)Employment Policy(.*?)acknowledge(.*?)": "Yes"
+  "///(.*?)Are you (.*?)provide documentation for authorization(.*?)\\?": "Yes"
+  "Do you currently live 100% in the contiguous United States ?": "Yes"
+  "Do you currently live (.*?)drive(.*?)": "No"
+  "///How many years(.*?)industry(.*?)experience(.*?)have(.*?)": "10"
+  "///(.*?)how many years(.*?)experience(.*?)in(.*?)field(.*?)apply(.*?)": "6-10 years"
+  "///(Are) you(.*?)apply(.*?)outside(.*?)(U.S|United States)": "No"
+  "///(.*?)scale(.*?)1(.*?)10(.*?)rate(.*?)React(.*?)": "9"
+  "///(.*?)scale(.*?)1(.*?)10(.*?)rate(.*?)Typescript(.*?)": "9"
+  "///(.*?)can contact me about future job opportunities(.*?)": True
+  "///(do|are) you(.*?)consent": [ "Yes", "///^I consent" ]
+  "///(method(.*?)contact)|(how(.*?)you(.*?)contacted)": [ "Email", "Text", "Phone Call" ]
+  "///Are you currently working at (.*?)\\?": "No"
+  "///Are you (currently|presently) employed": "No"
+  "///Who is your(.*?)employer": "N/A"
+  "///If your(.*?)employer is(.*?)list": "N/A"
+  "///Is your(.*?)employer at (.*?)": "No"
+  "///how many employers(.*?)you(.*?)work(.*?)last(.*?)years": "2"
+  "///Are you(.*?)involv(.*?)negotiat(.*?)service(.*?)(at|of)": "No"
+  "///Has(.*?)employ(.*?)past": "No"
+  "///^Techn(.*?)required:": "Yes"
+  "///(^Overall(.*?)Experience)|(^Years of experience$)": "10"
+  "///^do you have 10(.*?)as": "Yes"
+  "///are you hand(.*?)on(.*?)coding": "Yes"
+  "///^hand(.*?)on experience": "Yes"
+  "///(how many years(.*?)total experience)|(^total experience)": "10"
+  "///(Do|are) you(.*?)(mentoring|leadership)": "Yes"
+  "///Have you worked(.*?)banking": "Yes"
+  "///how many ship(.*?)title(.*?)you(.*?)work": "7"
+  "///(Do|have) you(.*?)(had|have)(.*?)NMLS ID": "No"
+  "///do you(.*?)understand that": [ "Yes", "///^I acknowledge", "///^I confirm", "^Yes" ]
+  "///do you(.*?)have (.*?)passion": [ "Yes", "///^Yes" ]
+  "///^Have you(.*?)built(.*?)app": [ "Yes", "///^Yes" ]
+  "///Have you(.*?)shipped(.*?)with(.*?)": [ "Yes", "///^Yes" ]
+
+
+  "///(.*?)agree to the use of your submitted data in accordance with(.*?)": "Yes"
+  "///(.*?)please specify referrer(.*?)": ""
+  "///(Were you referred by a(.*?)(employee|member))|(Are you(.*?)(employee|member|customer)(.*?)\\?)|(if(.*?)hear(.*?)from(.*?)employee(.*?)list)": [ "No", "///^No" ]
+  "///Do you have(.*?)relative(.*?)(work|employ)(.*?)": "No"
+  "///Were(.*?)(referred|referral)": [ "No", "///^(No)" ]
+  "///If(.*?)referred you(.*?)provide": [ "No", "///^(No)" ]
+  "/// (referred|referral)": [ "", "///^(No)" ]
+  "If Other, please provide source:": ""
+  "///GDPR Compliance(.*?)": "Acknowledge"
+  "///list employment date": ""
+  "///(acknowledge|agree)(.*?)you(.*?)required(.*?)(verify)(.*?)(identity|eligib)": True
+  "///(acknowledge|agree)(.*?)confidential(.*?)disclose(.*?)during(.*?)interview": True
+
+  "///(.*?)have at least(.*?)experience(.*?)": "Yes"
+  "///(.*?)have(.*?)year(.*?)experience(.*?)": "Yes"
+
+  "///(.*?)(able|will)(.*?)pick up(.*?)(laptop|equipment)(.*?)in ": [ "No", "///(.*?)no(.*?)" ]
+  "///(.*?)will(.*?)relocate(.*?)": [ "No", "///(.*?)no(.*?)" ]
+  "///(.*?)will(.*?)travel(.*?)": [ "No", "///(.*?)no(.*?)" ]
+  "///(do|are)(.*?)you(.*?)liv(.*?)within(.*?)job location": [ "No", "///(.*?)no(.*?)" ]
+  "///I agree to the terms above": [ True ]
+
+  "How many years of working within a regulated industry such as a medical device do you have?": "3"
+  "Are you willing to complete a take-home coding test?": "Yes"
+  "///(.*?)open to relocation(.*?)?": "No"
+  "///(.*?)Would you be okay with that?(.*?)": "No"
+  "///Are you available to work during(.*?)": "Yes"
+  "///((How soon|When)(.*?)(can|could|would|will|are)(.*?)you(.*?)(start|join|begin))|(When(.*?)start working(.*?)hired)|(notice period)|(period of notice)|(How(.*?)availability(.*?)start working)|(how much notice)": [ "Immediately", "N/A", "///immediat", "///n\\/a" ]
+  "///(can|could|would|will|are) you(.*?)(start|join|work)(.*?)(immediately|in )": "yes"
+  "Desired Hours (per week)": "40"
+  "///If previously employed by(.*?), please provide(.*?)": ""
+  "///If (.*?)employee, please (enter|list|provide)(.*?)": ""
+  "///are you(.*?)current(.*?)client": [ "No" ]
+  "///If you(.*?)former(.*?)worker": ""
+  "///If you have any Friend(.*?), please provide their(.*?)": ""
+  "///If you have worked(.*?)other name(.*?)please provide(.*?)": ""
+  "///(Can you(.*?)submit verification(.*?)authorization(.*?)work(.*?)(U\\.S|US))|((do|can)(.*?)proof(.*?)legal (status|right))": "Yes"
+  "///Please list any other telephone number(.*?)": ""
+  "///Are you (.*?) student(.*?)": "No"
+  "///((Were|Have|Are) you (previous|ever)(.*?)(employ|work|employee)(.*?))|(Do you have(.*?)(previous|ever)(.*?)experience at)|((Were|Have) you(.*?)(employed|worked)(.*?)previous)|(indicate(.*?)if(.*?)previous(.*?)employed)": [ "No", "///^(No)", "///never" ]
+  "///provide(.*?)dates you were employed(.*?)": ""
+  "///describe(.*?)limitation(.*?)": "N/A"
+
+  "///Can you give(.*?)hours daily along(.*?)job": "Yes"
+  "///(.*?)Are you currently located(.*?)in(.*?)": "Yes"
+  "///(.*?)Do you(.*?)live(.*?)in(.*?)U(.*?)S": "Yes"
+  "///What vertical are you currently working(.*?)": [ "DeFi", "Web3", "Real Estate Tech", "Blockchain", "Cryptocurrency", "FinTech", "HealthTech" ]
+  "///What business model(.*?)working(.*?)": [ "Business-to-Consumer (B2C)" ]
+  "///How many(.*?)years of experience(.*?)to this role?": "5-8 years"
+  "///(.*?)share any questions(.*?)": "N/A"
+  "///share(.*?)why you feel drawn to (.*?)'s mission": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that **2** will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///why(.*?)you(.*?)want(.*?)role": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that this will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(Why are you interested in)|(what(.*?)your(.*?)motivation(.*?)join)|((tell)(.*?)why(.*?)you(.*?)interest)": "I have been looking for a job where I can contribute my proficiency to the growing development team. I am thrilled that this will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(.*?)check(.*?)reason(.*?)interested(.*?)": [ "Career opportunity" ]
+  "///(Do|Are) you (.*?)(interest|experience)(.*?)in(.*?)": [ "Yes" ]
+  "///Rate(.*?)JavaScript(.*?)React(.*?)": "9"
+  "///Rate(.*?)back(.*?)end(.*?)development(.*?)": "7"
+  "///(.*?)designing(.*?)building REST APIs(.*?)": "6"
+  "///Type of employment(.*?)": [ "Full-time" ]
+  "///I am(.*?)work(.*?)as": [ "Full-time employee", "///Engineer" ]
+  "///(Are|Do) you (comfortable|open)(.*?)non-remote": "No"
+  "///(Are|Do) you (comfortable|ready)(.*?)remote": "Yes"
+  "///(Are|Do) you work(.*?)home": "Yes"
+  "///(Are|Do) you (comfortable|ready)(.*?)(full(.*?)time|contract)": "Yes"
+  "///(Are|Do|should)(.*?)(comfortable|ready|ok)(.*?)(hybrid|onsite|on-site|commut)": "No"
+  "///Are you comfortable(.*?)Marketing": "No"
+  "///(Are|Do) you(.*?)able(.*?)(work|commut)(.*?)office": "No"
+  "///(Are|Do|Can) you (open|plan)(.*?)(full(.*?)time|contract)": "Yes"
+  "///(Are|Do|Can) you (open|plan)(.*?)full(.*?)time(.*?)or": [ "Full time", "///Full.time" ]
+  "///(Are|do|can) you(.*?)part(.*?)time": "No"
+  "///(Are|Do) you(.*?)(C2C|corp(.*?)corp)": "No"
+  "///(work|comfortable|only|open)(.*?) (w2|w-2)": "Yes"
+  "///no (ctc|cth)": "No"
+  "///(work|comfortable|only)(.*?) (C2C|cope to cope)": "No"
+  "///((work|comfortable|only)(.*?) 1099)|(1099(.*?)you(.*?)agree)": "Yes"
+  "///USC(.*?)only": "Yes"
+  "///(.*?)select(.*?)type(.*?)position(.*?)looking for(.*?)": [ "Full-time", "Contractual" ]
+  "///Are you(.*?)part(.*?)full(.*?)time(.*?)": [ "I am loooking for a full-time position.", "///Full(.*?)time" ]
+  "///Are you(.*?)Sponsor(.*?)Donor(.*?)": "No"
+  "///Are you related(.*?)employee(.*?)with(.*?)": "No"
+  "///I(.*?)work here": "No"
+  "///Do you agree with(.*?)Statement(.*?)": "No"
+  "///Do you attend(.*?)church(.*?)": "No"
+  "///(confirm|consent|accept)(.*?)(statement|term|form|my data)(.*?)": [ True, "///acknowledge" ]
+  "///(.*?)convicted(.*?)guilty(.*?)": "No"
+  "///(.*?)have responsibilities(.*?)interfere(.*?)": "Yes"
+  "///(.*?)able to(.*?)duties of this position(.*?)": "Yes"
+  "///Would(.*?)comfortable(.*?)visiting(.*?)office(.*?)": "Not at this time"
+  "///(.*?)Are you(.*?)comply(.*?)if(.*?)employed(.*?)": "Yes"
+  "///(.*?)select(.*?)(job|role)(.*?)applied(.*?)": [ "Senior Backend Engineer" ]
+  "///(.*?)select(.*?)time(.*?)zone(.*?)available(.*?)": [ "EST", "CST", "MST", "PST" ]
+  "///(.*?)select(.*?)years of experience(.*?)role(.*?)": [ "8" ]
+  "///(.*?)select skills(.*?)confident(.*?)": ["Python", "NodeJS", "Django", "ExpressJS", "RESTful APIs", "HTML", "CSS", "ReactJS"]
+  "///If(.*?)yes(.*?), were you involved(.*?)procurement(.*?)": "No"
+  "///What(.*?)take(.*?)(recognize|address)(.*?)biases(.*?)": ""
+  "///How many(.*?)Product Management experience(.*?)": "I have about 3 years of product management experience."
+  "///Describe(.*?)tools you’ve built(.*?)collect customer data(.*?)": "I have developed various web crawlers for collecting the customer data using python/urllib, node.js/node-fetch and various more libraries."
+  "Please describe a time that you improved customer retention based on customer data": ""
+  "What is your approach to designing a new feature or product?": ""
+  "///(.*?)preferred method of contact(.*?)": ["Email"]
+  "///(.*?)Tell us about your(.*?)car(.*?)": "-"
+  "///Do you(.*?)experience(.*?)Ruby(.*?)": "Less than 3 years"
+  "///I would like(.*?)part of(.*?)": "Yes"
+  "///(.*?)select(.*?)Afflilations(.*?)": ""
+  "///Do you authorize us to(.*?)": "Yes"
+  "///If you selected(.*?)Employee Referral(.*?)please provide details(.*?)": "-"
+  "///When did you work for(.*?)": "Never"
+  "Please select the answer that best describes your nature of employment:": ""
+  "///(Do|Are) you(.*?)(LGB|Gay|Lesbian|Bisex)(.*?)": "No"
+  "///(.*?)list who shared(.*?)opportunity(.*?)": "I saw job posting on LinkedIn."
+  "///Are you(.*?)work(.*?)United States(.*?)with(.*?)": "Yes"
+  "///(.*?)rate(.*?)HTML(.*?)CSS skills?": "9"
+  "///How many years(.*?)experience(.*?)React.js?": "7"
+  "///work(.*?)location": [ "Remote United States", "///remote" ]
+  "///remote(.*?)okay(.*?)(for|with)": "Yes"
+  "///comfortable(.*?)on(.*?)site(.*?)": "No"
+  "///are you(.*?)available(.*?)work(.*?)(weekend|holiday)": "Yes"
+  "///(.*?)what state(.*?)able to work(.*?)": "All states in United States"
+  "///^If (.*?)(other|yes|no), please explain$": ""
+  "///(Are you(.*?)drug test(.*?))|((submit|able|will)(.*?)controlled substance test)": "No"
+  "///(.*?)(background|bg) check(.*?)": "Yes"
+  "///How many years(.*?)logistics experience(.*?)": "0"
+  "///(.*?)willing(.*?)time(.*?)zone(.*?)": "YES"
+  "///(.*?)preferred(.*?)working hour(.*?)": "East Coast"
+  "///Anything else(.*?)know(.*?)": ""
+  "///((Earliest|desired)(.*?)start date)|(earliest(.*?)you(.*?)start)": "Immediately"
+  "///References:(.*?)": ""
+  "///(.*?)years of(.*?)related experience(.*?)": "8"
+  "///(.*?)certify(.*?)information(.*?)": [ "Yes", "///I agree", "///Yes" ]
+  "///you(.*?)agree(.*?)pay(.*?)rate": [ "Yes", "///I agree", "///Yes" ]
+  "///do(.*?)have(.*?)certification": [ "No" ]
+  "///additional(.*?)(train|certificat)": ""
+  "///Are you(.*)criminal record(.*)": "Yes"
+  "///Do you have(.*?)(computer|laptop)(.*?)work": "Yes"
+
+  "///(do|have) you(.*?)school(.*?)diploma": "Yes"
+  "///How(.*?)maths(.*?)high school?": "Top 5%"
+  "///How(.*?)language(.*?)high school?": "Top 10%"
+  "///Are(.*?)graduate(.*?)soon(.*?)past two years(.*?)": "No"
+  "///Do you have(.*?)experience(.*?)SaaS(.*?)": "Yes"
+  "///Statement of Faith(.*?)": "I agree with the above statement of faith"
+  "///Conduct and Character": "I have read and am in compliance with the above policies of employment should I be hired"
+  "///(.*?)provide(.*?)statement(.*?)relationship with(.*?)": "-"
+  "///I understand(.*?)": [ "Yes", "///I (understand|confirm|consent)" ]
+  "///If you are(.*?)pharma(.*?)have you(.*?)": "No"
+  "///Position(.*?)requir(.*?)to sit in(.*?)(are|do)(.*?)work": "No"
+  "///(Will|Are) you(.*?)(commute|relocate)(.*?)": "No"
+  "///Are you(.*?)comfortable(.*?)startup": "Yes"
+  "///For fun(.*?)hobby": "I like playing the piano to destress myself."
+  "///will you(.*?)(provide|prepare)(.*?)proof": "Yes"
+  "///Current holder of clearance": ""
+  "///(do|are) you(.*?)(obtain|have)(.*?)clearance": "Yes"
+  "///Date and type(.*?)investigation conduct": ""
+  "///prefer(.*?)communication(.*?)method": "Email"
+  "///someone(.*?)already(.*?)worked(.*?)(with|for|in)": "No"
+  "///(do|are) you(.*?)prefer(.*?) ((Mac(.*?)Window)|(Window(.*?)Mac))": "Mac"
+  "///last(.*?)(new-to-you)(.*?)tech(.*?)you learned": "Rust"
+  "///(are|do|will|would|can|could) you(.*?)complete(.*?)assessment": "Yes"
+  "///ready(.*?)coding interview": "Yes"
+  "///do you(.*?)need training": "No"
+  "///How many years(.*?)you work(.*?)as(.*?)frontend engineer": "8"
+  "///are there(.*?)accommodation": "No"
+  "///(Have|Did|Are|Do|Were) you(.*?)signed(.*?)restrict": "No"
+  "///(are|can|do) you(.*?)able to(.*?)(present|past) work": "Yes"
+  "///how many (.*?)startup(.*?)you": "4"
+
+  "///GPA ": "3.5"
+
+  "///List(.*?)experience(.*?)real estate(.*?)": ""
+
+  "///Do you have(.*?)(WCAG|NVDA|JAWS)": "Yes"
+
+  "///describe(.*?)feature(.*?)you(.*?)enjoyed": "I am very proud of SEO feature in my past project called apptoto. Since it's a very crowded platform, I needed to push SEO on top of google search result. Finally using next.js I could significantly improve that feature."
+  "///detail$": ""
+
+  "///ASP.NET": "2"
+  "///rate(.*?)SQL(.*?)1-5": [ "4" ]
+  "///Angular version(.*?)you(.*?)(using|use)": "12"
+
+  "///Do you have familiarity with(.*?)": "Yes"
+
+  "///has worked as": [ "Yes" ]
+  "///are you an expert": [ "Yes" ]
+  "///^have you worked(.*?)(as|with)": [ "Yes" ]
+  "Have you worked at a startup or do you have the qualities needed to work for a startup?": "Yes"
+  "///Have you worked with(.*?)affiliate(.*?)": "No"
+  "///Have you ever worked for(.*?)": "No"
+  "///Have you stood up(.*?)": "Yes"
+  "Have you worked for a startup and did you enjoy it?'!": "I have 2 years of experience working with startups and it was really enjoyable since startups have charming ideas and out-of-box working style. And importantly, everyone has responsibilities for its work."
+  "///Have you heard about(.*?)before(.*?)": "No"
+  "///Have you(.*?)applied (at|for)(.*?)": "No"
+  "///Have you ever(.*?)felony?": "No"
+  "///Have you(.*?)been(.*?)employed by (.*?)\\?": "No"
+  "///Have you entered into an agree(.*?)former employer(.*?)": "Yes"
+  "///Have you (.*?)interviewed with(.*?)": "No"

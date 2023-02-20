@@ -1,0 +1,35 @@
+.page-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+
+/* Panel Meta  */
+.panel-meta {
+  padding: 10px 25px;
+  width: 350px;
+  background-color: #f0f2f8;
+
+}
+.meta-position {
+  color: #333;
+}
+.meta-company {
+  color: #555;
+}
+
+.meta-table {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+.meta-table-label {
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+
+.panel-resume {
+  flex: 1;
+}

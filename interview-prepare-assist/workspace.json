@@ -1,0 +1,10 @@
+{
+  "workspacePath": "/Volumes/Data/local_db",
+  "fitLevel": "fitlevel_position.json",
+  "supportedPlatForms": "supported_platforms.json",
+  "familarity": "familarity_dict.json",
+  "companyBlacklist": "company_blacklist.json",
+  "searchQuery": "search_query.json",
+  "proxy": "proxy.json",
+  "serviceURL": "http://localhost:7000"
+}

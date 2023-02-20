@@ -1,0 +1,26 @@
+.requirement-chip > div {
+  margin: 2px;
+  margin-bottom: 10px;
+}
+
+.skill-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.skill-name {
+  width: 90px;
+  text-align: right;
+  font-size: 14px;
+  padding-right: 10px;
+}
+.skill-bar {
+  margin-top: 4px;
+  flex: 1;
+  height: 7px;
+  background-color: #fff;
+}
+.skill-bar-handle {
+  height: 100%;
+  background-color: rgb(53, 89, 148);
+}

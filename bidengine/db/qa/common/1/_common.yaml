@@ -1,0 +1,102 @@
+---
+
+  "///(.*?)cover(.*?)letter(.*?)": "/Volumes/Work/resume/pure_frontend/MC-cover-letter.pdf"
+  "///(^Upload file$)|(^Upload anything$)": ""
+  "///^(Email)": "mikchielli@gmail.com"
+  "///LinkedIn(.*?)": "https://www.linkedin.com/in/mikchilelli"
+  "Portfolio": ""
+  "Personal or Other URL": ""
+  "Website": ""
+  "///Link(.*?)profile(.*?)portfolio(.*?)": ""
+  "(.*?)Source Code URL(.*?)": "https://github.com/iforcenick"
+  "///(.*?)github(.*?)example(.*?)project(.*?)": "https://github.com/iforcenick/"
+
+  "///(.*?)Resume(.*?)": "/Volumes/Work/resume/pure_frontend/Resume-Michael-Chilelli.pdf"
+  
+  "summary": |
+    Senior software engineer committed to various levels of SDLC for over 10 years. Proficient in developing full stack web projects and mobile apps using modern Javascript frameworks and libraries including ReactJS and Node / Express. Innovative problem-solver and proactive team-player with excellent time and task management skills. Ready to embrace a new opportunity to build long lasting relationship with exciting teams and companies.
+
+  "///Your message to": |
+    Hi
+
+    I am writing you to express my interest in your posting for an experienced software developer. With a Master’s degree in Computer Science and hands-on experience in several areas of software development, I am confident that I can bring my expertise and enthusiasm to your growing development team.
+
+    You listed requirements closely matching to my background and skillset, and I would love to highlight some of them below implying that I would be a great addition to your team.
+
+    - Good experience in building front-end development with appealing UI/UX.
+    - Professional back-end development experience.
+    - Good communication and collaboration skills in the remote working environment
+    - Specifically disciplined in javascript tech stacks including React.js and Node.js
+
+    Aside from that, I enjoy being challenged and engaging with projects that bear charming ideas, and new technical areas.
+
+    That’s me. I am ready to start the ball rolling. Looking forward to hearing from you very soon.
+
+    Best Regards,
+    Michael.
+
+  "///(^Current title$)|(^Headline$)": "Senior Full-Stack Engineer"
+
+  "///(.*?)Personal website(.*?)": ""
+  "///(.*?)what excites you about working at (.*?).": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that **2** will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(.*?)what(.*?)(interest|excited)(.*?)(in|at|for|about)(.*?).": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that **4** will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(Why do you (feel(.*?)join|want(.*?)work))|(what made(.*?)apply)": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that this will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(Why(.*?)you(.*?)look(.*?)new)|(why(.*?)you(.*?)left(.*?)(last))": "My contract role ended with the successful product release."
+  "///What motivates(.*?)apply(.*?)": "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that **2** will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(.*?)describe why(.*?)ideal candidate(.*?)at (.*?)(\\?)?": "I have a professional experience in web and mobile development with 10 years of proven history. I also have good experience working in this industry like **4**. That's why I will be a good addition to your team."
+  "///(.*?)tell(.*?)why(.*?)good fit(.*?)": "I have a professional experience in web and mobile development with 10 years of proven history. I also have good experience working in this industry. That's why I will be a good addition to your team."
+  "///(What interests you about this position(.*?))|(What motivate(.*?)you(.*?)work (at|for|in|with))|(why does(.*?)work(.*?)interest(.*?)you)": "I have been looking for a job where I can contribute my proficiency to the growing development team. I am thrilled that this will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///anything(.*?)you(.*?)(like|want)(.*?)share": "I have been looking for a job where I can contribute my proficiency to the growing development team. I am thrilled that this will be a great opportunity to grow my career while devoting my technical skill to the development."
+  "///(.*?)years(.*?)experience(.*?)Ruby on Rails(.*?)": [ "3-5" ]
+  "///What object oriented programming languages are you best versed with": "Javascript 10 yrs, Typescript 8+ yrs, Python 8+ yrs"
+  "How many years of SaaS experience do you have?": [ "6+" ]
+  "///(what makes you unique)|(Why(.*?)you(.*?)fit)": "I am proficient in web development, team-collaborative and innovative in problem solving. Importantly, I am thrilled about your company."
+  "///what(.*?)(knowledge|skill)(.*?)bring to": "I have professional experience in full-stack web development. I have more than 8 years of frontend development experience with React, Vue, Angular and Svelte, and have designed the architecture and developed the backend system for more than 7 years."
+  "What Softwares have you used in your past?": "VS Code, Jira, Trello, Confluence, Slack, Teams, Notion, Shortcut, ..."
+  "Why would you be successful in this role?": "I have a great passion to work on this opportunity and motivated by the fact that this is a great fit for me. I think this motivation can lead me to the success."
+  "When are you looking/open to start?": "I can start immediately."
+  "///Anything else you(.*?)tell us": ""
+  "What is one interesting thing you would like us to know about you?": "I have 10+ years of professional experience in full-stack and frontend development."
+  "What is the most challenging thing you’ve built in WordPress? What did you learn from it?": "I like the CMS pattern Wordpress introduces."
+  "Do you have more experience with React or Vue? What are the strengths and weaknesses of both?": "I am proficient in React and Vue, preferrably React. React is very stable while Vue is flexible."
+  "Do you have experience with PHP frameworks like Laravel? What’s something you’ve built?": "Yes, I have used Laravel, CodeIgniter, Yii and WordPress frameworks."
+  "///(.*?)Share an example of a product(.*?)": |
+    One of my proud product is apptoto - automatic schedule reminder and scheduling tool. You can taste my product on apptoto.com.
+  "///What(.*?)technical challenge(.*?)": |
+    One of the technical challenge I encountered was to migrate React project to Next.js. I had to resolve complex module compatibility issues and entirely change the project structure and data flow.
+  "What language/tools are you an expert in that you'd like to tell us about?": |
+    I am proficient in javascript/typescript, python, go and rust programming languanges.
+    Besides I use VS code and various extensions, Figma/Sketch, Jira/Trello/Shortcut, Confluence, Slack, Teams, Docker, Git, Postman and etc.
+  "///What motivates you in joining (.*?)": |
+    "I want a job where I can contribute my proficiency to the growing development team. I am thrilled that **1** will be a great opportunity to grow my career while devoting my technical skill to the development.
+  "///(.*?)add a link to a recent project(.*?)explain(.*?)": |
+    https://apptoto.com
+    
+    This project is designed to work with your existing workflow and calendar. Remain in complete control of your calendar while Apptoto works in the background for you, sending messages, reducing no-shows, collecting payments, and allowing clients to schedule and reschedule.
+    In this project, I was involved in frontend and backend side development. I am heavily focused on frontend development using React.js. At the backend side, I used Nest.js and MySQL databases.
+
+  "///Please list(.*?)technology stack(.*?)": "React, Vue, Angular, Svelte\nNode.js/Express,Nest.js, Django/Python, Golang, Rust, PHP"
+  "///What experience(.*?)with(.*?)Node.js(.*?)": "I am proficient in backend applications using Node.js, especially using Express.js and Nest.js. I have 7 years of overall experience in Node.js backend development."
+  "///What experience(.*?)with backend dev(.*?)": "I am proficient in designing the backend architecture and developing with Nodejs/Express;NestJS, PHP/Laravel, Python/Django and Golang. I have 8 years of overall experience in backend development."
+  "///What can you add to(.*?)employee?": "I have several experience in the technical aspect you are looking for. So I can bring high quality code and good collaboration culture to the team."
+  "What sets you apart from other candidates?": "That's my dev skill and my collaborative characteristics as well. I am a experienced senior level of developer and like collaboration and communication."
+  "///Have you(.*?)convicted(.*?)crime(.*?)": "No"
+  "///(.*?)interview accommodations(.*?)": "I am looking for a fully remote position and don't require an interview accommodations."
+  "///Which(.*?)industries(.*?)experience(.*?)": [ "SaaS" ]
+  "///(.*?)Describe(.*?)project(.*?)": |
+    https://apptoto.com
+    
+    This project is designed to work with your existing workflow and calendar. Remain in complete control of your calendar while Apptoto works in the background for you, sending messages, reducing no-shows, collecting payments, and allowing clients to schedule and reschedule.
+    In this project, I was involved in frontend and backend side development. I am heavily focused on frontend development using React.js. At the backend side, I used Nest.js and MySQL databases.
+
+  "///(.*?)describe(.*?)skills(.*?)industries(.*?)products(.*?)work(.*?)": |
+    I am interested in front-end focused full-stack development. I have contributed my work to the FinTech, Healthcare and SaaS development bringing my React/Vue/Angular and Node.js/Python/Golang skills.
+    One of my pround products are apptoto.com.
+
+  "Describe your experience using or contributing to open source software": "I have contributed to the open source frameworks for more than 5 years."
+  "Describe your experience with JavaScript, TypeScript and SCSS": "I have about 10 years of javascript/typescript experience and 7 years of experience in preprocessing languages like SCSS."
+
+  "///Years of experience(.*?)Frontend(.*?)": "6-10"
+  "///How many years(.*?)production(.*?)level(.*?)have(.*?)": "4+ years"
+  "///How many years(.*?)Front(.*?)end(.*?)have(.*?)": "9"
+  "///How many years(.*?)Drupal(.*?)have(.*?)": "1"

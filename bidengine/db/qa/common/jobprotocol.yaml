@@ -1,0 +1,8 @@
+---
+  "///(.*?)backend development(.*?)": [ true, "7 years" ]
+  "///(.*?)CI/CD(.*?)": [ true, "5 years" ]
+  "///(.*?)AWS(.*?)": [ true, "4 years" ]
+  "///(.*?)Web3(.*?)": [ true, "5+ years" ]
+  "///(.*?)smart contract(.*?)": [ true, "5+ years" ]
+  "///(.*?)crypto(.*?)": [ true, "5+ years" ]
+  "///(.*?)comfort working in(.*?)": [ true ]

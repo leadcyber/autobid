@@ -1,0 +1,24 @@
+---
+  "Middle Name": ""
+  "Region": "Arizona"
+  "Address Line 2": ""
+  "Phone Device Type": [ "Mobile", "Cell/Mobile", "Personal Mobile Phone", "Personal Cell" ]
+  "Phone Number": "(520) 365-3313"
+  "Phone Extension": ""
+  "Country Phone Code": "United States of America (+1)"
+
+  "///Have you previously worked for (.*?)?": "No"
+  "Suffix": "select one"
+  "Prefix": "Mr."
+  "County": "United States"
+
+  "Please check one of the boxes below:": "No, I Don't Have A Disability, Or A History/Record Of Having A Disability"
+
+  "Yes, I have read and consent to the terms and conditions": True
+  "I hereby consent and agree to all terms and agreements.": True
+  "I acknowledge": True
+  "Language": "English"
+  "Employee ID (if applicable)": ""
+
+  "Most recent position - reason for leaving:": "The last long term contract which lasted for 2 years ended due to project complete."
+  "///(.*?)explain any gap in employment(.*?)which you have applied(.*?)": "N/A"

@@ -1,0 +1,77 @@
+---
+  "Password": "Kevin.Mitnick.45"
+
+  "job-title-1": "Lead Front-End Engineer"
+  "company-1": "SoluLab"
+  "location-1": "New York"
+  "job-date-from-1": "02/2020"
+  "job-date-to-1": "08/2022"
+  "role-description-1": |
+    - Led a team of 7 senior frontend developers in a fully remote working environment, achieved the successful product release in time by managing the team in deadline-driven Agile scrum.
+    - Orchestrated the enterprise-level web app using React/TypeScript stack with the latest React features including concurrent rendering and automatic batching resulting performance upgrade to 110.7%.
+    - Increased web accessibility and optimized browser performance that render large quantities of data to ensure the app is user interactive and satisfying to use.
+    - Participated in code review, debugging issues, and fixing technical problems on the front-end project.
+    - Closely collaborated with the product and design teams on Agile methodology, ideated software solutions, and turned wireframes into effective code.
+
+
+  "job-title-2": "Senior Full-Stack Engineer"
+  "company-2": "Debut InfoTech"
+  "location-2": "New York"
+  "job-date-from-2": "09/2016"
+  "job-date-to-2": "01/2020"
+  "role-description-2": |
+    - Designed the architecture of the microservice-based backend system, used AWS Lambda + API Gateway, RabbitMQ and Redis cache server to minimize the work in individual task runners.
+    - Anticipated technical issues at the product level and proactively made architectural and design decisions.
+    - Built beautiful-looking, pixel-perfect dashboard UIs and reusable components for large number of clients using Next.js + GraphQL, upgraded and enhanced the existing web app using React Hooks and Redux.
+    - Used variety of efficient tools including Figma, introduced Typescript and Design System development trend to update dev tool experience and maintainability of expanding project.
+
+
+
+  "job-title-3": "Software Engineer"
+  "company-3": "AimLeaps"
+  "location-3": "New Jersey"
+  "job-date-from-3": "12/2014"
+  "job-date-to-3": "09/2016"
+  "role-description-3": >
+    - Took part in several large-scale web projects and released completed apps met client requirements.
+    - Built RESTful APIs in NodeJS that served data to the javascript front-end based on dynamically chosen user inputs that handled over 100,000 concurrent users.
+    - Developed well-tested qualified code with writing test scripts using Jest, Mocha, Cypress and Python Selenium following TDD methodology, attained at 78% of test coverage.
+
+
+
+  "job-title-4": "Software Engineer"
+  "company-4": "Nspire"
+  "location-4": "Singapore, Singapore"
+  "job-date-from-4": "01/2012"
+  "job-date-to-4": "10/2014"
+  "role-description-4": >
+    - Focused on creating reusable UI elements – Worked closely with design & QA teams.
+    - Reviewed code, debugged problems, and corrected technical issues from the frontend projects.
+    - Assisted in requirement analysis, database and backend project design, web UI design with PHP and Python programming language.
+    - Employed a variety of languages such as HTML and CSS to write & create user-friendly web pages.
+    - Developed applications using PHP frameworks that leverages classical Model View Controller (MVC) architecture
+
+
+  "field-of-study": "Computer and Information Science"
+  "education-from": "2009"
+  "education-to": "2013"
+  "skils":
+    - React
+    - Angular
+    - Vue
+    - Node.js
+    - Python/Django
+    - HTML/CSS/JavaScript
+    - TypeScript
+    - RoR
+
+  "Website": "https://felixsoft.netlify.com"
+
+  "What is the salary range you would consider for this role?": [ "$75,000 - $99,999" ]
+  "What percentage of time are you willing to travel, if required?": [ "0%" ]
+  "Please provide details": "-"
+  "Please list any Licenses/Certifications relevant to this job application here:": ""
+
+  "Desired Base Salary": "160000"
+  "Yes, I understand and acknowledge the terms and conditions.": True
+  "Have you worked at PwC?": "No, never"

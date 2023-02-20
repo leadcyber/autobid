@@ -1,0 +1,87 @@
+
+.board-wrapper {
+  transition: all 0.3s;
+}
+.job-info {
+  flex: 1;
+  padding: 5px;
+  padding-right: 30px;
+  box-sizing: border-box;
+  text-align: center;
+  color: #555;
+  font-size: 13px;
+  vertical-align: top;
+}
+.job-url {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recruiter {
+  flex: 1;
+  margin-top: 28px;
+  box-sizing: border-box;
+  text-align: left;
+  color: #555;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.criteria {
+  flex: 1;
+  color: #555;
+  font-size: 14px;
+  text-align: center;
+  vertical-align: middle;
+}
+.criteria p {
+  margin: 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.recruiter-image {
+  width: 90px;
+}
+.recruiter-info {
+  padding: 5px;
+  flex: 1;
+}
+.recruiter-name {
+  font-size: 14px;
+}
+
+.requirement-field {
+  padding-top: 10px;
+  display: flex;
+}
+.requirement-chip {
+  flex: 1;
+}
+.requirement-chip > div {
+  margin: 2px;
+}
+.requirement-familarity {
+  width: 70px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.requirement-familarity * {
+  margin: 0;
+}
+
+
+.circular-progress-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.job-many {
+  color: #777;
+}
+.job-few {
+
+}

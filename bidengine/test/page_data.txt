@@ -1,0 +1,31 @@
+
+      
+        Job DescriptionPiper Companies is seeking a Full Stack Developer to join a world leading mass media provider in the enhancement of several cutting edge systems following a large-scale legacy migration which has since concluded. The Full Stack Java Developer will have the opportunity to work with a full stack suite of tools supporting robust projects touching cloud technology, frontend, and backend toolsets.Responsibilities of the Full Stack Developer include: Provide full stack development expertise in a hybrid cloud and JS environment Perform backend development of data for presentation of media content Support storage and retrieval of the cloud-based content Deliver a complete programming lineup in accordance with guidelines and regulations.Qualifications for the Full Stack Developer include: Demonstrated experience with Node.JS, Angular, and Postgres Experience with Java, J2EE, Python, Perl, Ruby or comparable Highly preferred cloud-based experience in; AWS (RDS/Aurora/etc.), or comparable CI/CD pipeline automation expertise: Jenkins, Terraform, Spinnaker, or otherCompensation for the Full Stack Developer include: Pay Rate Range: $70-85/hr W2 for contract path Full Benefits: PTO, Paid Holidays, Health, Dental, Vision, 401K
+      
+
+        
+
+    
+    
+    
+
+    
+        Show more
+
+        
+    
+  
+
+        
+
+    
+    
+    
+
+    
+        Show less
+
+        
+    
+  
+    Go

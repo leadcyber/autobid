@@ -1,0 +1,123 @@
+---
+  "How many years of full time, paid software development experience do you have, after graduating college? (Please do not count part time work, internships, or work while in college. Only count work after graduating college)": "7"
+  "Do you have a technical degree or a 4-year college degree? (A technical or college degree is required for this position.)": "Yes"
+  "Please list your college degree and institution.": "Master's Degree in Information Technology at National University of Singapore"
+  "What is your level as a developer? (You will be evaluated based on the seniority level you select)": ["Senior Developer"]
+  "As part of our background check process, can you provide a copy of a valid, current, government-issued, photo ID?": "Yes"
+  "What year did you graduate college?": "2013"
+  "What is your current English Level?": [ "Advanced High"]
+  "What is your desired gross salary in your local currency (*Gross salary means before taxes and withholding application)?": "$160K"
+  "Are you currently a contractor or a salaried employee?": "Contractor"
+  "How soon can you start?": "Immediately"
+  "What type of computer do you have?": "Mac"
+  "Years of professional experience with React?": "7"
+  "Years of professional experience with React Native?": "4"
+  "Years of professional experience with Salesforce Lightining?": "1"
+  "Years of professional experience with Salesforce APEX?": "0"
+  "Years of professional experience with Ember?": "3"
+  "Years of professional experience with Node?": "6"
+  "Years of professional experience with Vue?": "6"
+  "Years of professional experience with Angular.js?": "4"
+  "Years of professional experience with Angular 2-6?": "7"
+  "Years of professional experience with Ruby on Rails?": "4"
+  "Years of professional experience with Python?": "8"
+  "Years of professional experience with PHP?": "4"
+  "Years of professional experience with GO?": "4"
+  "Years of professional experience with GraphQL?": "4"
+  "Years of professional experience with Java?": "3"
+  "Years of professional experience with .net?": "3"
+  "Years of professional experience with Ionic?": "2"
+  "Years of professional experience with Phone Gap?": "0"
+  "Years of professional experience with Swift?": "2"
+  "Years of professional experience with IOS Native?": "1"
+  "Years of professional experience with Android?": "4"
+  "Years of professional experience with CSS?": ["10+", "10"]
+  "Years of professional experience with C#?": "5"
+  "Years of professional experience with C++?": "8"
+  "Years of professional experience with AI?": "3"
+  "Years of professional experience with Big Data?": "1"
+  "Years of professional experience with Okta?": "0"
+  "Years of professional experience with WordPress?": "2"
+  "Years of professional experience with LISP?": "1"
+  "Years of professional experience with Perl?": "3"
+  "Years of professional experience with MatLab?": "3"
+  "Years of professional experience with SQL?": "8"
+  "Years of professional experience with Firebase?": "6"
+  "Years of professional experience with Laravel?": "6"
+  "Years of professional experience with Django?": "6"
+  "Years of professional experience with IOT?": "2"
+  "Years of professional experience with DevOps?": "3"
+  "Years of professional experience with AWS?": "4"
+  "Years of professional experience with Scala?": "1"
+  "Years of professional experience with NoSQL?": "6"
+  "Years of professional experience with MongoDB?": "6"
+  "Years of professional experience with Flask?": "6"
+  "Years of professional experience with Flutter?": "5"
+  "Years of professional experience with Elixir?": "0"
+  "Years of professional experience with TypeScript?": "8"
+  "Years of professional experience with Shopify?": "4"
+  "Years of professional experience with Mulesoft?": "0"
+  "Years of professional experience with HTML?": ["10+", "10"]
+  "Years of professional experience with Next.Js?": "5"
+  "Years of professional experience with SysAdmin Microsoft?": "0"
+  "Years of professional experience with Magento?": "1"
+  "Years of professional experience with Unity?": "6"
+  "Years of professional experience with Kotlin?": "1"
+  "Years of professional experience with Xamarin?": "0"
+  "Other URL": ""
+
+  "How many years of experience do you have in Angular?": "More than 7 years"
+  "///Are you excited on becoming part of an exclusive group of highly experienced engineers that(.*?)": "100% excited"
+  "Do you have years of experience working with event driven applications as well as microservices design and integration?": "Yes"
+  "///(.*?)Do you have at least 3 years of experience working with enterprise software and F500 companies?(.*?)": "Yes, more than 3 years"
+  "Experience with Agile development methodologies": "Yes"
+  "///Would you be able to share compelling real examples(.*?)": "Yes, I do have many examples"
+  "Do you have a strong understanding of gRPC and/or protobuf": "Yes"
+  "///Check the boxes for the languages, frameworks, server-side languages(.*?)": ["Angular", "React", "Python"]
+
+  "How many years of work experience do you have using Go?": "4"
+  "How many years of work experience do you have using React.js?": "7"
+  "How many years of work experience do you have using Kubernetes?": "5"
+
+  "How would you like to be called ( Please state one first and one last name only)?": "Michael Bibby"
+  "Were you referred by a FullStack employee? If so, please write in their full name below.": "No"
+  "///If no, please explain the support you would need from your employer(.*?)": "N/A"
+  "///Are you a hands-on high-end senior developer who has the experience(.*?)": "I'm definitely a fit"
+  "Do you represent an Agency or do you apply for the role as an individual?": "I apply for the role as an individual"
+  "My exact rate is this one:": "$80/hr"
+  "///If you will require sponsorship,(.*?)": "I will not require sponsorship"
+  "///Background checks are a part of AirDNA's hiring process.(.*?)": true
+  "I can fulfill the essential functions of this job, with or without accommodation.": "Yes"
+  "What are your favorite design patterns (aside from MVC) and why do you like to use them?": |
+    I like Front Controller Pattern due to its flexibility. You can arrange the logic into the hierarchical structure while maintaining code reusability and maintainability.
+  "If you are buillding SystemB and need to sync a resource (like user reviews) from SystemA (like yelp) - what events from SystemA would you listen for?": |
+    You need to listen CRUD( Create, Read, Update, Delete ) events from SystemA. First you can sync the whole data by invoking Read event, and keep your data up to date by listening Create, Update and Delete events.
+  "How would you analyze an existing codebase to detect tech debt that we can consider refactoring to help future-proof the system?": |
+    - Identify signs of debt, measure the time needed to reduce it, and create a plan.
+    - Set coding standards and plan pay-off periods.
+    - Prioritize tasks.
+    - Refactor the code and write automated tests.
+    - Branching the codebase might be helpful in some cases.
+    - Implement the culture of code reviews and automated tests for the future.
+  "What are some of the things our team will need to consider to scale our platform from thousands to millions of users?": |
+    - Initial Setup of Cloud Architecture.
+    - Create multiple hosts and choose the database.
+    - Store database on Amazon RDS.
+    - Create multiple availability zones.
+    - Move static content to object-based storage.
+    - Auto Scaling.
+    - Service Oriented Architecture(SOA)
+  "When you build a new feature or module, how would your prioritize the following aspects of the feature: Usability | Performance | Reliability | Functionality | Look & Feel": |
+    - Reliability
+    - Performance
+    - Functionality
+    - Usability
+    - Look & Feel
+  "Have you worked at a Venture Backed company? If so, please include a Crunchbase link of the company.": |
+    https://www.crunchbase.com/organization/alphapoint
+
+  "What is your location?": "United States"
+  "If so, please explain.": "-"
+  "///Government Official means any officer(.*?)": "No"
+  "///Do you have experience with(.*?)following backend languages?": "Python"
+  "///Do you have experience with(.*?)following frontend languages?": "Experience with both React and TypeScript"
