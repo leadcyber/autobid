@@ -1,6 +1,5 @@
 import json
 from pynput import keyboard
-import pyautogui as pya
 import pyperclip
 from threading import Thread
 import router
