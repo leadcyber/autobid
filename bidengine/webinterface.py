@@ -10,8 +10,9 @@ def register_api_handler(h):
     handlers = h
 
 def send_to_dashboard(data):
-    request_body = parse.urlencode(data).encode()
+    request_body = json.dumps({"data": data}).encode()
     req = urlrequest.Request(f'{config.DASHBOARD_URL}/bidder', data=request_body) # this will make the method "POST"
+    req.add_header('Content-Type', 'application/json')
     response = urlrequest.urlopen(req)
 
 app = Flask(__name__)

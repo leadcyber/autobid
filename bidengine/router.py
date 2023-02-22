@@ -60,12 +60,14 @@ from bidders.icims import wait_for_apply as wait_icims_apply
 
 from bidders.common import wait_window_close
 
-from threading import Thread
+from threading import Thread, Lock
 
 from utils import logger, db
 import os
 import json
 from webinterface import send_to_dashboard
+
+profile_lock = Lock()
 
 def preprocessed_url(parse_result, url: str):
     print(parse_result)
@@ -98,6 +100,8 @@ def wait_redirect(driver: webdriver.Chrome):
     return None
 
 def process_external_bid_thread(parse_result, bid_data):
+    global profile_lock
+
     url = bid_data["url"]
     auto_mode = bid_data["autoMode"]
     exception_mode = bid_data["exceptionMode"]
@@ -140,6 +144,8 @@ def process_external_bid_thread(parse_result, bid_data):
         return
     
     set_profile_state(free_profile_name, 1)
+    profile_lock.release()
+
     driver.get(preprocessed_url(parse_result, url))
 
     try:
@@ -255,11 +261,14 @@ def process_external_bid_thread(parse_result, bid_data):
         set_profile_state(free_profile_name, 0)
 
 def process(bid_data) -> Thread:
+    global profile_lock
+    
     print("bidata", bid_data)
     parse_result = urlparse(bid_data["url"])
     bid_thread = process_external_bid_thread
     if parse_result.hostname is None:
         return None
+    profile_lock.acquire()
     p_handle = Thread(target=bid_thread, args=[ parse_result, bid_data ])
     p_handle.start()
     return p_handle
