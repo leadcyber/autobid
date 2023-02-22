@@ -23,7 +23,6 @@ export default () => {
       setQueueState(state)
     });
     window.electron.ipcRenderer.on('bidState', (state: any[]) => {
-      console.log(state)
       setBidState(state)
     });
     window.electron.ipcRenderer.sendMessage('getQueueState');

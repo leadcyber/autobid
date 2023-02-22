@@ -15,18 +15,19 @@ def generate_skill_matrix(position: str, required_skills):
     # Generate skill section
     length_more = {}
     if template_type in ["react", 'vue', 'angular']:
-        length_more = { "frontend": 25, "backend": -10, "database": -10 , "cloud": -10, "dev": 5, "mobile": 5 }
+        length_more = { "frontend": 25, "backend": -10, "database": -10 , "cloud": -10, "dev": 5, "mobile": 5, "blockchain": -10 }
     elif template_type in [ "fullstack" ]:
-        length_more = { "frontend": 5, "backend": 10, "database": 0 , "cloud": 0, "dev": 0, "mobile": -4 }
+        length_more = { "frontend": 5, "backend": 10, "database": 0 , "cloud": 0, "dev": 0, "mobile": -4, "blockchain": -10 }
     else:
-        length_more = { "frontend": 0, "backend": 10, "database": 5 , "cloud": 10, "dev": 5, "mobile": -5 }
+        length_more = { "frontend": 0, "backend": 10, "database": 5 , "cloud": 10, "dev": 5, "mobile": -5, "blockchain": -10 }
     skill_category_info = {
         "frontend": { "score": 0, "skills": [], "fullname": "Front-End Development", "length": 37 + length_more["frontend"], "scale": 1.5, "default": ["React"] },
         "backend":  { "score": 0, "skills": [], "fullname": "Back-End Development", "length": 35 + length_more["backend"], "scale": 1, "default": ["Node"] },
         "dev":      { "score": 0, "skills": [], "fullname": "Development Management", "length": 20 + length_more["dev"], "scale": 0.3, "default": ["Agile"] },
         "cloud":    { "score": 0, "skills": [], "fullname": "Cloud Development", "length": 30 + length_more["cloud"], "scale": 0.8, "default": ["AWS"] },
         "database": { "score": 0, "skills": [], "fullname": "DB Administration", "length": 30 + length_more["database"], "scale": 0.7, "default": ["MySQL"] },
-        "mobile":   { "score": 0, "skills": [], "fullname": "Mobile Development", "length": 20 + length_more["mobile"], "scale": 0.7, "default": ["React Native"] }
+        "mobile":   { "score": 0, "skills": [], "fullname": "Mobile Development", "length": 20 + length_more["mobile"], "scale": 0.7, "default": ["React Native"] },
+        "blockchain":   { "score": 0, "skills": [], "fullname": "Blockchain Development", "length": 20 + length_more["blockchain"], "scale": 0.7, "default": ["Web3"] }
     }
     for required_skill in required_skills:
         norm_skill = normalize_skill_name(required_skill["skill"])

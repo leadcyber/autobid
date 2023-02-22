@@ -3,7 +3,7 @@
   transition: all 0.3s;
 }
 .job-info {
-  flex: 1;
+  flex: 2;
   padding: 5px;
   padding-right: 30px;
   box-sizing: border-box;
@@ -84,4 +84,19 @@
 }
 .job-few {
 
+}
+
+
+.highlight-skill {
+  background-color: rgb(193, 219, 251);
+}
+
+.position-onsite {
+  background-color: rgb(229, 140, 140);
+}
+.position-hybrid {
+  background-color: rgb(255, 232, 100);
+}
+.position-remote {
+  background-color: rgb(135, 244, 138);
 }

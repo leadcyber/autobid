@@ -65,6 +65,11 @@ export type RequiredSkill = {
   level: number,
   importance: number
 }
+export type LocationKeyword = {
+  keyword: string,
+  count: number,
+  familarity: number
+}
 export enum BidState {
   LAZY,
   PENDING

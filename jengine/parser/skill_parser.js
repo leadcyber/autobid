@@ -1,4 +1,4 @@
-const { getSkillData } = require('./skill')
+const { getSkillData } = require('./skill_reader')
 const cheerio = require('cheerio')
 
 

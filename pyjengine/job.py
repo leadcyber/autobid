@@ -2,6 +2,7 @@ import re
 import json
 from skill.utils import get_required_skills
 from functools import reduce
+import math
 
 FITLEVEL_POSITION_PATH = "/Volumes/Data/local_db/fitlevel_position.json"
 FITLEVEL_CONTENT_PATH = "/Volumes/Data/local_db/fitlevel_content.json"
@@ -17,6 +18,21 @@ def get_title_score(title: str, fit_level: any):
         else:
             sum += int(fit_level["weight"][reg])
     return sum
+def get_jd_score(detail: str):
+    required_skills = get_required_skills(detail)
+    if len(required_skills) == 0:
+        return False
+    fsum = 0
+    fcount = 0
+    for skill in required_skills:
+        fsum += skill["familarity"] * math.sqrt(skill["importance"] / 10)
+        fcount += math.sqrt(skill["importance"] / 10)
+    return fsum / fcount
+    # importance_sorted = sorted(required_skills, key=lambda x: x["importance"], reverse=True)[:5]
+    # familarity_sorted = sorted(required_skills, key=lambda x: x["familarity"], reverse=True)[:5]
+    # selected_skills = reduce(lambda re, x: re+[x] if x not in re else re, importance_sorted + familarity_sorted, [])
+    # score = sum([ skill["familarity"] * skill["importance"] for skill in selected_skills ]) / len(selected_skills)
+    # return score
 
 def is_proper_job_title(title: str):
     fit_level_file = open(FITLEVEL_POSITION_PATH)
@@ -25,11 +41,6 @@ def is_proper_job_title(title: str):
     return get_title_score(title, fit_level) >= fit_level["level"]
 
 def is_proper_job_detail(detail: str):
-    required_skills = get_required_skills(detail)
-    if len(required_skills) == 0: return False
-    importance_sorted = sorted(required_skills, key=lambda x: x["importance"], reverse=True)[:5]
-    familarity_sorted = sorted(required_skills, key=lambda x: x["familarity"], reverse=True)[:5]
-    selected_skills = reduce(lambda re, x: re+[x] if x not in re else re, importance_sorted + familarity_sorted, [])
-    score = sum([ skill["familarity"] * skill["importance"] for skill in selected_skills ]) / len(selected_skills)
+    score = get_jd_score(detail)
     # print("score", score)
     return score >= 35

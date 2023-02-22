@@ -3,7 +3,7 @@ import url from "url"
 import path from "path"
 import { workspaceSetting } from '../config/constant'
 import fs from 'fs'
-import { Job, JobState, PageData, FetchedJob, FetchMode, RequiredSkill } from '../../job.types'
+import { Job, JobState, PageData, FetchedJob, FetchMode, RequiredSkill, LocationKeyword } from '../../job.types'
 import { addNewJobs, getNewlyFoundJobs } from '../db'
 import { myConsole } from '../util/myconsole'
 import yaml from 'js-yaml'
@@ -223,6 +223,16 @@ export const getRequiredSkills = async (jobDescription: string | undefined) => {
     const response = await axios.post(`${workspaceSetting.serviceURL}/skill/measure`, {jd:jobDescription})
     const requiredSkills: any[] = response.data
     return requiredSkills as RequiredSkill[]
+  } catch(err) {
+    return []
+  }
+}
+export const getLocationKeywords = async (jobDescription: string | undefined) => {
+  if(!jobDescription) return []
+  try {
+    const response = await axios.post(`${workspaceSetting.serviceURL}/location/measure`, {jd:jobDescription})
+    const locationKeywords: any[] = response.data
+    return locationKeywords as LocationKeyword[]
   } catch(err) {
     return []
   }

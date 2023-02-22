@@ -34,6 +34,9 @@ class AutoBidTaskRunner {
   getState() {
     return this.job === null ? BidState.LAZY : BidState.PENDING
   }
+  async retry() {
+    await this.requestBid()
+  }
   async bid(job: Job) {
     this.job = job
     let pageData = await getPageDataFromDB(this.job.id!)
@@ -75,8 +78,8 @@ class AutoBidTaskManager {
   mode: boolean = false
   pendingJobs: Job[] = []
 
-  getRunnerStates = () => {
-    this.sessions.map(session => session.getState())
+  getSessionByJobID = (jobId: string) => {
+    return this.sessions.find(session => session.job?.id === jobId)
   }
   nextTick = () => {
     if(this.pendingJobs.length > 0) {
@@ -158,9 +161,18 @@ export const applyExternal = async (jobId: string, jobUrl: string, requestConnec
 // --- Operation functions
 
 export const pushToAutoBidQueue = async (jobs: Job[]) => {
-  for(let job of jobs)
+  if(!taskManager.mode) return
+  for(let job of jobs) {
+    let pageData = await getPageDataFromDB(job.id!)
+    const isJobAvailable = await axios.post(`${workspaceSetting.pyServiceURL}/`, {
+      position: job.position,
+      jd: pageData?.description
+    })
     await taskManager.addJobToQueue(job)
+  }
   updateRenderer()
+  onBidStateChange(taskManager.sessions)
+  onQueueChange(taskManager.pendingJobs)
 }
 export const skipTask = (jobId: string) => {
   taskManager.skip(jobId)
@@ -207,21 +219,21 @@ app.use(cors())
 app.use(bodyParser())
 app.post("/bidder", async (req: any, res: any) => {
   res.send()
-  const response = req.body
-  console.log(response)
+  const response = req.body.data
 
   if(response.type == "success") {
     const jobId = response.payload.id
     await setAlreadyApplied(jobId)
+    taskManager.getSessionByJobID(jobId)?.reset()
     await taskManager.nextTick()
   } else if(response.type == "failed") {
     const jobId = response.payload.id
     if(response.reason == "no-free-profile") {
-      let pageData = await getPageDataFromDB(jobId)
       setTimeout(() => {
-        _sendToBidder({ type: "apply", payload: {id: jobId, url: pageData?.applyUrl, autoMode: true, exceptionMode: exceptionSkipMode, requestConnect: requestConnectMode} })
+        taskManager.getSessionByJobID(jobId)?.retry()
       }, 10000)
     } else {
+      taskManager.getSessionByJobID(jobId)?.reset()
       await taskManager.nextTick()
     }
   }

@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { DataGrid, GridRowsProp, GridSelectionModel, GridCellParams } from '@mui/x-data-grid';
-import { Job, JobState, JobRow, PageData, RequiredSkill } from '../../job.types';
+import { Job, JobState, JobRow, PageData, RequiredSkill, LocationKeyword } from '../../job.types';
 import _ from 'lodash';
 
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -61,6 +61,7 @@ export default function CheckboxSelectionGrid() {
   const [ isAlreadyApplied, setAlreadyApplied ] = React.useState<boolean>(false)
   const [ relatedCount, setRelatedCount ] = React.useState<any>(null)
   const [ requiredSkills, setRequiredSkills ] = React.useState<any[]>([])
+  const [ locationKeywords, setLocationKeywords ] = React.useState<any[]>([])
 
   React.useEffect(() => {
     const removeUpdateListener = window.electron.ipcRenderer.on('update', (newJobs: Job[]) => {
@@ -87,22 +88,38 @@ export default function CheckboxSelectionGrid() {
     const removePageDBDataListener = window.electron.ipcRenderer.on('pageDBData', (relatedCount: any) => {
       setRelatedCount(relatedCount)
     });
-    const removePageOnlineDataListener = window.electron.ipcRenderer.on('pageOnlineData', (_pageData: PageData, isSupported: boolean, isApplied: boolean, _requiredSkills: Array<any>) => {
+    const removePageOnlineDataListener =
+      window.electron.ipcRenderer.on('pageOnlineData', (
+        _pageData: PageData,
+        isSupported: boolean,
+        isApplied: boolean,
+        _requiredSkills: Array<any>,
+        _locationKeywords: Array<any>
+      ) => {
       setPageDataLoading(false)
       setPageData(_pageData);
       setAlreadyApplied(isApplied)
       setAutofillSupport(isSupported)
       setRequiredSkills(_requiredSkills);
+      setLocationKeywords(_locationKeywords);
 
       (async() => {
         let text: string = _pageData?.description || ""
         try {
-          const response: any = await axios.post(`${serviceURL}/skill/highlights`, { jd: text })
-          const intervals: any[] = response.data
+          let response: any = await axios.post(`${serviceURL}/skill/highlights`, { jd: text })
+          let intervals: any[] = response.data
           intervals.sort((a, b) => b[0] - a[0])
           for(let interval of intervals) {
-            text = text.slice(0, interval[0]) + "<mark>" + text.slice(interval[0], interval[1]) + "</mark>" + text.slice(interval[1])
+            text = `${text.slice(0, interval[0])}<span class='highlight-skill'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
           }
+
+          response = await axios.post(`${serviceURL}/location/highlights/tagged`, { jd: text })
+          intervals = response.data
+          intervals.sort((a, b) => b[0] - a[0])
+          for(let interval of intervals) {
+            text = `${text.slice(0, interval[0])}<span class='position-${interval[2].toLowerCase()}'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
+          }
+
         } catch(err) {
           text = "------------------ [ RAW ] ------------------<br/><br/>" + text
         }
@@ -242,6 +259,7 @@ export default function CheckboxSelectionGrid() {
                     variant="contained"
                     endIcon={<DownloadIcon/>}
                     onClick={onGenerateResume}
+                    size="small"
                   >
                     Resume
                   </Button>
@@ -254,6 +272,7 @@ export default function CheckboxSelectionGrid() {
                           startIcon={isAlreadyApplied && <PlaylistAddCheckIcon/>}
                           endIcon={<LaunchIcon />}
                           onClick={() => onEasyApply(false)}
+                          size="small"
                         >
                           Easy Apply
                         </Button>
@@ -263,6 +282,7 @@ export default function CheckboxSelectionGrid() {
                           startIcon={isAlreadyApplied && <PlaylistAddCheckIcon/>}
                           endIcon={<LaunchIcon />}
                           onClick={() => onEasyApply(true)}
+                          size="small"
                         >
                           Easy Apply & Connect
                         </Button>
@@ -277,6 +297,7 @@ export default function CheckboxSelectionGrid() {
                               startIcon={isAlreadyApplied && <PlaylistAddCheckIcon/>}
                               endIcon={<LaunchIcon />}
                               onClick={onApplyExternal}
+                              size="small"
                             >
                               Apply
                             </Button>
@@ -287,6 +308,7 @@ export default function CheckboxSelectionGrid() {
                               startIcon={isAlreadyApplied && <PlaylistAddCheckIcon/>}
                               endIcon={<CopyAllIcon />}
                               onClick={onCopyExternal}
+                              size="small"
                             >
                               Copy
                             </Button>
@@ -310,6 +332,7 @@ export default function CheckboxSelectionGrid() {
                 endIcon={<DeleteIcon />}
                 color="error"
                 onClick={deleteFromDB}
+                size="small"
               >
                 Delete from DB
               </Button>
@@ -319,6 +342,7 @@ export default function CheckboxSelectionGrid() {
               color="secondary"
               endIcon={<CheckIcon />}
               onClick={removeSelected}
+              size="small"
             >
               Remove selected
             </Button>
@@ -327,6 +351,7 @@ export default function CheckboxSelectionGrid() {
               endIcon={<ClearIcon />}
               color="warning"
               onClick={clearAll}
+              size="small"
             >
               Clear all
             </Button>
@@ -369,12 +394,12 @@ export default function CheckboxSelectionGrid() {
                     <div className="requirement-familarity">
                       <h2 className="familarity">{(getFamilarity() * 10 | 0) / 10}</h2>
                       <p>%</p>
-                      <Chip
-                        label="JD"
+                      <Button
+                        variant="contained"
                         size="medium"
                         sx={{ marginTop: "10px" }}
                         onClick={() => setDrawOpen(true)}
-                      />
+                      >J.D.</Button>
                     </div>
                   </div>
                 </div>
@@ -391,6 +416,20 @@ export default function CheckboxSelectionGrid() {
                 }
                 {pageData.criterias &&
                   <div className="criteria">
+                    <p>
+                      {locationKeywords.map(({keyword, count, familarity}: LocationKeyword) =>
+                        <Chip
+                          key={keyword}
+                          label={`${keyword} ${count}`}
+                          size="small"
+                          color={
+                            familarity >= 8 ? "success":
+                            familarity < 5 ? "error": "warning"
+                          }
+                          sx={{ marginRight: "3px" }}
+                        />
+                      )}
+                    </p>
                     {
                       Object.entries(pageData.criterias).map(([cType, cValue]) =>
                         <p key={cType}>

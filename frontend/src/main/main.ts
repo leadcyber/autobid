@@ -19,7 +19,8 @@ import {
   setFetchMode,
   getFetchMode,
   getFamilarity,
-  getRequiredSkills
+  getRequiredSkills,
+  getLocationKeywords
 } from './api'
 import {
   deleteAll,
@@ -227,7 +228,8 @@ const handleIPC = () => {
       pageData,
       isAutofillSupported(pageData.applyUrl),
       await isAlreadyApplied(pageData.applyUrl),
-      await getRequiredSkills(pageData.detail)
+      await getRequiredSkills(pageData.detail),
+      await getLocationKeywords(pageData.detail)
     )
   })
   ipcMain.on('fetchPageData', async (event, job) => {
@@ -241,7 +243,8 @@ const handleIPC = () => {
       pageData,
       isAutofillSupported(pageData.applyUrl),
       await isAlreadyApplied(pageData.applyUrl),
-      await getRequiredSkills(pageData.detail)
+      await getRequiredSkills(pageData.detail),
+      await getLocationKeywords(pageData.detail)
     )
   })
   ipcMain.on('applyExternal', async (event, { jobId, applyUrl, requestConnect }) => {

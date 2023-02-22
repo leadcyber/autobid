@@ -4,14 +4,20 @@ const bodyParser = require('body-parser')
 const {
     getSkillData,
     getSkillOccurenceMatrix
-} = require('./parser/skill')
+} = require('./parser/skill_reader')
+const { getLocationData } = require("./parser/location_reader")
+const { getAdditionalSentences } = require("./parser/sentence_reader")
 const {
     getRequiredSkills,
     getRequiredSkillGroups,
     getHighlightPositions,
-    getHighlightPositionsWithTags
-} = require('./parser/jd')
-const { getAdditionalSentences } = require("./parser/sentence")
+    getHighlightPositionsWithTags,
+} = require('./parser/skill_parser')
+const {
+    getHighlightLocationPositions,
+    getHighlightLocationPositionsWithTags,
+    getLocationProperties
+} = require('./parser/location_parser')
 
 const app = express()
 app.use(cors())
@@ -70,6 +76,38 @@ app.post("/skill/measure", (req, res) => {
         res.status(500).send()
     }
 })
+
+
+
+app.post("/location/highlights", (req, res) => {
+    try {
+        const locationData = getLocationData()
+        const locationPositions = getHighlightLocationPositions(req.body.jd, locationData)
+        res.json(locationPositions)
+    } catch(err) {
+        res.status(500).send()
+    }
+})
+app.post("/location/highlights/tagged", (req, res) => {
+    try {
+        const locationData = getLocationData()
+        const locationPositions = getHighlightLocationPositionsWithTags(req.body.jd, locationData)
+        res.json(locationPositions)
+    } catch(err) {
+        res.status(500).send()
+    }
+})
+app.post("/location/measure", (req, res) => {
+    try {
+        const locationData = getLocationData()
+        const locationProperties = getLocationProperties(req.body.jd, locationData)
+        res.json(locationProperties)
+    } catch(err) {
+        res.status(500).send()
+    }
+})
+
+
 
 app.get("/sentences/additional", (req, res) => {
     try {
