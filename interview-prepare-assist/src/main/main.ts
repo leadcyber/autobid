@@ -15,7 +15,8 @@ import fs from 'fs'
 
 import {
   getRequiredSkills,
-  getCompanyUrl
+  getCompanyUrl,
+  generateResume
 } from './api'
 import {
   getJobList,
@@ -131,6 +132,10 @@ const handleIPC = () => {
   ipcMain.on('openResume', async (event, path) => {
     console.log(path)
     shell.openPath(path);
+  })
+  ipcMain.on('generateResume', async (event, { jobId, position, jd }) => {
+    console.log(jobId, position, jd)
+    generateResume(jobId, position, jd)
   })
   ipcMain.on('openExternalUrl', async (event, url) => {
     shell.openExternal(url);

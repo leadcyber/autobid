@@ -3,7 +3,7 @@ from skill.skill_tree import get_skill_tree, get_skill_relation_value
 from .utils import get_most_relevant_template, select_skill_section_items
 
 
-def generate_skill_matrix(position: str, required_skills):
+def generate_detailed_skill_matrix(position: str, required_skills):
     (root, nodes) = get_skill_tree()
     template_type = get_most_relevant_template(position, required_skills)
 
@@ -20,6 +20,7 @@ def generate_skill_matrix(position: str, required_skills):
         length_more = { "frontend": 5, "backend": 10, "database": 0 , "cloud": 0, "dev": 0, "mobile": -4, "blockchain": -10 }
     else:
         length_more = { "frontend": 0, "backend": 10, "database": 5 , "cloud": 10, "dev": 5, "mobile": -5, "blockchain": -10 }
+    
     skill_category_info = {
         "frontend": { "score": 0, "skills": [], "fullname": "Front-End Development", "length": 37 + length_more["frontend"], "scale": 1.5, "default": ["React"] },
         "backend":  { "score": 0, "skills": [], "fullname": "Back-End Development", "length": 35 + length_more["backend"], "scale": 1, "default": ["Node"] },
@@ -29,6 +30,7 @@ def generate_skill_matrix(position: str, required_skills):
         "mobile":   { "score": 0, "skills": [], "fullname": "Mobile Development", "length": 20 + length_more["mobile"], "scale": 0.7, "default": ["React Native"] },
         "blockchain":   { "score": 0, "skills": [], "fullname": "Blockchain Development", "length": 20 + length_more["blockchain"], "scale": 0.7, "default": ["Web3"] }
     }
+
     for required_skill in required_skills:
         norm_skill = normalize_skill_name(required_skill["skill"])
         max_category = { "score": 0, "category": "" }
@@ -46,9 +48,13 @@ def generate_skill_matrix(position: str, required_skills):
     print(skill_categories)
 
     banned_skill_names_more = []
-    for skill_category_name in skill_categories:
+    for index, skill_category_name in enumerate(skill_categories):
         norm_category_name = normalize_skill_name(skill_category_name[1])
         base_skill_full_names = skill_category_info[norm_category_name]["skills"]
+        category_score = skill_category_info[norm_category_name]["score"]
+        if (index > 2 and category_score == 0) or index == 5:
+            break
+
         if len(base_skill_full_names) == 0:
             base_skill_full_names = skill_category_info[norm_category_name]["default"]
         category_length = skill_category_info[norm_category_name]["length"]
@@ -88,6 +94,15 @@ def generate_skill_matrix(position: str, required_skills):
                 depth += 1
         selected_skills.sort(key=lambda x: nodes[normalize_skill_name(x)].data["level"], reverse=True)
         banned_skill_names_more.extend(list(map(normalize_skill_name, selected_skills)))
-        skill_section_headers.append(skill_category_info[norm_category_name]["fullname"])
-        skill_section_contents.append(selected_skills)
+        skill_section_headers.append({
+            "label": skill_category_info[norm_category_name]["fullname"],
+            "score": skill_category_info[norm_category_name]["score"]
+        })
+        skill_section_contents.append({
+            "skills": selected_skills
+        })
     return skill_section_headers, skill_section_contents
+
+def generate_skill_matrix(position: str, required_skills):
+    skill_section_headers, skill_section_contents = generate_detailed_skill_matrix(position, required_skills)
+    return [ item["label"] for item in skill_section_headers ], [ item["skills"] for item in skill_section_contents ]

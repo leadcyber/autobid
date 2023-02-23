@@ -40,12 +40,15 @@ def _generate_resume_file(headline, summary, positions, sentences, skill_section
             if re.match("{(.*?)}", run.text):
                 run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
     for table in document.tables:
-        for row in table.rows:
-            for cell in row.cells:
-                for paragraph in cell.paragraphs:
-                    for run in paragraph.runs:
-                        if re.match("{(.*?)}", run.text):
-                            run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
+        for row_index, row in enumerate(table.rows):
+            if row_index >= len(skill_section_headers):
+                row._element.getparent().remove(row._element)
+            else:
+                for cell in row.cells:
+                    for paragraph in cell.paragraphs:
+                        for run in paragraph.runs:
+                            if re.match("{(.*?)}", run.text):
+                                run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
     # template_filepath = f'{LOG_RESUME_PATH}/{str(uuid.uuid4())}.docx'
     document.save(path)
     # os.chmod(template_filepath, 0x777)
@@ -58,5 +61,3 @@ def generate_resume_file(position: str, required_skills, path: str) -> str:
     ( skill_section_headers, skill_section_contents ) = generate_skill_matrix(position, required_skills)
     ( headline, summary, positions ) = generate_meta_data(position, required_skills)
     _generate_resume_file(headline, summary, positions, sentences, skill_section_headers, skill_section_contents, path)
-    
-    

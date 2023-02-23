@@ -127,6 +127,7 @@ def process_external_bid_thread(parse_result, bid_data):
             free_profile_name = get_free_profile("")
     except:
         print("No available profiles now.")
+        profile_lock.release()
         if auto_mode == True:
             logger.log_autobid(url, False, f"Failed to get free profile")
             send_to_dashboard({"type":"failed", "payload": {"id": job_id, "reason": "no-free-profile"}})
@@ -136,6 +137,7 @@ def process_external_bid_thread(parse_result, bid_data):
     try:
         driver = create_direct_driver(free_profile_name)
     except Exception as e:
+        profile_lock.release()
         print(f"Unable to launch browser with error: {str(e)}")
         logger.log_bid(url, False, f"Unable to launch browser with error: {str(e)}")
         if auto_mode == True:

@@ -1,0 +1,49 @@
+.panel-resume {
+  line-height: 1.5em;
+}
+
+.resume-wrapper {
+  padding: 10px 20px;
+  height: calc(100vh - 25px);
+  overflow-y: scroll;
+}
+
+
+
+.resume-metadata {
+
+}
+.resume-summary {
+  font-size: 15px;
+}
+
+
+
+
+.skill-section-wrapper {
+
+}
+.skill-section {
+  width: 100%;
+  display: flex;
+}
+.skill-section-header {
+  width: 200px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: right;
+  margin-right: 10px;
+}
+.skill-section-content {
+  flex: 1;
+  font-size: 14px;
+}
+
+
+
+.resume-sentences {
+
+}
+.resume-sentences p {
+  font-size: 15px;
+}

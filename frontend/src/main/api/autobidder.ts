@@ -163,12 +163,27 @@ export const applyExternal = async (jobId: string, jobUrl: string, requestConnec
 export const pushToAutoBidQueue = async (jobs: Job[]) => {
   if(!taskManager.mode) return
   for(let job of jobs) {
+
     let pageData = await getPageDataFromDB(job.id!)
-    const isJobAvailable = await axios.post(`${workspaceSetting.pyServiceURL}/`, {
-      position: job.position,
-      jd: pageData?.description
-    })
-    await taskManager.addJobToQueue(job)
+    if(!pageData || pageData.applyMode == "Error") {
+      for(let retry = 5; retry >= 0; retry --) {
+        pageData = await getPageData(job)
+        if(pageData?.applyMode != "Error") break
+      }
+      await setPageDataToDB(job.id!, pageData!)
+    }
+    if(pageData!.applyUrl == "") continue
+    try {
+      const response = await axios.post(`${workspaceSetting.pyServiceURL}/job/autobiddable`, {
+        position: job.position,
+        jd: pageData?.description
+      })
+      if(response.data.available) {
+        await taskManager.addJobToQueue(job)
+      }
+    } catch(err) {
+      console.log("[py-engine]: Unable to determine the validity of this job.")
+    }
   }
   updateRenderer()
   onBidStateChange(taskManager.sessions)

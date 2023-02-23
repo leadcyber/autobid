@@ -1,18 +1,26 @@
 import * as React from 'react';
+import SplitPane, { Pane } from 'react-split-pane'
 
-import "./Panel.css"
+import "./panel.css"
 import JobMeta from './JobMeta'
-import JobPage from './JobPage'
+import JDPage from './JDPage'
 import ResumePage from './ResumePage'
 
 
 export default function Panel() {
 
   return (
-    <div className="page-container">
-      <JobMeta/>
-      <JobPage/>
-      <ResumePage/>
-    </div>
+    // <div className="page-container">
+      <SplitPane split="vertical" defaultSize="350px" minSize={50}>
+        <JobMeta/>
+        <SplitPane split="vertical" defaultSize="50%">
+          <JDPage/>
+          <ResumePage/>
+          </SplitPane>
+          {/*
+
+           */}
+      </SplitPane>
+    // </div>
   );
 }

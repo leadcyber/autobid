@@ -1,3 +1,28 @@
+.panel-meta {
+  padding: 10px 25px;
+  background-color: #f0f2f8;
+  height: calc(100vh - 20px);
+  overflow-y: scroll;
+}
+.meta-position {
+  color: #333;
+}
+.meta-company {
+  color: #555;
+}
+
+.meta-table {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+.meta-table-label {
+  text-align: right;
+  padding-right: 10px;
+}
+
+
+
 .requirement-chip > div {
   margin: 2px;
   margin-bottom: 10px;

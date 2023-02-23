@@ -228,8 +228,8 @@ const handleIPC = () => {
       pageData,
       isAutofillSupported(pageData.applyUrl),
       await isAlreadyApplied(pageData.applyUrl),
-      await getRequiredSkills(pageData.detail),
-      await getLocationKeywords(pageData.detail)
+      await getRequiredSkills(pageData.description),
+      await getLocationKeywords(pageData.description)
     )
   })
   ipcMain.on('fetchPageData', async (event, job) => {
@@ -243,8 +243,8 @@ const handleIPC = () => {
       pageData,
       isAutofillSupported(pageData.applyUrl),
       await isAlreadyApplied(pageData.applyUrl),
-      await getRequiredSkills(pageData.detail),
-      await getLocationKeywords(pageData.detail)
+      await getRequiredSkills(pageData.description),
+      await getLocationKeywords(pageData.description)
     )
   })
   ipcMain.on('applyExternal', async (event, { jobId, applyUrl, requestConnect }) => {

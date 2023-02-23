@@ -1,16 +1,29 @@
 from flask import Flask, request
-from job import is_proper_job_title
+from flask_cors import CORS
+
 import resume
 import emailparser
 import json
 from skill.utils import get_required_skills
 from config import PY_SERVICE_PORT
+from job_familarity_model.prediction import is_proper_position, is_proper_jd, get_jd_rate
 
 app = Flask(__name__)
+CORS(app)
 
-@app.route("/job/proper")
-def is_proper_job_title(title: str):
-    return is_proper_job_title(title)
+@app.post("/job/rate")
+def get_job_rate():
+    body = json.loads(request.data)
+    jd = body["jd"]
+    return {"rate": get_jd_rate(jd) }
+
+@app.post("/job/autobiddable")
+def is_autobiddable():
+    body = json.loads(request.data)
+    position = body["position"]
+    jd = body["jd"]
+    print(position)
+    return {"available": is_proper_position(position) and is_proper_jd(jd) }
 
 @app.post("/email/parse/company")
 def parse_company_name():
@@ -25,19 +38,42 @@ def parse_company_name():
 def generate_resume_metadata():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
-    return resume.generate_meta_data(body["position"], required_skills)
+    headline, summary, positions = resume.generate_meta_data(body["position"], required_skills)
+    return {
+        "headline": headline,
+        "summary": summary,
+        "positions": positions
+    }
+
+
+
+@app.post("/resume/generate/skillmatrix")
+def generate_resume_skill_matrix():
+    body = json.loads(request.data)
+    required_skills = get_required_skills(body["jd"])
+    skill_section_headers, skill_section_contents = resume.generate_skill_matrix(body["position"], required_skills)
+    sections = []
+    for index, header in enumerate(skill_section_headers):
+        sections.append({ "header": header, "content": skill_section_contents[index] })
+    return sections
+
+@app.post("/resume/generate/skillmatrix/detail")
+def generate_resume_detailed_skill_matrix():
+    body = json.loads(request.data)
+    required_skills = get_required_skills(body["jd"])
+    skill_section_headers, skill_section_contents = resume.generate_detailed_skill_matrix(body["position"], required_skills)
+    sections = []
+    for index, header in enumerate(skill_section_headers):
+        sections.append({ "header": header, "content": skill_section_contents[index] })
+    return sections
+
+
 
 @app.post("/resume/generate/sentences")
 def generate_resume_sentences():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
     return resume.generate_resume_sentences(body["position"], required_skills)
-
-@app.post("/resume/generate/skillmatrix")
-def generate_resume_skill_matrix():
-    body = json.loads(request.data)
-    required_skills = get_required_skills(body["jd"])
-    resume.generate_skill_matrix(body["position"], required_skills)
 
 @app.post("/resume/generate/file")
 def generate_resume_file():

@@ -70,6 +70,12 @@
 .requirement-familarity * {
   margin: 0;
 }
+.familarity-good {
+  color: #366ec9;
+}
+.familarity-bad {
+  color: #ff0000;
+}
 
 
 .circular-progress-wrapper {

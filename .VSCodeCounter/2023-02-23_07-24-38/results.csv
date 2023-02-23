@@ -1,0 +1,271 @@
+"filename", "language", "JSON", "Python", "JavaScript", "pip requirements", "Properties", "Markdown", "Shell Script", "JSON with Comments", "TypeScript React", "TypeScript", "CSS", "HTML", "YAML", "XML", "Log", "comment", "blank", "total"
+"/Volumes/Work/_own/autobid/bidengine/Readme.md", "Markdown", 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 114
+"/Volumes/Work/_own/autobid/bidengine/bidders/ashbyhq.py", "Python", 0, 103, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 114
+"/Volumes/Work/_own/autobid/bidengine/bidders/bamboohr.py", "Python", 0, 146, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 165
+"/Volumes/Work/_own/autobid/bidengine/bidders/common.py", "Python", 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"/Volumes/Work/_own/autobid/bidengine/bidders/dice.py", "Python", 0, 223, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 28, 257
+"/Volumes/Work/_own/autobid/bidengine/bidders/dover.py", "Python", 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 74
+"/Volumes/Work/_own/autobid/bidengine/bidders/greenhouse.py", "Python", 0, 148, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 167
+"/Volumes/Work/_own/autobid/bidengine/bidders/icims.py", "Python", 0, 190, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 32, 225
+"/Volumes/Work/_own/autobid/bidengine/bidders/jobprotocol.py", "Python", 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 102
+"/Volumes/Work/_own/autobid/bidengine/bidders/jobvite.py", "Python", 0, 157, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 183
+"/Volumes/Work/_own/autobid/bidengine/bidders/laskie.py", "Python", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Volumes/Work/_own/autobid/bidengine/bidders/lever.py", "Python", 0, 133, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 156
+"/Volumes/Work/_own/autobid/bidengine/bidders/linkedin.py", "Python", 0, 351, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 35, 396
+"/Volumes/Work/_own/autobid/bidengine/bidders/myworkdayjobs.py", "Python", 0, 660, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 75, 743
+"/Volumes/Work/_own/autobid/bidengine/bidders/newrelic.py", "Python", 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 118
+"/Volumes/Work/_own/autobid/bidengine/bidders/recruitics.py", "Python", 0, 152, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 25, 191
+"/Volumes/Work/_own/autobid/bidengine/bidders/resumator.py", "Python", 0, 104, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 124
+"/Volumes/Work/_own/autobid/bidengine/bidders/smartrecruiters.py", "Python", 0, 118, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 140
+"/Volumes/Work/_own/autobid/bidengine/config/config.py", "Python", 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 18
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/_common.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 0, 0, 0, 19, 103
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/greenhouse.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 5
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/icims.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/indeed.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/jobprotocol.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/lever.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 6, 20
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/myworkdayjobs.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0, 0, 0, 14, 77
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/1/resumator.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/_common.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 393, 0, 0, 0, 34, 427
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/ashbyhq.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/bamboohr.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/dover.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/greenhouse.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 7
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/jobprotocol.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 8
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/jobvite.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 1, 6
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/lever.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 119, 0, 0, 0, 4, 123
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/linkedin.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 6, 20
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/myworkdayjobs.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 4, 24
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/recruitics.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2
+"/Volumes/Work/_own/autobid/bidengine/db/qa/common/resumator.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 2
+"/Volumes/Work/_own/autobid/bidengine/db/qa/skill/skill_matrix.yaml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 211, 0, 0, 0, 0, 211
+"/Volumes/Work/_own/autobid/bidengine/debug.log", "Log", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Volumes/Work/_own/autobid/bidengine/driver.py", "Python", 0, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 85
+"/Volumes/Work/_own/autobid/bidengine/glvar.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5
+"/Volumes/Work/_own/autobid/bidengine/indeed.py", "Python", 0, 266, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 35, 331
+"/Volumes/Work/_own/autobid/bidengine/main.py", "Python", 0, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 96
+"/Volumes/Work/_own/autobid/bidengine/profile_viewer.py", "Python", 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 6
+"/Volumes/Work/_own/autobid/bidengine/requirements.txt", "pip requirements", 0, 0, 0, 180, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 181
+"/Volumes/Work/_own/autobid/bidengine/router.py", "Python", 0, 236, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 276
+"/Volumes/Work/_own/autobid/bidengine/skill_occurence_matrix.py", "Python", 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 37
+"/Volumes/Work/_own/autobid/bidengine/skill_occurence_rate.py", "Python", 0, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 23
+"/Volumes/Work/_own/autobid/bidengine/test/page_data.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 2, 3
+"/Volumes/Work/_own/autobid/bidengine/test/ppp.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 103, 0, 0, 0, 11, 97, 211
+"/Volumes/Work/_own/autobid/bidengine/test4.py", "Python", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6
+"/Volumes/Work/_own/autobid/bidengine/test5.py", "Python", 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 21
+"/Volumes/Work/_own/autobid/bidengine/test6.py", "Python", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 4
+"/Volumes/Work/_own/autobid/bidengine/test7.py", "Python", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Volumes/Work/_own/autobid/bidengine/test_chrome.py", "Python", 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 13
+"/Volumes/Work/_own/autobid/bidengine/test_get_answer.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 9
+"/Volumes/Work/_own/autobid/bidengine/test_job_db.py", "Python", 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"/Volumes/Work/_own/autobid/bidengine/utils/answers.py", "Python", 0, 247, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 33, 282
+"/Volumes/Work/_own/autobid/bidengine/utils/db.py", "Python", 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/Volumes/Work/_own/autobid/bidengine/utils/debugger.py", "Python", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 12
+"/Volumes/Work/_own/autobid/bidengine/utils/job_parser.py", "Python", 0, 129, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 16, 146
+"/Volumes/Work/_own/autobid/bidengine/utils/logger.py", "Python", 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 39
+"/Volumes/Work/_own/autobid/bidengine/utils/resume.py", "Python", 0, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8, 74
+"/Volumes/Work/_own/autobid/bidengine/webinterface.py", "Python", 0, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 44
+"/Volumes/Work/_own/autobid/email-dump/.eslintrc.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"/Volumes/Work/_own/autobid/email-dump/.gitlab-ci.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 1, 5, 32
+"/Volumes/Work/_own/autobid/email-dump/README.md", "Markdown", 0, 0, 0, 0, 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 123
+"/Volumes/Work/_own/autobid/email-dump/browser-test.html", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 1, 1, 10
+"/Volumes/Work/_own/autobid/email-dump/jest.config.js", "JavaScript", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 11
+"/Volumes/Work/_own/autobid/email-dump/package-lock.json", "JSON", 5595, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5596
+"/Volumes/Work/_own/autobid/email-dump/package.json", "JSON", 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 61
+"/Volumes/Work/_own/autobid/email-dump/src/db/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 0, 0, 0, 0, 0, 8, 100
+"/Volumes/Work/_own/autobid/email-dump/src/db/schema.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 108, 0, 0, 0, 0, 0, 1, 5, 114
+"/Volumes/Work/_own/autobid/email-dump/src/email/email.types.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 1, 19
+"/Volumes/Work/_own/autobid/email-dump/src/email/parser.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 92, 0, 0, 0, 0, 0, 8, 11, 111
+"/Volumes/Work/_own/autobid/email-dump/src/email/sync.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 140, 0, 0, 0, 0, 0, 1, 18, 159
+"/Volumes/Work/_own/autobid/email-dump/src/main.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 3, 21
+"/Volumes/Work/_own/autobid/email-dump/src/recognizer/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 264, 0, 0, 0, 0, 0, 30, 53, 347
+"/Volumes/Work/_own/autobid/email-dump/src/recognizer/temp.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 299, 0, 0, 0, 0, 0, 6, 63, 368
+"/Volumes/Work/_own/autobid/email-dump/src/test.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 13, 8, 68
+"/Volumes/Work/_own/autobid/email-dump/src/test2.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 2, 7, 56
+"/Volumes/Work/_own/autobid/email-dump/src/utils.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 1, 6
+"/Volumes/Work/_own/autobid/email-dump/src/view.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 1, 3, 34
+"/Volumes/Work/_own/autobid/email-dump/training_data.json", "JSON", 7241, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7242
+"/Volumes/Work/_own/autobid/email-dump/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 3, 0, 38
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.base.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 8, 9, 57
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.eslint.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 4
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.main.prod.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 17, 14, 83
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.preload.dev.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 19, 13, 72
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.dev.dll.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 15, 16, 78
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.dev.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 0, 0, 0, 0, 0, 20, 19, 214
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.prod.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, 0, 0, 0, 0, 0, 15, 16, 146
+"/Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.paths.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 8, 39
+"/Volumes/Work/_own/autobid/frontend/.erb/img/erb-banner.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 1, 33
+"/Volumes/Work/_own/autobid/frontend/.erb/img/palette-sponsor-banner.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 7
+"/Volumes/Work/_own/autobid/frontend/.erb/mocks/fileMock.js", "JavaScript", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/check-build-exists.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 1, 4, 25
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/check-native-dep.js", "JavaScript", 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 55
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/check-node-env.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/check-port-in-use.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/clean.js", "JavaScript", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/delete-source-maps.js", "JavaScript", 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/electron-rebuild.js", "JavaScript", 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/link-modules.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 3, 10
+"/Volumes/Work/_own/autobid/frontend/.erb/scripts/notarize.js", "JavaScript", 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 31
+"/Volumes/Work/_own/autobid/frontend/.eslintrc.js", "JavaScript", 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 31
+"/Volumes/Work/_own/autobid/frontend/.github/FUNDING.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 2, 6
+"/Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/1-Bug_report.md", "Markdown", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 23, 68
+"/Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/2-Question.md", "Markdown", 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 4, 20
+"/Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/3-Feature_request.md", "Markdown", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 2, 16
+"/Volumes/Work/_own/autobid/frontend/.github/config.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"/Volumes/Work/_own/autobid/frontend/.github/stale.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 6, 1, 18
+"/Volumes/Work/_own/autobid/frontend/.github/workflows/codeql-analysis.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 29, 13, 73
+"/Volumes/Work/_own/autobid/frontend/.github/workflows/publish.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 4, 9, 47
+"/Volumes/Work/_own/autobid/frontend/.github/workflows/test.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 8, 35
+"/Volumes/Work/_own/autobid/frontend/CHANGELOG.md", "Markdown", 0, 0, 0, 0, 0, 341, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 193, 534
+"/Volumes/Work/_own/autobid/frontend/CODE_OF_CONDUCT.md", "Markdown", 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 77
+"/Volumes/Work/_own/autobid/frontend/README.md", "Markdown", 0, 0, 0, 0, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 160
+"/Volumes/Work/_own/autobid/frontend/assets/assets.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 8, 34
+"/Volumes/Work/_own/autobid/frontend/package-lock.json", "JSON", 15576, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15577
+"/Volumes/Work/_own/autobid/frontend/package.json", "JSON", 262, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 283
+"/Volumes/Work/_own/autobid/frontend/src/__tests__/App.test.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"/Volumes/Work/_own/autobid/frontend/src/job.types.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 81, 0, 0, 0, 0, 0, 0, 2, 83
+"/Volumes/Work/_own/autobid/frontend/src/main/api/autobidder.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 220, 0, 0, 0, 0, 0, 7, 32, 259
+"/Volumes/Work/_own/autobid/frontend/src/main/api/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 210, 0, 0, 0, 0, 0, 1, 29, 240
+"/Volumes/Work/_own/autobid/frontend/src/main/api/linkedin.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 240, 0, 0, 0, 0, 0, 47, 30, 317
+"/Volumes/Work/_own/autobid/frontend/src/main/api/pyengine.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 2, 22
+"/Volumes/Work/_own/autobid/frontend/src/main/config/constant.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 4, 10
+"/Volumes/Work/_own/autobid/frontend/src/main/db/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 221, 0, 0, 0, 0, 0, 8, 20, 249
+"/Volumes/Work/_own/autobid/frontend/src/main/main.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 293, 0, 0, 0, 0, 0, 18, 33, 344
+"/Volumes/Work/_own/autobid/frontend/src/main/preload.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 4, 24
+"/Volumes/Work/_own/autobid/frontend/src/main/test.js", "JavaScript", 0, 0, 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 56
+"/Volumes/Work/_own/autobid/frontend/src/main/test2.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 17
+"/Volumes/Work/_own/autobid/frontend/src/main/util.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 1, 2, 14
+"/Volumes/Work/_own/autobid/frontend/src/main/util/myconsole.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 2, 6
+"/Volumes/Work/_own/autobid/frontend/src/renderer/App.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 4, 1, 8
+"/Volumes/Work/_own/autobid/frontend/src/renderer/App.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 2, 2, 17
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/AutoBidButton.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 83, 0, 0, 0, 0, 0, 0, 1, 5, 89
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/AutoBidPanel.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 88, 0, 0, 0, 0, 0, 0, 1, 6, 95
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/AwakeButton.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 0, 2, 7, 94
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/ConnectButton.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 85, 0, 0, 0, 0, 0, 0, 1, 6, 92
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/JobBoard.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 10, 109
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/JobBoard.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 459, 0, 0, 0, 0, 0, 0, 0, 22, 481
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/Notification.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 111, 0, 0, 0, 0, 0, 0, 3, 8, 122
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/Sidebar.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 44, 0, 0, 0, 0, 0, 0, 1, 5, 50
+"/Volumes/Work/_own/autobid/frontend/src/renderer/components/SkipOnErrorButton.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 83, 0, 0, 0, 0, 0, 0, 1, 5, 89
+"/Volumes/Work/_own/autobid/frontend/src/renderer/index.ejs", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 1, 15
+"/Volumes/Work/_own/autobid/frontend/src/renderer/index.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"/Volumes/Work/_own/autobid/frontend/src/renderer/preload.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 3, 19
+"/Volumes/Work/_own/autobid/frontend/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20
+"/Volumes/Work/_own/autobid/frontend/workspace.json", "JSON", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.base.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 8, 9, 57
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.eslint.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 2, 4
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.main.prod.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 17, 14, 83
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.preload.dev.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 19, 13, 72
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.dev.dll.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0, 0, 0, 0, 0, 15, 16, 78
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.dev.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 175, 0, 0, 0, 0, 0, 20, 19, 214
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.prod.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 115, 0, 0, 0, 0, 0, 15, 16, 146
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.paths.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 0, 0, 0, 0, 8, 39
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/img/erb-banner.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 1, 33
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/img/palette-sponsor-banner.svg", "XML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 7
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/mocks/fileMock.js", "JavaScript", 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-build-exists.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 1, 4, 25
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-native-dep.js", "JavaScript", 0, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 55
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-node-env.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-port-in-use.js", "JavaScript", 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 17
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/clean.js", "JavaScript", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/delete-source-maps.js", "JavaScript", 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 9
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/electron-rebuild.js", "JavaScript", 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/link-modules.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 3, 10
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/notarize.js", "JavaScript", 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 31
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.eslintrc.js", "JavaScript", 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 1, 31
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/FUNDING.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 1, 2, 6
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/1-Bug_report.md", "Markdown", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 23, 68
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/2-Question.md", "Markdown", 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 4, 20
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/3-Feature_request.md", "Markdown", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 2, 16
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/config.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 1, 7
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/stale.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 6, 1, 18
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/codeql-analysis.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 29, 13, 73
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/publish.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 0, 4, 9, 47
+"/Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/test.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27, 0, 0, 0, 8, 35
+"/Volumes/Work/_own/autobid/interview-prepare-assist/CHANGELOG.md", "Markdown", 0, 0, 0, 0, 0, 341, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 193, 534
+"/Volumes/Work/_own/autobid/interview-prepare-assist/CODE_OF_CONDUCT.md", "Markdown", 0, 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 77
+"/Volumes/Work/_own/autobid/interview-prepare-assist/README.md", "Markdown", 0, 0, 0, 0, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 160
+"/Volumes/Work/_own/autobid/interview-prepare-assist/assets/assets.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 8, 34
+"/Volumes/Work/_own/autobid/interview-prepare-assist/package-lock.json", "JSON", 15712, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15713
+"/Volumes/Work/_own/autobid/interview-prepare-assist/package.json", "JSON", 264, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 0, 285
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/__tests__/App.test.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 2, 10
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/job.types.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0, 0, 2, 77
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/api/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 83, 0, 0, 0, 0, 0, 0, 12, 95
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/config/constant.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 3, 8
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/db/index.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 219, 0, 0, 0, 0, 0, 7, 17, 243
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/main.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 0, 0, 0, 0, 0, 14, 25, 168
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/preload.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 4, 24
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/util.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 1, 2, 14
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/main/util/myconsole.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 2, 7
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/App.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 4, 1, 9
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/App.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 2, 3, 37
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/JDPage.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 0, 0, 9, 81
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/JobMeta.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 96, 0, 0, 0, 0, 0, 0, 1, 8, 105
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/Panel.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 5, 5, 27
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/ResumePage.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 75, 0, 0, 0, 0, 0, 0, 0, 7, 82
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/Sidebar.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0, 0, 5, 87
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/jdpage.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 1, 19
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/jobmeta.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 6, 52
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/panel.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 8, 58
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/resumepage.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 15, 50
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/sidebar.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 1, 5
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/context/AppContext.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 2, 5
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/index.ejs", "HTML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 1, 15
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/index.tsx", "TypeScript React", 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"/Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/preload.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 3, 19
+"/Volumes/Work/_own/autobid/interview-prepare-assist/tsconfig.json", "JSON with Comments", 0, 0, 0, 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 1, 20
+"/Volumes/Work/_own/autobid/interview-prepare-assist/workspace.json", "JSON", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 14
+"/Volumes/Work/_own/autobid/jengine/index.js", "JavaScript", 0, 0, 113, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 122
+"/Volumes/Work/_own/autobid/jengine/package.json", "JSON", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 22
+"/Volumes/Work/_own/autobid/jengine/parser/location_parser.js", "JavaScript", 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 68
+"/Volumes/Work/_own/autobid/jengine/parser/location_reader.js", "JavaScript", 0, 0, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 13
+"/Volumes/Work/_own/autobid/jengine/parser/sentence_reader.js", "JavaScript", 0, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 10
+"/Volumes/Work/_own/autobid/jengine/parser/skill_parser.js", "JavaScript", 0, 0, 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 16, 179
+"/Volumes/Work/_own/autobid/jengine/parser/skill_reader.js", "JavaScript", 0, 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 21
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/daily_post_rate.py", "Python", 0, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 13, 81
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/efficient_words.py", "Python", 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 50
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/requirements.txt", "pip requirements", 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 15
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/test.py", "Python", 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 11
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/top_positions.py", "Python", 0, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 45
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/top_poster.py", "Python", 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 42
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/util/tmzone.py", "Python", 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 13
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/utils.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4
+"/Volumes/Work/_own/autobid/job-analysis-toolkit/weekly_post_rate.py", "Python", 0, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 34
+"/Volumes/Work/_own/autobid/package-lock.json", "JSON", 207, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 208
+"/Volumes/Work/_own/autobid/package.json", "JSON", 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 50
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/.ipynb_checkpoints/preprocess_training_data-checkpoint.ipynb", "JSON", 567, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 568
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/training_data.json", "JSON", 7241, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7242
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/training_data_original.json", "JSON", 10365, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4395, 1, 14761
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/config.cfg", "Properties", 0, 0, 0, 0, 110, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 129
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/meta.json", "JSON", 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 33
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/vocab/strings.json", "JSON", 4074, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4074
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/vocab/vectors.cfg", "Properties", 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/README.md", "Markdown", 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 34
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/test_model.py", "Python", 0, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 34, 22, 148
+"/Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/train_model.py", "Python", 0, 90, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 21, 143
+"/Volumes/Work/_own/autobid/pyjengine/config.py", "Python", 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 9
+"/Volumes/Work/_own/autobid/pyjengine/db/__init__.py", "Python", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7
+"/Volumes/Work/_own/autobid/pyjengine/emailparser.py", "Python", 0, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 13
+"/Volumes/Work/_own/autobid/pyjengine/job_familarity_model/config.py", "Python", 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8
+"/Volumes/Work/_own/autobid/pyjengine/job_familarity_model/prediction.py", "Python", 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 32
+"/Volumes/Work/_own/autobid/pyjengine/job_familarity_model/train_model.py", "Python", 0, 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 30, 152
+"/Volumes/Work/_own/autobid/pyjengine/job_familarity_model/utils.py", "Python", 0, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 70
+"/Volumes/Work/_own/autobid/pyjengine/main.py", "Python", 0, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 85
+"/Volumes/Work/_own/autobid/pyjengine/requirements.txt", "pip requirements", 0, 0, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 45
+"/Volumes/Work/_own/autobid/pyjengine/resume/__init__.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4
+"/Volumes/Work/_own/autobid/pyjengine/resume/_sentencedb.py", "Python", 0, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 16
+"/Volumes/Work/_own/autobid/pyjengine/resume/_template.py", "Python", 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 26
+"/Volumes/Work/_own/autobid/pyjengine/resume/config.py", "Python", 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 6
+"/Volumes/Work/_own/autobid/pyjengine/resume/file.py", "Python", 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 5, 64
+"/Volumes/Work/_own/autobid/pyjengine/resume/metadata.py", "Python", 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 16
+"/Volumes/Work/_own/autobid/pyjengine/resume/sentences.py", "Python", 0, 134, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 16, 162
+"/Volumes/Work/_own/autobid/pyjengine/resume/skillmatrix.py", "Python", 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 11, 108
+"/Volumes/Work/_own/autobid/pyjengine/resume/utils.py", "Python", 0, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 41
+"/Volumes/Work/_own/autobid/pyjengine/run.sh", "Shell Script", 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1
+"/Volumes/Work/_own/autobid/pyjengine/skill/skill_tree.py", "Python", 0, 71, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 84
+"/Volumes/Work/_own/autobid/pyjengine/skill/utils.py", "Python", 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 43
+"/Volumes/Work/_own/autobid/pyjengine/train_job_familarity_model.py", "Python", 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3
+"/Volumes/Work/_own/autobid/skill-tree/main.py", "Python", 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 14, 78
+"/Volumes/Work/_own/autobid/skill-tree/missing_skills.py", "Python", 0, 43, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 55
+"/Volumes/Work/_own/autobid/skill-tree/requirements.txt", "pip requirements", 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 13
+"Total", "-", 67286, 5335, 798, 250, 113, 1299, 1, 73, 1454, 4173, 259, 140, 1219, 76, 0, 5222, 2673, 90371

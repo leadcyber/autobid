@@ -5,6 +5,7 @@ import fs from 'fs'
 import { RequiredSkill } from '../../job.types'
 import cheerio from 'cheerio'
 import axios from 'axios'
+import os from 'os'
 
 const defaultQueryOptions = [{
   category: "React&Frontend",
@@ -75,5 +76,19 @@ export const getRequiredSkills = async (jobDescription: string | undefined) => {
     return requiredSkills as RequiredSkill[]
   } catch(err) {
     return []
+  }
+}
+export const generateResume = async (jobId: string, position: string, description: string) => {
+  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.docx`)
+  console.log(downloadPath)
+  try {
+    await axios.post(`${workspaceSetting.pyServiceURL}/resume/generate/file`, {
+      position,
+      jd: description,
+      path: downloadPath
+    })
+    console.log(`Resume generated at ${downloadPath}`)
+  } catch(err: any) {
+    console.log(`[bidder-interface-error]: ${err.response.status}`)
   }
 }

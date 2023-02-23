@@ -31,6 +31,7 @@ import { CurrencyYenTwoTone } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 
 export const serviceURL = "http://localhost:7000"
+export const pyServiceURL = "http://localhost:7001"
 
 const columns = [
   { field: 'id', headerName: 'ID', hide: true },
@@ -61,6 +62,7 @@ export default function CheckboxSelectionGrid() {
   const [ isAlreadyApplied, setAlreadyApplied ] = React.useState<boolean>(false)
   const [ relatedCount, setRelatedCount ] = React.useState<any>(null)
   const [ requiredSkills, setRequiredSkills ] = React.useState<any[]>([])
+  const [ familarity, setFamilarity ] = React.useState<any[]>([])
   const [ locationKeywords, setLocationKeywords ] = React.useState<any[]>([])
 
   React.useEffect(() => {
@@ -103,8 +105,10 @@ export default function CheckboxSelectionGrid() {
       setRequiredSkills(_requiredSkills);
       setLocationKeywords(_locationKeywords);
 
+      const jd = _pageData?.description || "";
+
       (async() => {
-        let text: string = _pageData?.description || ""
+        let text: string = jd
         try {
           let response: any = await axios.post(`${serviceURL}/skill/highlights`, { jd: text })
           let intervals: any[] = response.data
@@ -124,7 +128,16 @@ export default function CheckboxSelectionGrid() {
           text = "------------------ [ RAW ] ------------------<br/><br/>" + text
         }
         setMarkedJD(text)
-      })()
+      })();
+
+      (async() => {
+        try {
+          let response: any = await axios.post(`${pyServiceURL}/job/rate`, { jd })
+          setFamilarity(response.data.rate)
+        } catch(err) {
+
+        }
+      })();
     });
     return () => {
       removeUpdateListener!()
@@ -133,12 +146,6 @@ export default function CheckboxSelectionGrid() {
       removePageOnlineDataListener!()
     }
   }, []);
-
-  const getFamilarity = React.useCallback(() => {
-    return requiredSkills.reduce((total: number, current: RequiredSkill) => {
-      return total + current.familarity * current.importance
-    }, 0) / requiredSkills.reduce((total: number, current: RequiredSkill) => total + current.importance, 0) * 10
-  }, [requiredSkills])
 
   const handleSnackbarClose = React.useCallback((event: any, reason?: string) => {
     if (reason === 'clickaway') {
@@ -392,7 +399,8 @@ export default function CheckboxSelectionGrid() {
                       )}
                     </div>
                     <div className="requirement-familarity">
-                      <h2 className="familarity">{(getFamilarity() * 10 | 0) / 10}</h2>
+                      <h2 className="familarity-good">{familarity[1] * 100 | 0}</h2>
+                      <h2 className="familarity-bad">{familarity[0] * 100 | 0}</h2>
                       <p>%</p>
                       <Button
                         variant="contained"

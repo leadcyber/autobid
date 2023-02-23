@@ -18,7 +18,6 @@ export default function App(): JSX.Element {
     const removePageDataListener = window.electron.ipcRenderer.on('pageData', (_pageData: PageData, _companyUrl: string, _requiredSkills: any[]) => {
       setPageData({ ... _pageData, companyUrl: _companyUrl } as any)
       setRequiredSkills(_requiredSkills)
-      console.log(_requiredSkills)
     });
     return () => {
       removePageDataListener!()

@@ -1,0 +1,18 @@
+.panel-description {
+  flex: 1;
+  background-color: #fff;
+  line-height: 1.5em;
+}
+.job-description {
+  padding: 10px 20px;
+  height: calc(100vh - 140px);
+  overflow-y: scroll;
+}
+.resume-board {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f6f8;
+}

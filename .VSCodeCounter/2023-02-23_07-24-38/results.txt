@@ -1,0 +1,397 @@
+Date : 2023-02-23 07:24:38
+Directory : /Volumes/Work/_own/autobid
+Total : 269 files,  82476 codes, 5222 comments, 2673 blanks, all 90371 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |         17 |     67,286 |      4,437 |         20 |     71,743 |
+| Python             |         72 |      5,335 |        209 |        832 |      6,376 |
+| TypeScript         |         55 |      4,173 |        358 |        638 |      5,169 |
+| TypeScript React   |         20 |      1,454 |         20 |        113 |      1,587 |
+| Markdown           |         15 |      1,299 |         78 |        644 |      2,021 |
+| YAML               |         34 |      1,219 |         81 |        161 |      1,461 |
+| JavaScript         |         28 |        798 |         16 |         90 |        904 |
+| CSS                |          8 |        259 |          8 |         43 |        310 |
+| pip requirements   |          4 |        250 |          0 |          4 |        254 |
+| HTML               |          5 |        140 |         12 |        102 |        254 |
+| Properties         |          2 |        113 |          0 |         19 |        132 |
+| XML                |          4 |         76 |          0 |          4 |         80 |
+| JSON with Comments |          3 |         73 |          3 |          2 |         78 |
+| Shell Script       |          1 |          1 |          0 |          0 |          1 |
+| Log                |          1 |          0 |          0 |          1 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                   |        269 |     82,476 |      5,222 |      2,673 |     90,371 |
+| . (Files)                                                                                                                           |          2 |        250 |          0 |          8 |        258 |
+| bidengine                                                                                                                           |         66 |      5,398 |         95 |        797 |      6,290 |
+| bidengine (Files)                                                                                                                   |         19 |      1,070 |         34 |        153 |      1,257 |
+| bidengine/bidders                                                                                                                   |         17 |      2,746 |         41 |        383 |      3,170 |
+| bidengine/config                                                                                                                    |          1 |         14 |          0 |          4 |         18 |
+| bidengine/db                                                                                                                        |         21 |        969 |          0 |         88 |      1,057 |
+| bidengine/db/qa                                                                                                                     |         21 |        969 |          0 |         88 |      1,057 |
+| bidengine/db/qa/common                                                                                                              |         20 |        758 |          0 |         88 |        846 |
+| bidengine/db/qa/common (Files)                                                                                                      |         12 |        581 |          0 |         49 |        630 |
+| bidengine/db/qa/common/1                                                                                                            |          8 |        177 |          0 |         39 |        216 |
+| bidengine/db/qa/skill                                                                                                               |          1 |        211 |          0 |          0 |        211 |
+| bidengine/test                                                                                                                      |          2 |        104 |         11 |         99 |        214 |
+| bidengine/utils                                                                                                                     |          6 |        495 |          9 |         70 |        574 |
+| email-dump                                                                                                                          |         21 |     14,233 |         67 |        231 |     14,531 |
+| email-dump (Files)                                                                                                                  |          9 |     13,073 |          5 |         50 |     13,128 |
+| email-dump/src                                                                                                                      |         12 |      1,160 |         62 |        181 |      1,403 |
+| email-dump/src (Files)                                                                                                              |          5 |        147 |         16 |         22 |        185 |
+| email-dump/src/db                                                                                                                   |          2 |        200 |          1 |         13 |        214 |
+| email-dump/src/email                                                                                                                |          3 |        250 |          9 |         30 |        289 |
+| email-dump/src/recognizer                                                                                                           |          2 |        563 |         36 |        116 |        715 |
+| frontend                                                                                                                            |         66 |     19,884 |        302 |        705 |     20,891 |
+| frontend (Files)                                                                                                                    |          8 |     16,417 |         24 |        255 |     16,696 |
+| frontend/.erb                                                                                                                       |         20 |        706 |         99 |        128 |        933 |
+| frontend/.erb/configs                                                                                                               |          8 |        501 |         95 |         97 |        693 |
+| frontend/.erb/img                                                                                                                   |          2 |         38 |          0 |          2 |         40 |
+| frontend/.erb/mocks                                                                                                                 |          1 |          1 |          0 |          1 |          2 |
+| frontend/.erb/scripts                                                                                                               |          9 |        166 |          4 |         28 |        198 |
+| frontend/.github                                                                                                                    |          9 |        148 |         79 |         63 |        290 |
+| frontend/.github (Files)                                                                                                            |          3 |         20 |          7 |          4 |         31 |
+| frontend/.github/ISSUE_TEMPLATE                                                                                                     |          3 |         36 |         39 |         29 |        104 |
+| frontend/.github/workflows                                                                                                          |          3 |         92 |         33 |         30 |        155 |
+| frontend/assets                                                                                                                     |          1 |         26 |          0 |          8 |         34 |
+| frontend/src                                                                                                                        |         28 |      2,587 |        100 |        251 |      2,938 |
+| frontend/src (Files)                                                                                                                |          1 |         81 |          0 |          2 |         83 |
+| frontend/src/__tests__                                                                                                              |          1 |          8 |          0 |          2 |         10 |
+| frontend/src/main                                                                                                                   |         12 |      1,310 |         84 |        164 |      1,558 |
+| frontend/src/main (Files)                                                                                                           |          5 |        389 |         21 |         45 |        455 |
+| frontend/src/main/api                                                                                                               |          4 |        690 |         55 |         93 |        838 |
+| frontend/src/main/config                                                                                                            |          1 |          6 |          0 |          4 |         10 |
+| frontend/src/main/db                                                                                                                |          1 |        221 |          8 |         20 |        249 |
+| frontend/src/main/util                                                                                                              |          1 |          4 |          0 |          2 |          6 |
+| frontend/src/renderer                                                                                                               |         14 |      1,188 |         16 |         83 |      1,287 |
+| frontend/src/renderer (Files)                                                                                                       |          5 |         51 |          6 |          9 |         66 |
+| frontend/src/renderer/components                                                                                                    |          9 |      1,137 |         10 |         74 |      1,221 |
+| interview-prepare-assist                                                                                                            |         63 |     18,559 |        236 |        600 |     19,395 |
+| interview-prepare-assist (Files)                                                                                                    |          8 |     16,555 |         24 |        255 |     16,834 |
+| interview-prepare-assist/.erb                                                                                                       |         20 |        706 |         99 |        128 |        933 |
+| interview-prepare-assist/.erb/configs                                                                                               |          8 |        501 |         95 |         97 |        693 |
+| interview-prepare-assist/.erb/img                                                                                                   |          2 |         38 |          0 |          2 |         40 |
+| interview-prepare-assist/.erb/mocks                                                                                                 |          1 |          1 |          0 |          1 |          2 |
+| interview-prepare-assist/.erb/scripts                                                                                               |          9 |        166 |          4 |         28 |        198 |
+| interview-prepare-assist/.github                                                                                                    |          9 |        148 |         79 |         63 |        290 |
+| interview-prepare-assist/.github (Files)                                                                                            |          3 |         20 |          7 |          4 |         31 |
+| interview-prepare-assist/.github/ISSUE_TEMPLATE                                                                                     |          3 |         36 |         39 |         29 |        104 |
+| interview-prepare-assist/.github/workflows                                                                                          |          3 |         92 |         33 |         30 |        155 |
+| interview-prepare-assist/assets                                                                                                     |          1 |         26 |          0 |          8 |         34 |
+| interview-prepare-assist/src                                                                                                        |         25 |      1,124 |         34 |        146 |      1,304 |
+| interview-prepare-assist/src (Files)                                                                                                |          1 |         75 |          0 |          2 |         77 |
+| interview-prepare-assist/src/__tests__                                                                                              |          1 |          8 |          0 |          2 |         10 |
+| interview-prepare-assist/src/main                                                                                                   |          7 |        472 |         22 |         65 |        559 |
+| interview-prepare-assist/src/main (Files)                                                                                           |          3 |        160 |         15 |         31 |        206 |
+| interview-prepare-assist/src/main/api                                                                                               |          1 |         83 |          0 |         12 |         95 |
+| interview-prepare-assist/src/main/config                                                                                            |          1 |          5 |          0 |          3 |          8 |
+| interview-prepare-assist/src/main/db                                                                                                |          1 |        219 |          7 |         17 |        243 |
+| interview-prepare-assist/src/main/util                                                                                              |          1 |          5 |          0 |          2 |          7 |
+| interview-prepare-assist/src/renderer                                                                                               |         16 |        569 |         12 |         77 |        658 |
+| interview-prepare-assist/src/renderer (Files)                                                                                       |          5 |         71 |          6 |         10 |         87 |
+| interview-prepare-assist/src/renderer/components                                                                                    |         10 |        495 |          6 |         65 |        566 |
+| interview-prepare-assist/src/renderer/context                                                                                       |          1 |          3 |          0 |          2 |          5 |
+| jengine                                                                                                                             |          7 |        396 |          2 |         37 |        435 |
+| jengine (Files)                                                                                                                     |          2 |        134 |          0 |         10 |        144 |
+| jengine/parser                                                                                                                      |          5 |        262 |          2 |         27 |        291 |
+| job-analysis-toolkit                                                                                                                |          9 |        231 |         13 |         51 |        295 |
+| job-analysis-toolkit (Files)                                                                                                        |          8 |        222 |         12 |         48 |        282 |
+| job-analysis-toolkit/util                                                                                                           |          1 |          9 |          1 |          3 |         13 |
+| pyjengine                                                                                                                           |         32 |     23,415 |      4,498 |        217 |     28,130 |
+| pyjengine (Files)                                                                                                                   |          6 |        133 |          2 |         21 |        156 |
+| pyjengine/company_name_detection_model                                                                                              |         10 |     22,595 |      4,461 |         79 |     27,135 |
+| pyjengine/company_name_detection_model (Files)                                                                                      |          3 |        203 |         66 |         56 |        325 |
+| pyjengine/company_name_detection_model/Data                                                                                         |          3 |     18,173 |      4,395 |          3 |     22,571 |
+| pyjengine/company_name_detection_model/Data (Files)                                                                                 |          2 |     17,606 |      4,395 |          2 |     22,003 |
+| pyjengine/company_name_detection_model/Data/.ipynb_checkpoints                                                                      |          1 |        567 |          0 |          1 |        568 |
+| pyjengine/company_name_detection_model/Model                                                                                        |          4 |      4,219 |          0 |         20 |      4,239 |
+| pyjengine/company_name_detection_model/Model (Files)                                                                                |          2 |        142 |          0 |         20 |        162 |
+| pyjengine/company_name_detection_model/Model/vocab                                                                                  |          2 |      4,077 |          0 |          0 |      4,077 |
+| pyjengine/db                                                                                                                        |          1 |          6 |          0 |          1 |          7 |
+| pyjengine/job_familarity_model                                                                                                      |          4 |        203 |         16 |         43 |        262 |
+| pyjengine/resume                                                                                                                    |          9 |        373 |         19 |         51 |        443 |
+| pyjengine/skill                                                                                                                     |          2 |        105 |          0 |         22 |        127 |
+| skill-tree                                                                                                                          |          3 |        110 |          9 |         27 |        146 |
++-------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                                            | language           | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Volumes/Work/_own/autobid/bidengine/Readme.md                                                                                      | Markdown           |         82 |          0 |         32 |        114 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/ashbyhq.py                                                                             | Python             |        103 |          0 |         11 |        114 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/bamboohr.py                                                                            | Python             |        146 |          0 |         19 |        165 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/common.py                                                                              | Python             |         13 |          0 |          1 |         14 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/dice.py                                                                                | Python             |        223 |          6 |         28 |        257 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/dover.py                                                                               | Python             |         63 |          0 |         11 |         74 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/greenhouse.py                                                                          | Python             |        148 |          0 |         19 |        167 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/icims.py                                                                               | Python             |        190 |          3 |         32 |        225 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/jobprotocol.py                                                                         | Python             |         84 |          0 |         18 |        102 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/jobvite.py                                                                             | Python             |        157 |          0 |         26 |        183 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/laskie.py                                                                              | Python             |          0 |          0 |          1 |          1 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/lever.py                                                                               | Python             |        133 |          0 |         23 |        156 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/linkedin.py                                                                            | Python             |        351 |         10 |         35 |        396 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/myworkdayjobs.py                                                                       | Python             |        660 |          8 |         75 |        743 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/newrelic.py                                                                            | Python             |        101 |          0 |         17 |        118 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/recruitics.py                                                                          | Python             |        152 |         14 |         25 |        191 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/resumator.py                                                                           | Python             |        104 |          0 |         20 |        124 |
+| /Volumes/Work/_own/autobid/bidengine/bidders/smartrecruiters.py                                                                     | Python             |        118 |          0 |         22 |        140 |
+| /Volumes/Work/_own/autobid/bidengine/config/config.py                                                                               | Python             |         14 |          0 |          4 |         18 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/_common.yaml                                                                    | YAML               |         84 |          0 |         19 |        103 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/greenhouse.yaml                                                                 | YAML               |          5 |          0 |          0 |          5 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/icims.yaml                                                                      | YAML               |          4 |          0 |          0 |          4 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/indeed.yaml                                                                     | YAML               |          4 |          0 |          0 |          4 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/jobprotocol.yaml                                                                | YAML               |          2 |          0 |          0 |          2 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/lever.yaml                                                                      | YAML               |         14 |          0 |          6 |         20 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/myworkdayjobs.yaml                                                              | YAML               |         63 |          0 |         14 |         77 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/1/resumator.yaml                                                                  | YAML               |          1 |          0 |          0 |          1 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/_common.yaml                                                                      | YAML               |        393 |          0 |         34 |        427 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/ashbyhq.yaml                                                                      | YAML               |          2 |          0 |          0 |          2 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/bamboohr.yaml                                                                     | YAML               |          7 |          0 |          0 |          7 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/dover.yaml                                                                        | YAML               |          2 |          0 |          0 |          2 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/greenhouse.yaml                                                                   | YAML               |          7 |          0 |          0 |          7 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/jobprotocol.yaml                                                                  | YAML               |          8 |          0 |          0 |          8 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/jobvite.yaml                                                                      | YAML               |          5 |          0 |          1 |          6 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/lever.yaml                                                                        | YAML               |        119 |          0 |          4 |        123 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/linkedin.yaml                                                                     | YAML               |         14 |          0 |          6 |         20 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/myworkdayjobs.yaml                                                                | YAML               |         20 |          0 |          4 |         24 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/recruitics.yaml                                                                   | YAML               |          2 |          0 |          0 |          2 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/common/resumator.yaml                                                                    | YAML               |          2 |          0 |          0 |          2 |
+| /Volumes/Work/_own/autobid/bidengine/db/qa/skill/skill_matrix.yaml                                                                  | YAML               |        211 |          0 |          0 |        211 |
+| /Volumes/Work/_own/autobid/bidengine/debug.log                                                                                      | Log                |          0 |          0 |          1 |          1 |
+| /Volumes/Work/_own/autobid/bidengine/driver.py                                                                                      | Python             |         76 |          0 |          9 |         85 |
+| /Volumes/Work/_own/autobid/bidengine/glvar.py                                                                                       | Python             |          4 |          0 |          1 |          5 |
+| /Volumes/Work/_own/autobid/bidengine/indeed.py                                                                                      | Python             |        266 |         30 |         35 |        331 |
+| /Volumes/Work/_own/autobid/bidengine/main.py                                                                                        | Python             |         83 |          0 |         13 |         96 |
+| /Volumes/Work/_own/autobid/bidengine/profile_viewer.py                                                                              | Python             |          5 |          0 |          1 |          6 |
+| /Volumes/Work/_own/autobid/bidengine/requirements.txt                                                                               | pip requirements   |        180 |          0 |          1 |        181 |
+| /Volumes/Work/_own/autobid/bidengine/router.py                                                                                      | Python             |        236 |          0 |         40 |        276 |
+| /Volumes/Work/_own/autobid/bidengine/skill_occurence_matrix.py                                                                      | Python             |         35 |          0 |          2 |         37 |
+| /Volumes/Work/_own/autobid/bidengine/skill_occurence_rate.py                                                                        | Python             |         22 |          0 |          1 |         23 |
+| /Volumes/Work/_own/autobid/bidengine/test/page_data.html                                                                            | HTML               |          1 |          0 |          2 |          3 |
+| /Volumes/Work/_own/autobid/bidengine/test/ppp.html                                                                                  | HTML               |        103 |         11 |         97 |        211 |
+| /Volumes/Work/_own/autobid/bidengine/test4.py                                                                                       | Python             |          6 |          0 |          0 |          6 |
+| /Volumes/Work/_own/autobid/bidengine/test5.py                                                                                       | Python             |         16 |          0 |          5 |         21 |
+| /Volumes/Work/_own/autobid/bidengine/test6.py                                                                                       | Python             |          2 |          1 |          1 |          4 |
+| /Volumes/Work/_own/autobid/bidengine/test7.py                                                                                       | Python             |          1 |          0 |          0 |          1 |
+| /Volumes/Work/_own/autobid/bidengine/test_chrome.py                                                                                 | Python             |         11 |          0 |          2 |         13 |
+| /Volumes/Work/_own/autobid/bidengine/test_get_answer.py                                                                             | Python             |          4 |          3 |          2 |          9 |
+| /Volumes/Work/_own/autobid/bidengine/test_job_db.py                                                                                 | Python             |          3 |          0 |          1 |          4 |
+| /Volumes/Work/_own/autobid/bidengine/utils/answers.py                                                                               | Python             |        247 |          2 |         33 |        282 |
+| /Volumes/Work/_own/autobid/bidengine/utils/db.py                                                                                    | Python             |         19 |          0 |          2 |         21 |
+| /Volumes/Work/_own/autobid/bidengine/utils/debugger.py                                                                              | Python             |          7 |          1 |          4 |         12 |
+| /Volumes/Work/_own/autobid/bidengine/utils/job_parser.py                                                                            | Python             |        129 |          1 |         16 |        146 |
+| /Volumes/Work/_own/autobid/bidengine/utils/logger.py                                                                                | Python             |         31 |          1 |          7 |         39 |
+| /Volumes/Work/_own/autobid/bidengine/utils/resume.py                                                                                | Python             |         62 |          4 |          8 |         74 |
+| /Volumes/Work/_own/autobid/bidengine/webinterface.py                                                                                | Python             |         38 |          0 |          6 |         44 |
+| /Volumes/Work/_own/autobid/email-dump/.eslintrc.js                                                                                  | JavaScript         |         14 |          0 |          1 |         15 |
+| /Volumes/Work/_own/autobid/email-dump/.gitlab-ci.yml                                                                                | YAML               |         26 |          1 |          5 |         32 |
+| /Volumes/Work/_own/autobid/email-dump/README.md                                                                                     | Markdown           |         84 |          0 |         39 |        123 |
+| /Volumes/Work/_own/autobid/email-dump/browser-test.html                                                                             | HTML               |          8 |          1 |          1 |         10 |
+| /Volumes/Work/_own/autobid/email-dump/jest.config.js                                                                                | JavaScript         |         10 |          0 |          1 |         11 |
+| /Volumes/Work/_own/autobid/email-dump/package-lock.json                                                                             | JSON               |      5,595 |          0 |          1 |      5,596 |
+| /Volumes/Work/_own/autobid/email-dump/package.json                                                                                  | JSON               |         60 |          0 |          1 |         61 |
+| /Volumes/Work/_own/autobid/email-dump/src/db/index.ts                                                                               | TypeScript         |         92 |          0 |          8 |        100 |
+| /Volumes/Work/_own/autobid/email-dump/src/db/schema.ts                                                                              | TypeScript         |        108 |          1 |          5 |        114 |
+| /Volumes/Work/_own/autobid/email-dump/src/email/email.types.ts                                                                      | TypeScript         |         18 |          0 |          1 |         19 |
+| /Volumes/Work/_own/autobid/email-dump/src/email/parser.ts                                                                           | TypeScript         |         92 |          8 |         11 |        111 |
+| /Volumes/Work/_own/autobid/email-dump/src/email/sync.ts                                                                             | TypeScript         |        140 |          1 |         18 |        159 |
+| /Volumes/Work/_own/autobid/email-dump/src/main.ts                                                                                   | TypeScript         |         18 |          0 |          3 |         21 |
+| /Volumes/Work/_own/autobid/email-dump/src/recognizer/index.ts                                                                       | TypeScript         |        264 |         30 |         53 |        347 |
+| /Volumes/Work/_own/autobid/email-dump/src/recognizer/temp.ts                                                                        | TypeScript         |        299 |          6 |         63 |        368 |
+| /Volumes/Work/_own/autobid/email-dump/src/test.ts                                                                                   | TypeScript         |         47 |         13 |          8 |         68 |
+| /Volumes/Work/_own/autobid/email-dump/src/test2.ts                                                                                  | TypeScript         |         47 |          2 |          7 |         56 |
+| /Volumes/Work/_own/autobid/email-dump/src/utils.ts                                                                                  | TypeScript         |          5 |          0 |          1 |          6 |
+| /Volumes/Work/_own/autobid/email-dump/src/view.ts                                                                                   | TypeScript         |         30 |          1 |          3 |         34 |
+| /Volumes/Work/_own/autobid/email-dump/training_data.json                                                                            | JSON               |      7,241 |          0 |          1 |      7,242 |
+| /Volumes/Work/_own/autobid/email-dump/tsconfig.json                                                                                 | JSON with Comments |         35 |          3 |          0 |         38 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.base.ts                                                             | TypeScript         |         40 |          8 |          9 |         57 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.eslint.ts                                                           | TypeScript         |          1 |          1 |          2 |          4 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.main.prod.ts                                                        | TypeScript         |         52 |         17 |         14 |         83 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.preload.dev.ts                                                      | TypeScript         |         40 |         19 |         13 |         72 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.dev.dll.ts                                                 | TypeScript         |         47 |         15 |         16 |         78 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.dev.ts                                                     | TypeScript         |        175 |         20 |         19 |        214 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.config.renderer.prod.ts                                                    | TypeScript         |        115 |         15 |         16 |        146 |
+| /Volumes/Work/_own/autobid/frontend/.erb/configs/webpack.paths.ts                                                                   | TypeScript         |         31 |          0 |          8 |         39 |
+| /Volumes/Work/_own/autobid/frontend/.erb/img/erb-banner.svg                                                                         | XML                |         32 |          0 |          1 |         33 |
+| /Volumes/Work/_own/autobid/frontend/.erb/img/palette-sponsor-banner.svg                                                             | XML                |          6 |          0 |          1 |          7 |
+| /Volumes/Work/_own/autobid/frontend/.erb/mocks/fileMock.js                                                                          | JavaScript         |          1 |          0 |          1 |          2 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/check-build-exists.ts                                                              | TypeScript         |         20 |          1 |          4 |         25 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/check-native-dep.js                                                                | JavaScript         |         50 |          3 |          2 |         55 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/check-node-env.js                                                                  | JavaScript         |         14 |          0 |          3 |         17 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/check-port-in-use.js                                                               | JavaScript         |         14 |          0 |          3 |         17 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/clean.js                                                                           | JavaScript         |         10 |          0 |          3 |         13 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/delete-source-maps.js                                                              | JavaScript         |          7 |          0 |          2 |          9 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/electron-rebuild.js                                                                | JavaScript         |         19 |          0 |          2 |         21 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/link-modules.ts                                                                    | TypeScript         |          7 |          0 |          3 |         10 |
+| /Volumes/Work/_own/autobid/frontend/.erb/scripts/notarize.js                                                                        | JavaScript         |         25 |          0 |          6 |         31 |
+| /Volumes/Work/_own/autobid/frontend/.eslintrc.js                                                                                    | JavaScript         |         27 |          3 |          1 |         31 |
+| /Volumes/Work/_own/autobid/frontend/.github/FUNDING.yml                                                                             | YAML               |          3 |          1 |          2 |          6 |
+| /Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/1-Bug_report.md                                                          | Markdown           |         25 |         20 |         23 |         68 |
+| /Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/2-Question.md                                                            | Markdown           |          6 |         10 |          4 |         20 |
+| /Volumes/Work/_own/autobid/frontend/.github/ISSUE_TEMPLATE/3-Feature_request.md                                                     | Markdown           |          5 |          9 |          2 |         16 |
+| /Volumes/Work/_own/autobid/frontend/.github/config.yml                                                                              | YAML               |          6 |          0 |          1 |          7 |
+| /Volumes/Work/_own/autobid/frontend/.github/stale.yml                                                                               | YAML               |         11 |          6 |          1 |         18 |
+| /Volumes/Work/_own/autobid/frontend/.github/workflows/codeql-analysis.yml                                                           | YAML               |         31 |         29 |         13 |         73 |
+| /Volumes/Work/_own/autobid/frontend/.github/workflows/publish.yml                                                                   | YAML               |         34 |          4 |          9 |         47 |
+| /Volumes/Work/_own/autobid/frontend/.github/workflows/test.yml                                                                      | YAML               |         27 |          0 |          8 |         35 |
+| /Volumes/Work/_own/autobid/frontend/CHANGELOG.md                                                                                    | Markdown           |        341 |          0 |        193 |        534 |
+| /Volumes/Work/_own/autobid/frontend/CODE_OF_CONDUCT.md                                                                              | Markdown           |         57 |          0 |         20 |         77 |
+| /Volumes/Work/_own/autobid/frontend/README.md                                                                                       | Markdown           |        122 |          0 |         38 |        160 |
+| /Volumes/Work/_own/autobid/frontend/assets/assets.d.ts                                                                              | TypeScript         |         26 |          0 |          8 |         34 |
+| /Volumes/Work/_own/autobid/frontend/package-lock.json                                                                               | JSON               |     15,576 |          0 |          1 |     15,577 |
+| /Volumes/Work/_own/autobid/frontend/package.json                                                                                    | JSON               |        262 |         21 |          0 |        283 |
+| /Volumes/Work/_own/autobid/frontend/src/__tests__/App.test.tsx                                                                      | TypeScript React   |          8 |          0 |          2 |         10 |
+| /Volumes/Work/_own/autobid/frontend/src/job.types.ts                                                                                | TypeScript         |         81 |          0 |          2 |         83 |
+| /Volumes/Work/_own/autobid/frontend/src/main/api/autobidder.ts                                                                      | TypeScript         |        220 |          7 |         32 |        259 |
+| /Volumes/Work/_own/autobid/frontend/src/main/api/index.ts                                                                           | TypeScript         |        210 |          1 |         29 |        240 |
+| /Volumes/Work/_own/autobid/frontend/src/main/api/linkedin.ts                                                                        | TypeScript         |        240 |         47 |         30 |        317 |
+| /Volumes/Work/_own/autobid/frontend/src/main/api/pyengine.ts                                                                        | TypeScript         |         20 |          0 |          2 |         22 |
+| /Volumes/Work/_own/autobid/frontend/src/main/config/constant.ts                                                                     | TypeScript         |          6 |          0 |          4 |         10 |
+| /Volumes/Work/_own/autobid/frontend/src/main/db/index.ts                                                                            | TypeScript         |        221 |          8 |         20 |        249 |
+| /Volumes/Work/_own/autobid/frontend/src/main/main.ts                                                                                | TypeScript         |        293 |         18 |         33 |        344 |
+| /Volumes/Work/_own/autobid/frontend/src/main/preload.ts                                                                             | TypeScript         |         20 |          0 |          4 |         24 |
+| /Volumes/Work/_own/autobid/frontend/src/main/test.js                                                                                | JavaScript         |         51 |          1 |          4 |         56 |
+| /Volumes/Work/_own/autobid/frontend/src/main/test2.js                                                                               | JavaScript         |         14 |          1 |          2 |         17 |
+| /Volumes/Work/_own/autobid/frontend/src/main/util.ts                                                                                | TypeScript         |         11 |          1 |          2 |         14 |
+| /Volumes/Work/_own/autobid/frontend/src/main/util/myconsole.ts                                                                      | TypeScript         |          4 |          0 |          2 |          6 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/App.css                                                                            | CSS                |          3 |          4 |          1 |          8 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/App.tsx                                                                            | TypeScript React   |         13 |          2 |          2 |         17 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/AutoBidButton.tsx                                                       | TypeScript React   |         83 |          1 |          5 |         89 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/AutoBidPanel.tsx                                                        | TypeScript React   |         88 |          1 |          6 |         95 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/AwakeButton.tsx                                                         | TypeScript React   |         85 |          2 |          7 |         94 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/ConnectButton.tsx                                                       | TypeScript React   |         85 |          1 |          6 |         92 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/JobBoard.css                                                            | CSS                |         99 |          0 |         10 |        109 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/JobBoard.tsx                                                            | TypeScript React   |        459 |          0 |         22 |        481 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/Notification.tsx                                                        | TypeScript React   |        111 |          3 |          8 |        122 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/Sidebar.tsx                                                             | TypeScript React   |         44 |          1 |          5 |         50 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/components/SkipOnErrorButton.tsx                                                   | TypeScript React   |         83 |          1 |          5 |         89 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/index.ejs                                                                          | HTML               |         14 |          0 |          1 |         15 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/index.tsx                                                                          | TypeScript React   |          5 |          0 |          2 |          7 |
+| /Volumes/Work/_own/autobid/frontend/src/renderer/preload.d.ts                                                                       | TypeScript         |         16 |          0 |          3 |         19 |
+| /Volumes/Work/_own/autobid/frontend/tsconfig.json                                                                                   | JSON with Comments |         19 |          0 |          1 |         20 |
+| /Volumes/Work/_own/autobid/frontend/workspace.json                                                                                  | JSON               |         13 |          0 |          1 |         14 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.base.ts                                             | TypeScript         |         40 |          8 |          9 |         57 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.eslint.ts                                           | TypeScript         |          1 |          1 |          2 |          4 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.main.prod.ts                                        | TypeScript         |         52 |         17 |         14 |         83 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.preload.dev.ts                                      | TypeScript         |         40 |         19 |         13 |         72 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.dev.dll.ts                                 | TypeScript         |         47 |         15 |         16 |         78 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.dev.ts                                     | TypeScript         |        175 |         20 |         19 |        214 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.config.renderer.prod.ts                                    | TypeScript         |        115 |         15 |         16 |        146 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/configs/webpack.paths.ts                                                   | TypeScript         |         31 |          0 |          8 |         39 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/img/erb-banner.svg                                                         | XML                |         32 |          0 |          1 |         33 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/img/palette-sponsor-banner.svg                                             | XML                |          6 |          0 |          1 |          7 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/mocks/fileMock.js                                                          | JavaScript         |          1 |          0 |          1 |          2 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-build-exists.ts                                              | TypeScript         |         20 |          1 |          4 |         25 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-native-dep.js                                                | JavaScript         |         50 |          3 |          2 |         55 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-node-env.js                                                  | JavaScript         |         14 |          0 |          3 |         17 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/check-port-in-use.js                                               | JavaScript         |         14 |          0 |          3 |         17 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/clean.js                                                           | JavaScript         |         10 |          0 |          3 |         13 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/delete-source-maps.js                                              | JavaScript         |          7 |          0 |          2 |          9 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/electron-rebuild.js                                                | JavaScript         |         19 |          0 |          2 |         21 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/link-modules.ts                                                    | TypeScript         |          7 |          0 |          3 |         10 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.erb/scripts/notarize.js                                                        | JavaScript         |         25 |          0 |          6 |         31 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.eslintrc.js                                                                    | JavaScript         |         27 |          3 |          1 |         31 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/FUNDING.yml                                                             | YAML               |          3 |          1 |          2 |          6 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/1-Bug_report.md                                          | Markdown           |         25 |         20 |         23 |         68 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/2-Question.md                                            | Markdown           |          6 |         10 |          4 |         20 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/ISSUE_TEMPLATE/3-Feature_request.md                                     | Markdown           |          5 |          9 |          2 |         16 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/config.yml                                                              | YAML               |          6 |          0 |          1 |          7 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/stale.yml                                                               | YAML               |         11 |          6 |          1 |         18 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/codeql-analysis.yml                                           | YAML               |         31 |         29 |         13 |         73 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/publish.yml                                                   | YAML               |         34 |          4 |          9 |         47 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/.github/workflows/test.yml                                                      | YAML               |         27 |          0 |          8 |         35 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/CHANGELOG.md                                                                    | Markdown           |        341 |          0 |        193 |        534 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/CODE_OF_CONDUCT.md                                                              | Markdown           |         57 |          0 |         20 |         77 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/README.md                                                                       | Markdown           |        122 |          0 |         38 |        160 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/assets/assets.d.ts                                                              | TypeScript         |         26 |          0 |          8 |         34 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/package-lock.json                                                               | JSON               |     15,712 |          0 |          1 |     15,713 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/package.json                                                                    | JSON               |        264 |         21 |          0 |        285 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/__tests__/App.test.tsx                                                      | TypeScript React   |          8 |          0 |          2 |         10 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/job.types.ts                                                                | TypeScript         |         75 |          0 |          2 |         77 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/api/index.ts                                                           | TypeScript         |         83 |          0 |         12 |         95 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/config/constant.ts                                                     | TypeScript         |          5 |          0 |          3 |          8 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/db/index.ts                                                            | TypeScript         |        219 |          7 |         17 |        243 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/main.ts                                                                | TypeScript         |        129 |         14 |         25 |        168 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/preload.ts                                                             | TypeScript         |         20 |          0 |          4 |         24 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/util.ts                                                                | TypeScript         |         11 |          1 |          2 |         14 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/main/util/myconsole.ts                                                      | TypeScript         |          5 |          0 |          2 |          7 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/App.css                                                            | CSS                |          4 |          4 |          1 |          9 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/App.tsx                                                            | TypeScript React   |         32 |          2 |          3 |         37 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/JDPage.tsx                                              | TypeScript React   |         72 |          0 |          9 |         81 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/JobMeta.tsx                                             | TypeScript React   |         96 |          1 |          8 |        105 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/Panel.tsx                                               | TypeScript React   |         17 |          5 |          5 |         27 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/ResumePage.tsx                                          | TypeScript React   |         75 |          0 |          7 |         82 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/Sidebar.tsx                                             | TypeScript React   |         82 |          0 |          5 |         87 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/jdpage.css                                              | CSS                |         18 |          0 |          1 |         19 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/jobmeta.css                                             | CSS                |         46 |          0 |          6 |         52 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/panel.css                                               | CSS                |         50 |          0 |          8 |         58 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/resumepage.css                                          | CSS                |         35 |          0 |         15 |         50 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/components/sidebar.css                                             | CSS                |          4 |          0 |          1 |          5 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/context/AppContext.tsx                                             | TypeScript React   |          3 |          0 |          2 |          5 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/index.ejs                                                          | HTML               |         14 |          0 |          1 |         15 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/index.tsx                                                          | TypeScript React   |          5 |          0 |          2 |          7 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/src/renderer/preload.d.ts                                                       | TypeScript         |         16 |          0 |          3 |         19 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/tsconfig.json                                                                   | JSON with Comments |         19 |          0 |          1 |         20 |
+| /Volumes/Work/_own/autobid/interview-prepare-assist/workspace.json                                                                  | JSON               |         13 |          0 |          1 |         14 |
+| /Volumes/Work/_own/autobid/jengine/index.js                                                                                         | JavaScript         |        113 |          0 |          9 |        122 |
+| /Volumes/Work/_own/autobid/jengine/package.json                                                                                     | JSON               |         21 |          0 |          1 |         22 |
+| /Volumes/Work/_own/autobid/jengine/parser/location_parser.js                                                                        | JavaScript         |         64 |          0 |          4 |         68 |
+| /Volumes/Work/_own/autobid/jengine/parser/location_reader.js                                                                        | JavaScript         |         10 |          0 |          3 |         13 |
+| /Volumes/Work/_own/autobid/jengine/parser/sentence_reader.js                                                                        | JavaScript         |          9 |          0 |          1 |         10 |
+| /Volumes/Work/_own/autobid/jengine/parser/skill_parser.js                                                                           | JavaScript         |        161 |          2 |         16 |        179 |
+| /Volumes/Work/_own/autobid/jengine/parser/skill_reader.js                                                                           | JavaScript         |         18 |          0 |          3 |         21 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/daily_post_rate.py                                                                  | Python             |         57 |         11 |         13 |         81 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/efficient_words.py                                                                  | Python             |         43 |          0 |          7 |         50 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/requirements.txt                                                                    | pip requirements   |         14 |          0 |          1 |         15 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/test.py                                                                             | Python             |          7 |          1 |          3 |         11 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/top_positions.py                                                                    | Python             |         38 |          0 |          7 |         45 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/top_poster.py                                                                       | Python             |         34 |          0 |          8 |         42 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/util/tmzone.py                                                                      | Python             |          9 |          1 |          3 |         13 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/utils.py                                                                            | Python             |          4 |          0 |          0 |          4 |
+| /Volumes/Work/_own/autobid/job-analysis-toolkit/weekly_post_rate.py                                                                 | Python             |         25 |          0 |          9 |         34 |
+| /Volumes/Work/_own/autobid/package-lock.json                                                                                        | JSON               |        207 |          0 |          1 |        208 |
+| /Volumes/Work/_own/autobid/package.json                                                                                             | JSON               |         43 |          0 |          7 |         50 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/.ipynb_checkpoints/preprocess_training_data-checkpoint.ipynb | JSON               |        567 |          0 |          1 |        568 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/training_data.json                                           | JSON               |      7,241 |          0 |          1 |      7,242 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Data/training_data_original.json                                  | JSON               |     10,365 |      4,395 |          1 |     14,761 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/config.cfg                                                  | Properties         |        110 |          0 |         19 |        129 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/meta.json                                                   | JSON               |         32 |          0 |          1 |         33 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/vocab/strings.json                                          | JSON               |      4,074 |          0 |          0 |      4,074 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/Model/vocab/vectors.cfg                                           | Properties         |          3 |          0 |          0 |          3 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/README.md                                                         | Markdown           |         21 |          0 |         13 |         34 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/test_model.py                                                     | Python             |         92 |         34 |         22 |        148 |
+| /Volumes/Work/_own/autobid/pyjengine/company_name_detection_model/train_model.py                                                    | Python             |         90 |         32 |         21 |        143 |
+| /Volumes/Work/_own/autobid/pyjengine/config.py                                                                                      | Python             |          8 |          0 |          1 |          9 |
+| /Volumes/Work/_own/autobid/pyjengine/db/__init__.py                                                                                 | Python             |          6 |          0 |          1 |          7 |
+| /Volumes/Work/_own/autobid/pyjengine/emailparser.py                                                                                 | Python             |         11 |          0 |          2 |         13 |
+| /Volumes/Work/_own/autobid/pyjengine/job_familarity_model/config.py                                                                 | Python             |          6 |          0 |          2 |          8 |
+| /Volumes/Work/_own/autobid/pyjengine/job_familarity_model/prediction.py                                                             | Python             |         28 |          0 |          4 |         32 |
+| /Volumes/Work/_own/autobid/pyjengine/job_familarity_model/train_model.py                                                            | Python             |        106 |         16 |         30 |        152 |
+| /Volumes/Work/_own/autobid/pyjengine/job_familarity_model/utils.py                                                                  | Python             |         63 |          0 |          7 |         70 |
+| /Volumes/Work/_own/autobid/pyjengine/main.py                                                                                        | Python             |         68 |          0 |         17 |         85 |
+| /Volumes/Work/_own/autobid/pyjengine/requirements.txt                                                                               | pip requirements   |         44 |          0 |          1 |         45 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/__init__.py                                                                             | Python             |          4 |          0 |          0 |          4 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/_sentencedb.py                                                                          | Python             |         13 |          0 |          3 |         16 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/_template.py                                                                            | Python             |         20 |          0 |          6 |         26 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/config.py                                                                               | Python             |          4 |          0 |          2 |          6 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/file.py                                                                                 | Python             |         55 |          4 |          5 |         64 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/metadata.py                                                                             | Python             |         12 |          1 |          3 |         16 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/sentences.py                                                                            | Python             |        134 |         12 |         16 |        162 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/skillmatrix.py                                                                          | Python             |         95 |          2 |         11 |        108 |
+| /Volumes/Work/_own/autobid/pyjengine/resume/utils.py                                                                                | Python             |         36 |          0 |          5 |         41 |
+| /Volumes/Work/_own/autobid/pyjengine/run.sh                                                                                         | Shell Script       |          1 |          0 |          0 |          1 |
+| /Volumes/Work/_own/autobid/pyjengine/skill/skill_tree.py                                                                            | Python             |         71 |          0 |         13 |         84 |
+| /Volumes/Work/_own/autobid/pyjengine/skill/utils.py                                                                                 | Python             |         34 |          0 |          9 |         43 |
+| /Volumes/Work/_own/autobid/pyjengine/train_job_familarity_model.py                                                                  | Python             |          1 |          2 |          0 |          3 |
+| /Volumes/Work/_own/autobid/skill-tree/main.py                                                                                       | Python             |         55 |          9 |         14 |         78 |
+| /Volumes/Work/_own/autobid/skill-tree/missing_skills.py                                                                             | Python             |         43 |          0 |         12 |         55 |
+| /Volumes/Work/_own/autobid/skill-tree/requirements.txt                                                                              | pip requirements   |         12 |          0 |          1 |         13 |
+| Total                                                                                                                               |                    |     82,476 |      5,222 |      2,673 |     90,371 |
++-------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

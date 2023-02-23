@@ -5,32 +5,14 @@ from keras.layers import Embedding
 from keras.layers import GRU, LSTM
 from keras.layers import Conv1D, MaxPooling1D
 import numpy as np
-from keras.preprocessing.text import Tokenizer
-import random
-import math
 
-from utils.skills import get_skill_list, get_required_skill_groups
-from utils import db
-from job import get_jd_score
+import db
+from .config import EMBEDDING_DIM, MAX_SEQUENCE_LENGTH, MODEL_SAVE_PATH
+from .utils import get_required_skill_index_sequence, to_understandable_skill_name, predetermine_jd_fitness, get_understandable_skill_list
 
 from gensim.models.keyedvectors import KeyedVectors
 word_vect = KeyedVectors.load_word2vec_format("./job_familarity_model/Model/SO_vectors_200.bin", binary=True)
 
-
-EMBEDDING_DIM = word_vect['react'].shape[0]
-MAX_SEQUENCE_LENGTH = 40
-alternative = {
-    "spa-framework": "singlepageapplication",
-    "ethersjs": "ethers",
-    "nestjs": "expressjs",
-    "design-system": "design",
-    "design-tool": "design",
-    "collaboration-tool": "collaboration",
-    "frontend-architecture": "architecture",
-    "backend-architecture": "architecture",
-    "dailystandup": "standup",
-    "uniswap": "ethereum"
-}
 
 def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses):
     global EMBEDDING_DIM, MAX_SEQUENCE_LENGTH
@@ -63,6 +45,9 @@ def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses):
     model.add(Dropout(0.25))
     model.add(Conv1D(filters, kernel_size, activation='relu'))
     model.add(MaxPooling1D(pool_size=pool_size))
+    model.add(Conv1D(filters, kernel_size, activation='relu'))
+    model.add(MaxPooling1D(pool_size=pool_size))
+    model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
     model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
     model.add(LSTM(gru_node, recurrent_dropout=0.2))
     model.add(Dense(32, activation='relu'))
@@ -77,23 +62,14 @@ def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses):
     print("Model built")
     return model
 
-def to_understandable_skill(full_name):
-    skill_name = full_name.lower().replace(" ", "-").replace(".", "")
-    if skill_name in alternative:
-        skill_name = alternative[skill_name]
-    return skill_name
+
 
 def load_data():
     print("Loading training data...")
     word_index = {}
     embeddings_index = {}
 
-    skills = get_skill_list()
-    skill_name_list = []
-    for index, full_name in enumerate(skills):
-        skill_name = to_understandable_skill(full_name)
-        skill_name_list.append(skill_name)
-    skill_name_list = list(set(skill_name_list))
+    skill_name_list = get_understandable_skill_list()
     
     for index, skill_name in enumerate(skill_name_list):
         word_index[skill_name] = index + 1
@@ -113,23 +89,11 @@ def load_data():
     for job in jobs:
         count += 1
         description = job["pageData"]["description"]
-        groups = get_required_skill_groups(description)
-        occurences = [ to_understandable_skill(item["skillName"]) for sub_list in groups for item in sub_list ]
-        index_occurences = [ skill_name_list.index(occurence) + 1 for occurence in occurences ]
-        if len(index_occurences) < MAX_SEQUENCE_LENGTH:
-            index_occurences.extend([0] * (MAX_SEQUENCE_LENGTH - len(index_occurences)))
-        else:
-            index_occurences = index_occurences[0:MAX_SEQUENCE_LENGTH]
-            
+        index_occurences = get_required_skill_index_sequence(description, skill_name_list)
         x_data.append(index_occurences)
 
-        score = get_jd_score(description)
-        fit = True
-        if score >= 7.5:
-            fit = True
-        elif score <= 4.8:
-            fit = False
-        else:
+        fit = predetermine_jd_fitness(description)
+        if fit is None:
             fit = job["alreadyApplied"]
         y_data.append([0.0, 1.0] if fit else [1.0, 0.0])
         # if fit == False:
@@ -185,3 +149,4 @@ model_RCNN.fit(X_train, Y_train,
 predicted = model_RCNN.predict(X_test)
 predicted = np.argmax(predicted, axis=1)
 # print(metrics.classification_report(Y_test, predicted))
+model_RCNN.save(MODEL_SAVE_PATH)
