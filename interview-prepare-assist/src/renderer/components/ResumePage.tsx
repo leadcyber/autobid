@@ -30,7 +30,6 @@ export default function ResumePage() {
       try {
         const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/skillmatrix/detail`, { position, jd })
         setSkillMatrix(response.data)
-        console.log(response.data)
       } catch(err) {
         console.log("PyService not reachable.")
         setSkillMatrix([])
@@ -39,14 +38,14 @@ export default function ResumePage() {
 
     (async () => {
       try {
-        const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/sentences`, { position, jd })
+        const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/sentences/detail`, { position, jd })
         setSentences(response.data)
       } catch(err) {
         console.log("PyService not reachable.")
         setSentences([])
       }
     })();
-  }, [ job, pageData ])
+  }, [ pageData ])
 
   return (
     <div className="panel-resume">

@@ -1,4 +1,12 @@
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 300px;
+  height: calc(100vh - 5px);
+}
+
 .found-job-list {
   overflow: scroll;
-  height: calc(100vh - 200px);
+  flex: 1;
 }

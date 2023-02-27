@@ -10,17 +10,12 @@ import ResumePage from './ResumePage'
 export default function Panel() {
 
   return (
-    // <div className="page-container">
-      <SplitPane split="vertical" defaultSize="350px" minSize={50}>
-        <JobMeta/>
-        <SplitPane split="vertical" defaultSize="50%">
-          <JDPage/>
-          <ResumePage/>
-          </SplitPane>
-          {/*
-
-           */}
+    <SplitPane split="vertical" defaultSize="350px" minSize={50}>
+      <JobMeta/>
+      <SplitPane split="vertical" defaultSize="50%">
+        <JDPage/>
+        <ResumePage/>
       </SplitPane>
-    // </div>
+    </SplitPane>
   );
 }

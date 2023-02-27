@@ -33,11 +33,11 @@ export default function JobPage() {
   React.useEffect(() => {
     (async() => {
       let text: string = pageData?.description || ""
-      const response: any = await axios.post(`${serviceURL}/skill/highlights`, { jd: text })
-      const intervals: any[] = response.data
-      intervals.sort((a, b) => b[0] - a[0])
-      for(let interval of intervals) {
-        text = text.slice(0, interval[0]) + "<mark>" + text.slice(interval[0], interval[1]) + "</mark>" + text.slice(interval[1])
+      try {
+        let response: any = await axios.post(`${serviceURL}/jd/mark`, { jd: text })
+        text = response.data
+      } catch(err) {
+        text = "------------------ [ RAW ] ------------------<br/><br/>" + text
       }
       setPageContent(text)
     })()
@@ -49,7 +49,7 @@ export default function JobPage() {
   const onGenerateResume = React.useCallback(() => {
     if(!job || !pageData) return
     window.electron.ipcRenderer.sendMessage('generateResume', { jobId: job.id, position: job.position, jd: pageData.description });
-  }, [job, resumePath])
+  }, [job, pageData])
 
   return (
     <div className="panel-description">

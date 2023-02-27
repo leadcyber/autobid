@@ -105,29 +105,16 @@ export default function CheckboxSelectionGrid() {
       setRequiredSkills(_requiredSkills);
       setLocationKeywords(_locationKeywords);
 
-      const jd = _pageData?.description || "";
+      let jd = _pageData?.description || "";
 
       (async() => {
-        let text: string = jd
         try {
-          let response: any = await axios.post(`${serviceURL}/skill/highlights`, { jd: text })
-          let intervals: any[] = response.data
-          intervals.sort((a, b) => b[0] - a[0])
-          for(let interval of intervals) {
-            text = `${text.slice(0, interval[0])}<span class='highlight-skill'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
-          }
-
-          response = await axios.post(`${serviceURL}/location/highlights/tagged`, { jd: text })
-          intervals = response.data
-          intervals.sort((a, b) => b[0] - a[0])
-          for(let interval of intervals) {
-            text = `${text.slice(0, interval[0])}<span class='position-${interval[2].toLowerCase()}'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
-          }
-
+          let response: any = await axios.post(`${serviceURL}/jd/mark`, { jd })
+          jd = response.data
         } catch(err) {
-          text = "------------------ [ RAW ] ------------------<br/><br/>" + text
+          jd = "------------------ [ RAW ] ------------------<br/><br/>" + jd
         }
-        setMarkedJD(text)
+        setMarkedJD(jd)
       })();
 
       (async() => {

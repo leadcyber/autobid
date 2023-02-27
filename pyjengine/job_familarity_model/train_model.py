@@ -100,8 +100,8 @@ def load_data():
         #     print("----------" + job["position"] + "   :   " + str(score))
         #     print(" ".join(occurences))
 
-    x_data = x_data[1500:]
-    y_data = y_data[1500:]
+    # x_data = x_data[1500:]
+    # y_data = y_data[1500:]
     x_data_len = len(x_data)
 
     dataset = x_data

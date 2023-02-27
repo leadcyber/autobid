@@ -10,7 +10,7 @@ alternative = {
     "design-system": "design",
     "design-tool": "design",
     "collaboration-tool": "collaboration",
-    "frontend-architecture": "architecture",
+    "frontend-architecture": "frontend",
     "backend-architecture": "architecture",
     "dailystandup": "standup",
     "uniswap": "ethereum"

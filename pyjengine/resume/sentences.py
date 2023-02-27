@@ -5,7 +5,7 @@ from ._template import get_template_data
 from ._sentencedb import get_sentence_db
 import math
 
-def generate_resume_sentences(position: str, required_skills) -> str:
+def generate_detailed_resume_sentences(position: str, required_skills) -> str:
     (root, nodes) = get_skill_tree()
     template_type = get_most_relevant_template(position, required_skills)
     try:
@@ -35,16 +35,41 @@ def generate_resume_sentences(position: str, required_skills) -> str:
     for skill_name in nodes:
         level = nodes[skill_name].data["level"]
         levels[skill_name] = level
-   
+
+    skill_category_info = {
+        "frontend": { "score": 0.03, "skills": [], "fullname": "Front-End Development", "scale": 1.5, "default": ["React"] },
+        "backend":  { "score": 0.02, "skills": [], "fullname": "Back-End Development", "scale": 1, "default": ["Node"] },
+        "dev":      { "score": 0.01, "skills": [], "fullname": "Development Management", "scale": 0.3, "default": ["Agile"] },
+        "cloud":    { "score": 0, "skills": [], "fullname": "Cloud Development", "scale": 0.8, "default": ["AWS"] },
+        "database": { "score": 0, "skills": [], "fullname": "DB Administration", "scale": 0.7, "default": ["MySQL"] },
+        "mobile":   { "score": 0, "skills": [], "fullname": "Mobile Development", "scale": 0.7, "default": ["React Native"] },
+        "blockchain":   { "score": 0, "skills": [], "fullname": "Blockchain Development", "scale": 0.7, "default": ["Web3"] }
+    }
+    # Generate skill section
+    for required_skill in required_skills:
+        norm_skill = normalize_skill_name(required_skill["skill"])
+        max_category = { "score": 0, "category": "" }
+        for category in skill_category_info:
+            score = get_skill_relation_value(required_skill["skill"], category, nodes, 0.1) * required_skill["importance"]
+            skill_category_info[category]["score"] += score * skill_category_info[category]["scale"]
+            if max_category["score"] < score:
+                max_category = { "score": score, "category": category }
+        skill_category_info[max_category["category"]]["skills"].append(required_skill["skill"])
+    skill_categories = sorted([ (skill_category_info[item]["score"], item) for item in skill_category_info ], key=lambda x: x[0], reverse=True)
+    if len(filter(lambda x: x[0] > 0.1, skill_categories)) < 3:
+        skill_categories = skill_categories[:3]
+    
     # Calculate efficiency for every sentences and satisfaction value for every required skills
-    for skill in initial_satisfactions:
-        satisfactions[skill] = initial_satisfactions[skill]
     for (index, sentence) in enumerate(sentences):
         content = sentence["content"]
         relations = sentence["relation"]
         sentence_impact = sentence["impact"]
         sentence_impacts[content] = sentence_impact
-        # debugger.println(content)
+        exchangable = sentence["exchangable"]
+
+        for relation in 
+
+        skill_category_info[]
 
         efficiency = 0
         x = len(relations)
@@ -159,3 +184,7 @@ def generate_resume_sentences(position: str, required_skills) -> str:
             if inefficient_sentence["index"] < 12:
                 final_sentences[inefficient_sentence["index"]] = ordered_sentences[index]
     return final_sentences
+
+def generate_resume_sentences(position: str, required_skills) -> str:
+    sentences = generate_detailed_resume_sentences(position, required_skills)
+    return sentences

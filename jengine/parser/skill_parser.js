@@ -10,15 +10,27 @@ const getHighlightPositions = (jobDescription, skillData) => {
         const skill = skillData[skillName]
         if(!skill.pattern) continue
         skill.pattern.forEach((pattern) => {
-            const regFlag = pattern.endsWith("/ni") ? "g" : "ig"
-            if(pattern.endsWith("/ni")) {
-                pattern = pattern.replace("/ni", "")
+            let patternStr = "", patternGroup = 0
+            if(typeof pattern === "string") {
+                patternStr = pattern
+                patternGroup = 0
+            } else {
+                patternStr = pattern[0]
+                patternGroup = pattern[1]
             }
-            const re = new RegExp(pattern, regFlag)
+            const regFlag = patternStr.endsWith("/ni") ? "g" : "ig"
+            if(patternStr.endsWith("/ni")) {
+                patternStr = patternStr.replace("/ni", "")
+            }
+            const re = new RegExp(patternStr, regFlag)
 
             let match = null
             while ((match = re.exec(jobDescription)) != null) {
-                let start = match.index, end = match.index + match[0].length
+                console.log(match)
+                const currentIndex = jobDescription.indexOf(match[patternGroup], match.index)
+                console.log(match.index)
+                console.log(patternGroup)
+                let start = currentIndex, end = currentIndex + match[patternGroup].length
                 let included = false
                 for(let interval of intervals) {
                     if((start >= interval[0] && start < interval[1]) || (end > interval[0] && end <= interval[1])) {
@@ -27,7 +39,7 @@ const getHighlightPositions = (jobDescription, skillData) => {
                         included = true
                     }
                 }
-                if(!included) intervals.push([start, end])
+                if(!included) intervals.push([ start, end, match.index, match.index + match[0].length ])
             }
         })
     }
@@ -35,30 +47,42 @@ const getHighlightPositions = (jobDescription, skillData) => {
 }
 const getHighlightPositionsWithTags = (jobDescription, skillData) => {
     const intervals = getHighlightPositions(jobDescription, skillData)
+    console.log(intervals)
+    const taggedIntervals = []
     for(let interval of intervals) {
-        const substr = jobDescription.substring(interval[0], interval[1])
+        const substr = jobDescription.substring(interval[2], interval[3])
+        console.log(substr)
         let maxMatchLength = 0, maxMatchSkillName = ""
         for(let skillName in skillData) {
             const skill = skillData[skillName]
             if(!skill.pattern) continue
-            const maxLength = skill.pattern.reduce((res, pattern) => {
-                const regFlag = pattern.endsWith("/ni") ? "g" : "ig"
-                if(pattern.endsWith("/ni")) {
-                    pattern = pattern.replace("/ni", "")
+            const maxLengthStr = skill.pattern.reduce((res, pattern) => {
+                let patternStr = "", patternGroup = 0
+                if(typeof pattern === "string") {
+                    patternStr = pattern
+                    patternGroup = 0
+                } else {
+                    patternStr = pattern[0]
+                    patternGroup = pattern[1]
                 }
-                const re = new RegExp(pattern, regFlag)
+                const regFlag = patternStr.endsWith("/ni") ? "g" : "ig"
+                if(patternStr.endsWith("/ni")) {
+                    patternStr = patternStr.replace("/ni", "")
+                }
+                const re = new RegExp(patternStr, regFlag)
                 const match = re.exec(substr)
                 if(!match) return res
-                return res > match[0].length ? res : match[0].length
-            }, 0)
-            if(maxLength > maxMatchLength) {
-                maxMatchLength = maxLength
+                const currentIndex = substr.indexOf(match[patternGroup], match.index)
+                return res.length > match[patternGroup].length ? res : match[patternGroup]
+            }, "")
+            if(maxLengthStr.length > maxMatchLength) {
+                maxMatchLength = maxLengthStr.length
                 maxMatchSkillName = skillName
             }
         }
-        interval.push(maxMatchSkillName)
+        taggedIntervals.push([ interval[0], interval[1], maxMatchSkillName ])
     }
-    return intervals
+    return taggedIntervals
 }
 const getRequiredSkillGroupsPerSection = (section, skillData) => {
     const intervals = getHighlightPositionsWithTags(section, skillData)

@@ -79,21 +79,24 @@ export const disconnect = async() => {
     await mongoose.disconnect()
 }
 
-export const getJobList = async (positionFilter: string, companyFilter: string, limit: number, _alreadyApplied: boolean) => {
-  const companyRegExp = new RegExp(companyFilter, "ig")
+export const getJobList = async (query: any, limit: number, _alreadyApplied: boolean) => {
+  const companyRegExp = query.company?.length ? new RegExp(query.company, "ig") : null
+  delete query["company"]
   const jobDocs = await Jobs.find({ $and: [
     {available: true},
-    {position: new RegExp(positionFilter, "ig")},
     {alreadyApplied: _alreadyApplied},
-    {$not: {pageData: null} }
+    {$not: {pageData: null} },
+    ...Object.entries(query).map(([key, value]) => ({ [key]: new RegExp(value as string, "ig")})),
   ] }).sort({
     scannedDate: -1,
   }).populate("company")
+
   let jobs = []
   for(let doc of jobDocs) {
     const company = (doc.company as any)
     const companyName = company?.companyName
-    if(!companyRegExp.test(companyName)) continue
+
+    if(companyRegExp && !companyRegExp.test(companyName)) continue
     jobs.push({
       id: doc._id.toString(),
       category: doc.category,

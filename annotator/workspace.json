@@ -1,0 +1,13 @@
+{
+  "workspacePath": "/Volumes/Data/local_db",
+  "fitLevel": "fitlevel_position.json",
+  "supportedPlatForms": "supported_platforms.json",
+  "familarity": "familarity_dict.json",
+  "companyBlacklist": "company_blacklist.json",
+  "searchQuery": "search_query.json",
+  "proxy": "proxy.json",
+  "serviceURL": "http://localhost:7000",
+  "pyServiceURL": "http://localhost:7001",
+  "bidderURL": "http://localhost:6990",
+  "dashboardPort": 6991
+}

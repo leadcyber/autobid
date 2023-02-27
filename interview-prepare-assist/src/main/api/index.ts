@@ -57,7 +57,6 @@ export const getFamilarity = (jobDescription: string | undefined): number => {
     occurrence += count * Number(weight)
     total += Number(score) * count * Number(weight)
   }
-  console.log({ total, occurrence, normal })
   return total / occurrence / normal * 100
 }
 

@@ -7,9 +7,16 @@ import json
 from skill.utils import get_required_skills
 from config import PY_SERVICE_PORT
 from job_familarity_model.prediction import is_proper_position, is_proper_jd, get_jd_rate
+from job_familarity_model.utils import get_jd_score
 
 app = Flask(__name__)
 CORS(app)
+
+@app.post("/job/score")
+def get_job_score():
+    body = json.loads(request.data)
+    jd = body["jd"]
+    return {"score": get_jd_score(jd) }
 
 @app.post("/job/rate")
 def get_job_rate():
@@ -69,11 +76,22 @@ def generate_resume_detailed_skill_matrix():
 
 
 
+
 @app.post("/resume/generate/sentences")
 def generate_resume_sentences():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
-    return resume.generate_resume_sentences(body["position"], required_skills)
+    sentences = resume.generate_resume_sentences(body["position"], required_skills)
+    return sentences
+
+@app.post("/resume/generate/sentences/detail")
+def generate_detailed_resume_sentences():
+    body = json.loads(request.data)
+    required_skills = get_required_skills(body["jd"])
+    sentences = resume.generate_detailed_resume_sentences(body["position"], required_skills)
+    return sentences
+
+
 
 @app.post("/resume/generate/file")
 def generate_resume_file():

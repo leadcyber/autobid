@@ -24,17 +24,10 @@ import {
   connect as connectToDB
 } from "./db";
 
-import express from 'express'
-import cors from 'cors'
-
 const RESUME_DB_PATH = '/Volumes/Work/_own/autobid/log/resume'
 
 
 let mainWindow: BrowserWindow | null = null;
-const expressApp = express()
-expressApp.use(cors())
-expressApp.use(express.static(RESUME_DB_PATH))
-expressApp.listen(8512)
 
 connectToDB()
 
@@ -104,11 +97,11 @@ const createWindow = async () => {
 
 
 const handleIPC = () => {
-  ipcMain.on('getJobList', async (event, {position, company}) => {
+  ipcMain.on('query', async (event, query) => {
     const limit = 10
-    const jobList = await getJobList(position, company, limit, true)
+    const jobList = await getJobList(query, limit, true)
     if(jobList.length < limit) {
-      jobList.push(...(await getJobList(position, company, limit - jobList.length, false)))
+      jobList.push(...(await getJobList(query, limit - jobList.length, false)))
     }
     event.reply("jobList", jobList)
   })
@@ -130,11 +123,9 @@ const handleIPC = () => {
     }
   })
   ipcMain.on('openResume', async (event, path) => {
-    console.log(path)
     shell.openPath(path);
   })
   ipcMain.on('generateResume', async (event, { jobId, position, jd }) => {
-    console.log(jobId, position, jd)
     generateResume(jobId, position, jd)
   })
   ipcMain.on('openExternalUrl', async (event, url) => {
