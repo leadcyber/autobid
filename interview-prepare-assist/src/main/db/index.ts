@@ -4,6 +4,19 @@ import { PageData, Job, JobState } from '../../job.types'
 
 let ORIGINAL_START_DATE = new Date(2022, 7, 29)
 
+const qaSchema = new mongoose.Schema({
+  job_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Job"
+  },
+  platform: {
+    type: String
+  },
+  qa: {
+    type: Object
+  }
+})
+
 const companySchema = new mongoose.Schema({
   companyName: {
     type: String,
@@ -67,6 +80,7 @@ const jobSchema = new mongoose.Schema({
   }
 })
 
+export const QAs = mongoose.model('Bid_Question', qaSchema)
 export const Jobs = mongoose.model('Job', jobSchema)
 export const Companies = mongoose.model('Company', companySchema)
 
@@ -132,64 +146,6 @@ export const getNewlyFoundJobs = async (jobs: Job[]) => {
     return []
   }
 }
-
-export const addNewJobs = async (jobs: Job[]) => {
-  const companies = [ ...new Set(jobs.map(({ company }) => company)) ]
-  const companyRecords: {[key: string]: any} = {}
-  const companyRecordIdMap: {[key: string]: any} = {}
-  // Get company records ( id, companyName, postCount ) while ensuring all the companies are registered to DB.
-  for(let companyName of companies) {
-    let companyRecord = await Companies.findOne({companyName})
-    // Create new company record if it's new to DB
-    if(companyRecord === null) {
-      const newCompany = new Companies({
-        companyName,
-        postCount: 0
-      })
-      companyRecord = await newCompany.save()
-    }
-
-    companyRecords[companyName] = {
-      id: companyRecord._id,
-      postCount: companyRecord.postCount
-    }
-    companyRecordIdMap[companyRecord._id!.toString()] = companyName
-  }
-  // Insert all newly found jobs with found company ids.
-  const res = await Jobs.insertMany(jobs.map(job => ({
-    ...job,
-    company: companyRecords[job.company].id
-  })))
-  // Update job posting count per company in-memory
-  jobs.forEach(({company}) => {
-    companyRecords[company].postCount ++
-  })
-  // Update job posting count in DB
-  await Companies.updateMany({ $or: jobs.map(({ company }) => ({ companyName: company })) }, {$inc: { postCount: 1 }} )
-  // return new Job array
-  return res.map(doc => {
-    const companyId = doc.company!.toString()
-    const companyName = companyRecordIdMap[companyId]
-    return {
-      id: doc._id.toString(),
-      category: doc.category,
-      company: companyName,
-      position: doc.position,
-      postedAgo: doc.postedAgo,
-      postedDate: doc.postedDate,
-      scannedDate: doc.scannedDate,
-      copiedDate: doc.copiedDate,
-      location: doc.location,
-      salary: doc.salary,
-      jobUrl: doc.jobUrl,
-      identifier: doc.identifier,
-      state: doc.state,
-      available: doc.available,
-      postCount: companyRecords[companyName].postCount
-    }
-  })
-}
-
 export const getPageDataFromDB = async (jobId: string): Promise<PageData|null> => {
   const res = await Jobs.findOne({ _id: jobId }, { pageData: 1 })
   return res?.pageData
@@ -232,14 +188,7 @@ export const isAlreadyApplied = async (externalUrl: string) => {
   }
 }
 
-export const getRelatedJobCount = async (job: Job) => {
-  const limitDate = new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 7).toISOString()
-  const companyRecord = await Companies.findOne({companyName: job.company})
-  const companyId = companyRecord!._id
-  return {
-    companyJobs: await Jobs.count({ company: companyId }),
-    recentCompanyJobs: await Jobs.count({ company: companyId, postedDate: { $gte: limitDate.substring(0, 10) } }),
-    exactMatch: await Jobs.count({ company: companyId, position: job.position }),
-    recentExactMatch: await Jobs.count({ company: companyId, position: job.position, postedDate: { $gte: limitDate.substring(0, 10) } })
-  }
+export const getQAContentFromDB = async (jobId: string) => {
+  const doc = await QAs.findOne({ job_id: jobId })
+  return doc?.qa || {}
 }

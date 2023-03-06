@@ -81,14 +81,14 @@ def generate_resume_detailed_skill_matrix():
 def generate_resume_sentences():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
-    sentences = resume.generate_resume_sentences(body["position"], required_skills)
+    sentences = resume.generate_resume_sentences(body["position"], required_skills, body["jd"])
     return sentences
 
 @app.post("/resume/generate/sentences/detail")
 def generate_detailed_resume_sentences():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
-    sentences = resume.generate_detailed_resume_sentences(body["position"], required_skills)
+    sentences = resume.generate_detailed_resume_sentences(body["position"], required_skills, body["jd"])
     return sentences
 
 
@@ -97,7 +97,7 @@ def generate_detailed_resume_sentences():
 def generate_resume_file():
     body = json.loads(request.data)
     required_skills = get_required_skills(body["jd"])
-    resume.generate_resume_file(body["position"], required_skills, body["path"])
+    resume.generate_resume_file(body["position"], required_skills, body["jd"], body["path"])
     return ""
 
 app.run(port=PY_SERVICE_PORT)

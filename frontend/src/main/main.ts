@@ -34,6 +34,7 @@ import {
   setAlreadyApplied,
   isAlreadyApplied,
   getRelatedJobCount,
+  setAnnotation,
   connect as connectToDB
 } from "./db";
 import { Job, PageData, BidState, FetchMode } from '../job.types'
@@ -289,6 +290,9 @@ const handleIPC = () => {
   ipcMain.on('setRequestConnectMode', async (event, mode: boolean) => {
     setRequestConnectMode(mode)
     event.reply("requestConnectMode", getRequestConnectMode())
+  })
+  ipcMain.on('annotate', async (event, { jobId, value }) => {
+    setAnnotation(jobId, value)
   })
 }
 const updateRenderer = async () => {

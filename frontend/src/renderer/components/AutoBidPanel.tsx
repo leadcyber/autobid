@@ -70,7 +70,7 @@ export default () => {
           }
       </List>
       <Divider />
-      <Box sx={{ height: "calc(100vh - 500px)", overflowY: "scroll" }}>
+      <Box sx={{ height: "calc(100vh - 550px)", overflowY: "scroll" }}>
         <List>
             {queueState.length > 0 ?
             queueState.map((job, index) =>

@@ -7,6 +7,19 @@ let identifierCache: any = null
 const companyRecords: {[key: string]: any} = {}
 const companyRecordIdMap: {[key: string]: any} = {}
 
+
+const annotationSchema = new mongoose.Schema({
+  job: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Job",
+    index: true
+  },
+  annotation: {
+    type: Number,
+    default: 0
+  }
+})
+
 const companySchema = new mongoose.Schema({
   companyName: {
     type: String,
@@ -74,6 +87,7 @@ const jobSchema = new mongoose.Schema({
   }
 })
 
+export const Annotations = mongoose.model('Annotation', annotationSchema)
 export const Jobs = mongoose.model('Job', jobSchema)
 export const Companies = mongoose.model('Company', companySchema)
 
@@ -244,5 +258,18 @@ export const getRelatedJobCount = async (job: Job) => {
     recentCompanyJobs: await Jobs.count({ company: companyId, postedDate: { $gte: limitDate.substring(0, 10) } }),
     exactMatch: await Jobs.count({ company: companyId, position: job.position }),
     recentExactMatch: await Jobs.count({ company: companyId, position: job.position, postedDate: { $gte: limitDate.substring(0, 10) } })
+  }
+}
+
+export const setAnnotation = async(jobId: string, value: boolean) => {
+  const annotation = await Annotations.findOne({ job: jobId })
+  if(!annotation) {
+    const newAnnotation = new Annotations({
+      job: jobId,
+      annotation: value
+    })
+    await newAnnotation.save()
+  } else {
+    await Annotations.updateOne({ job: jobId }, { $set: { annotation: value } })
   }
 }

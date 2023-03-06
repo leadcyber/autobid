@@ -4,10 +4,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 
-import Notification from './Notification'
+import Notification from './NotificationSwitch'
 import AwakeButton from './AwakeButton'
 import AutoBidPanel from './AutoBidPanel'
 import { ListItemText } from '@mui/material';
+import NotificationSwitch from './NotificationSwitch';
+import OpenJDSwitch from './OpenJDSwitch';
 
 export default () => {
   const [fetchStatus, setFetchStatus] = useState<any>({
@@ -30,7 +32,10 @@ export default () => {
       <nav aria-label="secondary mailbox folders">
         <List>
           <ListItem disablePadding>
-            <Notification/>
+            <NotificationSwitch/>
+          </ListItem>
+          <ListItem disablePadding>
+            <OpenJDSwitch/>
           </ListItem>
           <ListItem disablePadding>
             <AwakeButton/>

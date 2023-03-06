@@ -1,0 +1,1 @@
+import job_familarity_model.train_model

@@ -26,20 +26,22 @@ const getHighlightPositions = (jobDescription, skillData) => {
 
             let match = null
             while ((match = re.exec(jobDescription)) != null) {
-                console.log(match)
                 const currentIndex = jobDescription.indexOf(match[patternGroup], match.index)
-                console.log(match.index)
-                console.log(patternGroup)
-                let start = currentIndex, end = currentIndex + match[patternGroup].length
+                let outerStart = match.index, outerEnd = match.index + match[0].length
+                let innerStart = currentIndex, innerEnd = currentIndex + match[patternGroup].length
+
                 let included = false
                 for(let interval of intervals) {
-                    if((start >= interval[0] && start < interval[1]) || (end > interval[0] && end <= interval[1])) {
-                        interval[0] = Math.min(start, interval[0])
-                        interval[1] = Math.max(end, interval[1])
+                    const [ is, ie, os, oe ] = interval
+                    if((outerStart >= os && outerStart < oe) || (outerEnd > os && outerEnd <= oe)) {
+                        interval[0] = innerStart
+                        interval[1] = innerEnd
+                        interval[2] = Math.min(outerStart, os)
+                        interval[3] = Math.max(outerEnd, oe)
                         included = true
                     }
                 }
-                if(!included) intervals.push([ start, end, match.index, match.index + match[0].length ])
+                if(!included) intervals.push([ innerStart, innerEnd, outerStart, outerEnd ])
             }
         })
     }
@@ -47,11 +49,9 @@ const getHighlightPositions = (jobDescription, skillData) => {
 }
 const getHighlightPositionsWithTags = (jobDescription, skillData) => {
     const intervals = getHighlightPositions(jobDescription, skillData)
-    console.log(intervals)
     const taggedIntervals = []
     for(let interval of intervals) {
         const substr = jobDescription.substring(interval[2], interval[3])
-        console.log(substr)
         let maxMatchLength = 0, maxMatchSkillName = ""
         for(let skillName in skillData) {
             const skill = skillData[skillName]
@@ -135,7 +135,6 @@ const getRequiredSkillsPerSection = (section, skillData) => {
         
         const importance = importances[occurence.skillName] || 0 + occurence.weight
         impact += skillData[skillName].affect
-        // console.log(skillData[skillName].affect)
         importances[occurence.skillName] = importance
         maxImportance = Math.max(maxImportance, importance)
     }
@@ -172,7 +171,6 @@ const getRequiredSkills = (jdHtml, skillData) => {
     for(let element of sections.contents()) {
         const section = $(element)
         const { impact, importances } = getRequiredSkillsPerSection(section.text(), skillData)
-        // console.log(impact, importances)
         for(let skillName in importances) {
             const requiredSkill = requiredSkills.find(({skill}) => skill === skillName)
             const skill = skillData[skillName]

@@ -6,6 +6,7 @@ import axios from 'axios'
 import './resumepage.css'
 
 const PY_SERVICE_URL = "http://localhost:7001"
+const sentenceCountPerCompany = [5, 4, 4, 4]
 
 export default function ResumePage() {
   const { job, pageData } = React.useContext(AppContext)
@@ -39,6 +40,7 @@ export default function ResumePage() {
     (async () => {
       try {
         const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/sentences/detail`, { position, jd })
+        console.log(response.data)
         setSentences(response.data)
       } catch(err) {
         console.log("PyService not reachable.")
@@ -46,6 +48,12 @@ export default function ResumePage() {
       }
     })();
   }, [ pageData ])
+
+  const dividerPos = sentenceCountPerCompany.reduce((total: number[], current: number, index: number) => {
+    if(index == 0) total.push(current)
+    else total.push(current + total[total.length - 1])
+    return total
+  }, [])
 
   return (
     <div className="panel-resume">
@@ -69,9 +77,24 @@ export default function ResumePage() {
           }
         </div>
         <hr/>
-        <div className="resume-sentences">
-          {sentences.map(sentence => (
-            <p key={sentence}>{sentence}</p>
+        <div className="resume-sentence-wrapper">
+          {sentences.map((sentence, index) => (
+            <>
+              { dividerPos.includes(index) && <hr/> }
+              <div key={sentence.content} className="resume-sentence">
+                <p className="resume-sentence-content">{sentence.content}</p>
+                {sentence.metadata &&
+                  <div className="resume-sentence-metadata">
+                    <p className="resume-sentence-score">
+                      {`${sentence.metadata.similarity.toFixed(3)} = ${sentence.metadata.vector_similarity.toFixed(3)} * ${sentence.metadata.focus_efficiency.toFixed(3)} * ${sentence.metadata.sentence_quality}`}
+                    </p>
+                    <p className="resume-sentence-relation">
+                      {`${sentence.metadata.among.join(" ")}  <=>  ${sentence.metadata.relations.join(" ")}`}
+                    </p>
+                  </div>
+                }
+              </div>
+            </>
           ))}
         </div>
       </div>

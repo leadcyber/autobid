@@ -10,8 +10,7 @@ import db
 from .config import EMBEDDING_DIM, MAX_SEQUENCE_LENGTH, MODEL_SAVE_PATH
 from .utils import get_required_skill_index_sequence, to_understandable_skill_name, predetermine_jd_fitness, get_understandable_skill_list
 
-from gensim.models.keyedvectors import KeyedVectors
-word_vect = KeyedVectors.load_word2vec_format("./job_familarity_model/Model/SO_vectors_200.bin", binary=True)
+from .word2vec import word_vect
 
 
 def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses):
@@ -86,15 +85,20 @@ def load_data():
 
     jobs = db.job_collection.find({"pageData.description": {"$not": {"$eq": None}}})
     count = 0
-    for job in jobs:
+    for index, job in enumerate(jobs):
+        print(index)
         count += 1
         description = job["pageData"]["description"]
         index_occurences = get_required_skill_index_sequence(description, skill_name_list)
-        x_data.append(index_occurences)
 
         fit = predetermine_jd_fitness(description)
         if fit is None:
-            fit = job["alreadyApplied"]
+            annotation = db.annotation_collection.find_one({ "job": job["_id"] })
+            if annotation is None:
+                continue
+            print(annotation["annotation"])
+            fit = annotation["annotation"]
+        x_data.append(index_occurences)
         y_data.append([0.0, 1.0] if fit else [1.0, 0.0])
         # if fit == False:
         #     print("----------" + job["position"] + "   :   " + str(score))

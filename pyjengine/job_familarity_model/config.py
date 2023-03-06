@@ -5,4 +5,4 @@ SKILL_PATH = "/Volumes/Data/local_db/skills.yaml"
 MODEL_SAVE_PATH = "./job_familarity_model/Model/familarity_model.h5"
 
 EMBEDDING_DIM = 200
-MAX_SEQUENCE_LENGTH = 40
+MAX_SEQUENCE_LENGTH = 50

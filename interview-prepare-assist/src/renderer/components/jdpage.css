@@ -3,11 +3,32 @@
   background-color: #fff;
   line-height: 1.5em;
 }
-.job-description {
+.job-description-wrapper {
   padding: 10px 20px;
   height: calc(100vh - 140px);
   overflow-y: scroll;
 }
+.job-description {
+}
+
+.job-qa {
+  font-size: 12px;
+}
+.qa-row {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+.qa-row .question {
+  width: 70%;
+  text-align: right;
+  margin-right: 15px;
+}
+.qa-row .answer {
+  width: 30%;
+  word-wrap: break-word ;
+}
+
 .resume-board {
   height: 100px;
   display: flex;

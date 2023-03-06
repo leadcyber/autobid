@@ -19,14 +19,14 @@ const getUrlSnippet = (url: string) => {
 export default function JobPage() {
   const { job, pageData, requiredSkills } = React.useContext(AppContext)
   const [ pageContent, setPageContent ] = React.useState<string>("")
-  const [ resumePath, setResumePath ] = React.useState<string>("")
+  const [ qaContent, setQAContent ] = React.useState<string>("")
 
   React.useEffect(() => {
-    const removeGetResumeListener = window.electron.ipcRenderer.on('resume', (resumePath: string) => {
-      setResumePath(resumePath)
+    const removeGetQAListener = window.electron.ipcRenderer.on('qa', (qa: any) => {
+      setQAContent(qa)
     });
     return () => {
-      removeGetResumeListener!()
+      removeGetQAListener!()
     }
   }, [])
 
@@ -40,12 +40,16 @@ export default function JobPage() {
         text = "------------------ [ RAW ] ------------------<br/><br/>" + text
       }
       setPageContent(text)
-    })()
+    })();
   }, [pageData])
 
+  React.useEffect(() => {
+    window.electron.ipcRenderer.sendMessage('getQA', job.id);
+  }, [job])
+
   const onOpenResume = React.useCallback(() => {
-    window.electron.ipcRenderer.sendMessage('openResume', resumePath);
-  }, [job, resumePath])
+    window.electron.ipcRenderer.sendMessage('openResume', job.id);
+  }, [job])
   const onGenerateResume = React.useCallback(() => {
     if(!job || !pageData) return
     window.electron.ipcRenderer.sendMessage('generateResume', { jobId: job.id, position: job.position, jd: pageData.description });
@@ -53,7 +57,23 @@ export default function JobPage() {
 
   return (
     <div className="panel-description">
-      <div className="job-description" dangerouslySetInnerHTML={{__html: pageContent}}>
+      <div className="job-description-wrapper">
+        <div className="job-description" dangerouslySetInnerHTML={{__html: pageContent}}></div>
+        <br/>
+        <br/>
+        <hr/>
+        <div className="job-qa">
+          {Object.entries(qaContent).map(([ question, answer ]) => (
+            <>
+              <hr/>
+              <div key={question} className="qa-row">
+                <div className="question">{question}</div>
+                <div className="answer">{answer}</div>
+              </div>
+            </>
+          ))
+          }
+        </div>
       </div>
       <hr/>
       <div className="resume-board">

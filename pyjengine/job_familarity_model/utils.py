@@ -13,7 +13,13 @@ alternative = {
     "frontend-architecture": "frontend",
     "backend-architecture": "architecture",
     "dailystandup": "standup",
-    "uniswap": "ethereum"
+    "uniswap": "ethereum",
+    "frontend-optimization": "frontend",
+    "pinia": "vuex",
+    "cloud-functions": "azure",
+    "cloud-datastore": "azure",
+    "azure-files": "azure",
+    "chakra-ui": "chakra"
 }
 
 def get_title_score(title: str, fit_level: any):

@@ -41,9 +41,27 @@
 
 
 
-.resume-sentences {
+.resume-sentence-wrapper {
 
 }
-.resume-sentences p {
+.resume-sentence {
+
+}
+.resume-sentence-content {
   font-size: 15px;
+}
+
+.resume-sentence-metadata {
+}
+.resume-sentence-score {
+  color: #55a;
+  margin-top: -10px;
+  margin-bottom: 0px;
+  font-size: 13px;
+}
+.resume-sentence-relation {
+  color: #a55;
+  margin-top: -5px;
+  margin-bottom: 0px;
+  font-size: 13px;
 }

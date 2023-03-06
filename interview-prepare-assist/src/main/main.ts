@@ -21,10 +21,11 @@ import {
 import {
   getJobList,
   getPageDataFromDB,
+  getQAContentFromDB,
   connect as connectToDB
 } from "./db";
 
-const RESUME_DB_PATH = '/Volumes/Work/_own/autobid/log/resume'
+const RESUME_DB_PATH = '/Volumes/Work/_own/autobid/bidengine/log/resume'
 
 
 let mainWindow: BrowserWindow | null = null;
@@ -111,10 +112,15 @@ const handleIPC = () => {
     const requiredSkills = await getRequiredSkills(pageData?.description!)
     event.reply("pageData", pageData, companyUrl, requiredSkills)
   })
+  ipcMain.on('getQA', async (event, jobId) => {
+    const qaContent = await getQAContentFromDB(jobId)
+    event.reply("qa", qaContent)
+  })
   ipcMain.on('getResume', async (event, jobId) => {
     if(!jobId || jobId == "") event.reply("resume", "")
     else {
-      const resumePath = `${RESUME_DB_PATH}/${jobId}.docx`
+      const resumePath = `${RESUME_DB_PATH}/${jobId}/Michael.C Resume.pdf`
+      console.log(resumePath)
       if(fs.existsSync(resumePath)) {
         event.reply("resume", resumePath)
       } else {
@@ -122,8 +128,10 @@ const handleIPC = () => {
       }
     }
   })
-  ipcMain.on('openResume', async (event, path) => {
-    shell.openPath(path);
+  ipcMain.on('openResume', async (event, jobId) => {
+    const resumePath = `${RESUME_DB_PATH}/${jobId}/Michael.C Resume.pdf`
+    console.log(resumePath)
+    shell.openPath(resumePath);
   })
   ipcMain.on('generateResume', async (event, { jobId, position, jd }) => {
     generateResume(jobId, position, jd)

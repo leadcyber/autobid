@@ -25,6 +25,7 @@ def is_proper_jd(detail):
         return predicted[0] < predicted[1]
     else:
         return fit
+
 def get_jd_rate(detail):
     global skill_name_list
     index_sequence = get_required_skill_index_sequence(detail, skill_name_list)

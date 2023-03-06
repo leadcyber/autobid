@@ -7,7 +7,7 @@ import path from 'path'
 
 export const generateResume = async (jobId: string, position: string, description: string) => {
   myConsole.log(`[generate-resume]: ${jobId}`)
-  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.docx`)
+  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.pdf`)
   try {
     await axios.post(`${workspaceSetting.pyServiceURL}/resume/generate/file`, {
       position,

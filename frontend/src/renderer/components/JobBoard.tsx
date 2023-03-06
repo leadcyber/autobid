@@ -1,4 +1,6 @@
-import * as React from 'react';
+import React, { useState, useCallback, useRef, useContext, useEffect } from 'react';
+import { AppContext } from '../context/AppContext'
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
@@ -7,6 +9,9 @@ import { DataGrid, GridRowsProp, GridSelectionModel, GridCellParams } from '@mui
 import { Job, JobState, JobRow, PageData, RequiredSkill, LocationKeyword } from '../../job.types';
 import _ from 'lodash';
 
+import AddIcon from '@mui/icons-material/Add';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ClearIcon from '@mui/icons-material/Clear';
 import CheckIcon from '@mui/icons-material/Check';
@@ -18,6 +23,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import DragHandleIcon from '@mui/icons-material/DragHandle';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import DownloadIcon from '@mui/icons-material/Download';
+import ViewSidebarIcon from '@mui/icons-material/ViewSidebar';
 import Drawer from '@mui/material/Drawer';
 
 import Chip from '@mui/material/Chip';
@@ -49,21 +55,23 @@ const columns = [
 
 export default function CheckboxSelectionGrid() {
   const [selectionModel, setSelectionModel] =
-    React.useState<GridSelectionModel>([]);
-  const previousSelection = React.useRef<string[]>([]);
-  const [ rows, setRows ] = React.useState<JobRow[]>([]);
-  const [ isSnackbarOpen, setSnackbarOpen ] = React.useState<boolean>(false);
-  const [ drawOpen, setDrawOpen ] = React.useState<boolean>(false);
-  const [ markedJD, setMarkedJD ] = React.useState<string>("");
-  const [ selectedJob, setSelectedJob ] = React.useState<Job | null>(null);
-  const [ pageData, setPageData ] = React.useState<PageData | null>(null)
-  const [ pageDataLoading, setPageDataLoading ] = React.useState<boolean>(false)
-  const [ autofillSupported, setAutofillSupport ] = React.useState<boolean>(false)
-  const [ isAlreadyApplied, setAlreadyApplied ] = React.useState<boolean>(false)
-  const [ relatedCount, setRelatedCount ] = React.useState<any>(null)
-  const [ requiredSkills, setRequiredSkills ] = React.useState<any[]>([])
-  const [ familarity, setFamilarity ] = React.useState<any[]>([])
-  const [ locationKeywords, setLocationKeywords ] = React.useState<any[]>([])
+    useState<GridSelectionModel>([]);
+  const previousSelection = useRef<string[]>([]);
+  const [ rows, setRows ] = useState<JobRow[]>([]);
+  const [ isSnackbarOpen, setSnackbarOpen ] = useState<boolean>(false);
+  const [ drawOpen, setDrawOpen ] = useState<boolean>(false);
+  const [ markedJD, setMarkedJD ] = useState<string>("");
+  const [ selectedJob, setSelectedJob ] = useState<Job | null>(null);
+  const [ pageData, setPageData ] = useState<PageData | null>(null)
+  const [ pageDataLoading, setPageDataLoading ] = useState<boolean>(false)
+  const [ autofillSupported, setAutofillSupport ] = useState<boolean>(false)
+  const [ isAlreadyApplied, setAlreadyApplied ] = useState<boolean>(false)
+  const [ relatedCount, setRelatedCount ] = useState<any>(null)
+  const [ requiredSkills, setRequiredSkills ] = useState<any[]>([])
+  const [ familarity, setFamilarity ] = useState<any[]>([])
+  const [ locationKeywords, setLocationKeywords ] = useState<any[]>([])
+
+  const { showJD } = useContext(AppContext)
 
   React.useEffect(() => {
     const removeUpdateListener = window.electron.ipcRenderer.on('update', (newJobs: Job[]) => {
@@ -134,13 +142,20 @@ export default function CheckboxSelectionGrid() {
     }
   }, []);
 
-  const handleSnackbarClose = React.useCallback((event: any, reason?: string) => {
+  useEffect(() => {
+    if(showJD) {
+      if(markedJD.length > 0)
+        setDrawOpen(true)
+    }
+  }, [ markedJD, showJD ])
+
+  const handleSnackbarClose = useCallback((event: any, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
     setSnackbarOpen(false);
   }, []);
-  const handleSelectionModelChange = React.useCallback(
+  const handleSelectionModelChange = useCallback(
     (newSelectionModel: any) => {
       let difference = _.difference(
         newSelectionModel,
@@ -154,7 +169,7 @@ export default function CheckboxSelectionGrid() {
     },
     [rows]
   );
-  const handleCellClick = React.useCallback((params: GridCellParams) => {
+  const handleCellClick = useCallback((params: GridCellParams) => {
     window.electron.ipcRenderer.sendMessage('copy', params.row.jobUrl);
     window.electron.ipcRenderer.sendMessage('markCopy', params.row);
     window.electron.ipcRenderer.sendMessage('getPageData', params.row);
@@ -163,44 +178,70 @@ export default function CheckboxSelectionGrid() {
     setSelectedJob(params.row);
   }, [rows])
 
-  const deleteFromDB = React.useCallback(() => {
+  const deleteFromDB = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('deleteFromDB', selectedJob?.id);
   }, [selectedJob])
-  const removeSelected = React.useCallback(() => {
+  const removeSelected = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('deleteCopied');
   }, []);
-  const clearAll = React.useCallback(() => {
+  const clearAll = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('deleteAll');
   }, []);
 
-  const onRefresh = React.useCallback(() => {
+  const onRefresh = useCallback(() => {
     if(selectedJob == null) return
     window.electron.ipcRenderer.sendMessage('fetchPageData', selectedJob);
     setPageDataLoading(true)
   }, [selectedJob])
-  const onEasyApply = React.useCallback((requestConnect: boolean) => {
+  const onEasyApply = useCallback((requestConnect: boolean) => {
     window.electron.ipcRenderer.sendMessage('applyExternal', { jobId: selectedJob?.id, applyUrl: pageData?.applyUrl, requestConnect});
     window.electron.ipcRenderer.sendMessage('setAppliedFlag', selectedJob?.id);
     setAlreadyApplied(true)
   }, [pageData, selectedJob])
-  const onApplyExternal = React.useCallback(() => {
+  const onApplyExternal = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('applyExternal', { jobId: selectedJob?.id, applyUrl: pageData?.applyUrl, requestConnect: false});
     window.electron.ipcRenderer.sendMessage('setAppliedFlag', selectedJob?.id);
     setAlreadyApplied(true)
   }, [pageData, selectedJob])
-  const onCopyExternal = React.useCallback(() => {
+  const onCopyExternal = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('copy', pageData?.applyUrl);
     window.electron.ipcRenderer.sendMessage('setAppliedFlag', selectedJob?.id);
     setAlreadyApplied(true)
   }, [pageData, selectedJob])
 
-  const onGenerateResume = React.useCallback(() => {
+  const onGenerateResume = useCallback(() => {
     window.electron.ipcRenderer.sendMessage('generateResume', {
       jobId: selectedJob?.id,
       position: selectedJob?.position,
       description: pageData?.description
     });
   }, [selectedJob, pageData])
+
+
+  const onUpVote = useCallback(() => {
+    window.electron.ipcRenderer.sendMessage('annotate', {
+      jobId: selectedJob?.id,
+      value: true
+    });
+    setDrawOpen(false)
+  }, [ selectedJob ])
+  const onDownVote = useCallback(() => {
+    window.electron.ipcRenderer.sendMessage('annotate', {
+      jobId: selectedJob?.id,
+      value: false
+    });
+    setDrawOpen(false)
+  }, [ selectedJob ])
+  const onUpVoteAndApply = useCallback((requestConnect: boolean) => {
+    window.electron.ipcRenderer.sendMessage('annotate', {
+      jobId: selectedJob?.id,
+      value: true
+    });
+    window.electron.ipcRenderer.sendMessage('applyExternal', { jobId: selectedJob?.id, applyUrl: pageData?.applyUrl, requestConnect});
+    window.electron.ipcRenderer.sendMessage('setAppliedFlag', selectedJob?.id);
+    setAlreadyApplied(true)
+    setDrawOpen(false)
+  }, [ selectedJob, pageData ])
 
   return (
     <>
@@ -257,6 +298,13 @@ export default function CheckboxSelectionGrid() {
                   >
                     Resume
                   </Button>
+                  <Button
+                    color="info"
+                    variant="contained"
+                    endIcon={<ViewSidebarIcon/>}
+                    size="small"
+                    onClick={() => setDrawOpen(true)}
+                  >J.D.</Button>
                   {
                     pageData.applyMode == "EasyApply" ? (
                       <>
@@ -355,7 +403,7 @@ export default function CheckboxSelectionGrid() {
             </Fab>
           </Box>
           <Box
-            sx={{ '& button': { m: 1 }, marginTop: '0px', display: "flex" }}
+            sx={{ '& button': { m: 1 }, marginTop: '0px', paddingBottom: '15px', display: "flex" }}
           >
             {pageDataLoading ? (
                 <div className="circular-progress-wrapper">
@@ -364,11 +412,34 @@ export default function CheckboxSelectionGrid() {
             ) : (pageData && !pageDataLoading &&
               <>
                 <div className="job-info">
-                  <span className="job-url">
-                    <a href="#">{pageData.applyUrl.substring(0, 80) + " ..."}</a>
-                    <p style={{ marginTop: 5, marginBottom: 5 }}>{selectedJob?.id}</p>
-                  </span>
-                  <div className="requirement-field">
+                  <div className="job-measure-panel">
+                    <div className="requirement-familarity">
+                      <span className="familarity-good">{familarity[1] * 100 | 0}</span>&nbsp;:&nbsp;
+                      <span className="familarity-bad">{familarity[0] * 100 | 0}</span>
+                    </div>
+                    {locationKeywords.map(({keyword, count, familarity}: LocationKeyword) =>
+                        <Chip
+                          key={keyword}
+                          label={`${keyword} ${count}`}
+                          size="medium"
+                          color={
+                            familarity >= 8 ? "success":
+                            familarity < 5 ? "error": "warning"
+                          }
+                          sx={{
+                            marginTop: "12px",
+                            transform: "scale(1.3)",
+                            width: "100px",
+                            border: "4px solid #dfdfdf"
+                          }}
+                        />
+                      )}
+                  </div>
+                  <div className="job-info-panel">
+                    <p>
+                      <a href="#" className="job-link">{pageData.applyUrl.substring(0, 50) + " ..."}&nbsp;&nbsp;<CopyAllIcon fontSize='small' sx={{ top: "4px", position: "relative" }}/></a>
+                      <a style={{ marginTop: 5, marginBottom: 5 }}>{selectedJob?.id}</a>
+                    </p>
                     <div className="requirement-chip">
                       {requiredSkills.map(({skill, familarity, importance}: RequiredSkill) =>
                         <Chip
@@ -385,17 +456,6 @@ export default function CheckboxSelectionGrid() {
                         />
                       )}
                     </div>
-                    <div className="requirement-familarity">
-                      <h2 className="familarity-good">{familarity[1] * 100 | 0}</h2>
-                      <h2 className="familarity-bad">{familarity[0] * 100 | 0}</h2>
-                      <p>%</p>
-                      <Button
-                        variant="contained"
-                        size="medium"
-                        sx={{ marginTop: "10px" }}
-                        onClick={() => setDrawOpen(true)}
-                      >J.D.</Button>
-                    </div>
                   </div>
                 </div>
                 {pageData.recruiter &&
@@ -411,20 +471,6 @@ export default function CheckboxSelectionGrid() {
                 }
                 {pageData.criterias &&
                   <div className="criteria">
-                    <p>
-                      {locationKeywords.map(({keyword, count, familarity}: LocationKeyword) =>
-                        <Chip
-                          key={keyword}
-                          label={`${keyword} ${count}`}
-                          size="small"
-                          color={
-                            familarity >= 8 ? "success":
-                            familarity < 5 ? "error": "warning"
-                          }
-                          sx={{ marginRight: "3px" }}
-                        />
-                      )}
-                    </p>
                     {
                       Object.entries(pageData.criterias).map(([cType, cValue]) =>
                         <p key={cType}>
@@ -444,7 +490,33 @@ export default function CheckboxSelectionGrid() {
         open={drawOpen}
         onClose={() => setDrawOpen(false)}
       >
-        <div dangerouslySetInnerHTML={{ __html: markedJD }} style={{ width: "800px", padding: "60px" }}>
+        <div className="drawer-wrapper">
+          <div className="annotation-pad" style={{ visibility: selectedJob ? "visible" : "hidden" }}>
+            <Fab color="success" aria-label="up-vote" onClick={ () => onUpVoteAndApply(false) }>
+              <ThumbUpIcon />
+              <AddIcon sx={{ fontSize: "14px" }}/>
+            </Fab>
+            <br/>
+            {pageData?.applyMode == "EasyApply" ? (
+              <>
+                <Fab color="success" aria-label="up-vote" onClick={ () => onUpVoteAndApply(true) }>
+                  <ThumbUpIcon />
+                  <AddIcon sx={{ fontSize: "14px" }}/>
+                  <AddIcon sx={{ fontSize: "14px", marginLeft: "-7px" }}/>
+                </Fab>
+                <br/>
+              </>
+            ): null}
+            <Fab color="success" aria-label="up-vote" onClick={ onUpVote }>
+              <ThumbUpIcon />
+            </Fab>
+            <br/>
+            <Fab color="error" aria-label="down-vote" onClick={ onDownVote }>
+              <ThumbDownIcon />
+            </Fab>
+          </div>
+          <div dangerouslySetInnerHTML={{ __html: markedJD }} className="jd-pad">
+          </div>
         </div>
       </Drawer>
       <Snackbar
