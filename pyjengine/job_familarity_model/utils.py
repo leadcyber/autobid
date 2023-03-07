@@ -19,7 +19,8 @@ alternative = {
     "cloud-functions": "azure",
     "cloud-datastore": "azure",
     "azure-files": "azure",
-    "chakra-ui": "chakra"
+    "chakra-ui": "chakra",
+    "uiux": "ui"
 }
 
 def get_title_score(title: str, fit_level: any):

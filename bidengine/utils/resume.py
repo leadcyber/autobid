@@ -20,7 +20,9 @@ def get_most_relevant_headline(position: str) -> str:
 
 def generate_resume_by_data(position: str, description: str, job_id: str = "") -> str:
     result_filename = job_id if job_id != "" else f'resume-{datetime.now().strftime("%d-%m-%Y %H-%M-%S")}'
-    os.mkdir(f'{LOG_RESUME_PATH}/{result_filename}')
+    abs_path = f'{LOG_RESUME_PATH}/{result_filename}'
+    if not os.path.exists(abs_path):
+        os.mkdir(abs_path)
     result_filepath = os.path.abspath(f'{LOG_RESUME_PATH}/{result_filename}/Michael.C Resume.pdf')
     request_body = json.dumps({
         "position": position,

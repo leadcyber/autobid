@@ -1,1 +1,4 @@
-flask --app main --debug run
+cd "$(dirname "$0")";
+
+source ./env/bin/activate
+python main.py

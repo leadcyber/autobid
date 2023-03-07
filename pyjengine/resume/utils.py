@@ -14,7 +14,7 @@ def get_most_relevant_headline(position: str) -> str:
 def get_most_relevant_template(position: str, required_skills: any):
     if re.search("full(.*?)stack", position, re.IGNORECASE):
         return "fullstack"
-    if re.search("(front(.*?)end)|react|angular|UI|UX|javascript|typescript|FE|Vue", position, re.IGNORECASE):
+    if re.search("(front(.*?)end)|react|angular|UI|UX|javascript|typescript|FE|Vue|user interface", position, re.IGNORECASE):
         if re.search("react", position, re.IGNORECASE):
             return "react"
         if re.search("angular", position, re.IGNORECASE):

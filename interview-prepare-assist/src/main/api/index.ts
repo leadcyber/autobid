@@ -78,7 +78,7 @@ export const getRequiredSkills = async (jobDescription: string | undefined) => {
   }
 }
 export const generateResume = async (jobId: string, position: string, description: string) => {
-  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.docx`)
+  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.pdf`)
   console.log(downloadPath)
   try {
     await axios.post(`${workspaceSetting.pyServiceURL}/resume/generate/file`, {

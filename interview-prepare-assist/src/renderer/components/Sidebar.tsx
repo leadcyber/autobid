@@ -8,6 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import Input from '@mui/material/Input'
+import LoadingButton from '@mui/lab/LoadingButton';
 
 import CheckIcon from '@mui/icons-material/Check';
 
@@ -18,10 +19,13 @@ export default ({ onSelectJob }: any) => {
 
   const [ jobs, setJobs ] = React.useState<Job[]>([])
   const [ rawQuery, setRawQuery ] = React.useState<string>("")
+  const [ loading, setLoading ] = React.useState<boolean>(false)
   React.useEffect(() => {
     const removeJobListListener = window.electron.ipcRenderer.on('jobList', (_jobs: Job[]) => {
+      setLoading(false)
       setJobs(_jobs);
     });
+    setLoading(true)
     window.electron.ipcRenderer.sendMessage('query', {});
     return () => {
       removeJobListListener!()
@@ -41,6 +45,7 @@ export default ({ onSelectJob }: any) => {
       if(query[key].length == 0)
         delete query[key]
     }
+    setLoading(true)
     window.electron.ipcRenderer.sendMessage('query', query);
     setRawQuery(JSON.stringify(query, null, 3))
   }, [])
@@ -80,14 +85,16 @@ export default ({ onSelectJob }: any) => {
               />
             </ListItem>
             <ListItem>
-            <Button
+            <LoadingButton
               color="info"
               variant="contained"
               endIcon={<CheckIcon/>}
+              loading={loading}
+              loadingPosition="end"
               type="submit"
             >
               Search
-            </Button>
+            </LoadingButton>
             </ListItem>
           </List>
         </form>

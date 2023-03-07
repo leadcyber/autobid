@@ -55,7 +55,7 @@ def generate_detailed_skill_matrix(position: str, required_skills):
         norm_category_name = normalize_skill_name(skill_category_name[1])
         base_skill_full_names = skill_category_info[norm_category_name]["skills"]
         category_score = skill_category_info[norm_category_name]["score"]
-        if (index > 2 and category_score < 5) or index == 5:
+        if (index > 3 and category_score < 5) or index == 5:
             break
 
         if len(base_skill_full_names) == 0:

@@ -5,11 +5,12 @@ import Button from '@mui/material/Button';
 import { DataGrid, GridRowsProp, GridSelectionModel, GridCellParams } from '@mui/x-data-grid';
 import { Job, JobState, JobRow, PageData, RequiredSkill } from '../../job.types';
 import _ from 'lodash';
-
-import Chip from '@mui/material/Chip';
+import axios from 'axios'
 
 import moment from 'moment'
 import "./jobmeta.css"
+
+const SERVICE_URL = "http://localhost:7000"
 
 const getUrlSnippet = (url: string) => {
   const maxLength = 30
@@ -19,6 +20,7 @@ const getUrlSnippet = (url: string) => {
 
 export default function JobMeta() {
   const { job, pageData, requiredSkills } = React.useContext(AppContext)
+  const [ parsedSalary, setParsedSalary ] = React.useState("N/A")
 
   let postedDate = new Date(job.scannedDate).getTime()
   if(job.postedAgo == "Just now") {}
@@ -36,6 +38,28 @@ export default function JobMeta() {
   const openExternalLink = React.useCallback((url: string) => {
     window.electron.ipcRenderer.sendMessage('openExternalUrl', url);
   }, [])
+
+  React.useEffect(() => {
+    let jd: string = pageData?.description || "";
+    (async () => {
+      try {
+        const response = await axios.post(`${SERVICE_URL}/jd/salary`, { jd })
+        let { type, min, max } = response.data
+        if(type) {
+          if(type === "yr") {
+            min = `${Number(min) / 1000}K`
+            max = `${Number(max) / 1000}K`
+          }
+          setParsedSalary(`$${min}/${type} ~ $${max}/${type}`)
+        } else {
+          setParsedSalary("N/A")
+        }
+      } catch(err) {
+        console.log("JsService not reachable.")
+        setParsedSalary("N/A")
+      }
+    })();
+  }, [pageData])
 
   return (
     <div className="panel-meta">
@@ -57,7 +81,7 @@ export default function JobMeta() {
           <p>{job.postedAgo}</p>
           <p>{moment(postedDate).format("YYYY-MM-DD  hh:mm")}</p>
           <p>{moment(job.copiedDate).format("YYYY-MM-DD  hh:mm")}+5</p>
-          <p>{job.salary === "" ? "N/A" : job.salary}</p>
+          <p>{job.salary === "" ? parsedSalary : job.salary}</p>
           {Object.values(criterias).map((crt: any, index: number) => <p key={index}>{crt}</p> )}
         </div>
       </div>

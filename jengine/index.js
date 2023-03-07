@@ -18,6 +18,9 @@ const {
     getHighlightLocationPositionsWithTags,
     getLocationProperties
 } = require('./parser/location_parser')
+const {
+    getSalaryData
+} = require("./parser/salary_parser")
 
 const app = express()
 app.use(cors())
@@ -108,6 +111,9 @@ app.post("/location/measure", (req, res) => {
 })
 
 
+
+
+
 app.post("/jd/mark", (req, res) => {
     try {
         const jd = req.body.jd
@@ -132,6 +138,15 @@ app.post("/jd/mark", (req, res) => {
         res.status(500).send()
     }
 })
+app.post("/jd/salary", (req, res) => {
+    try {
+        const salary = getSalaryData(req.body.jd)
+        res.json(salary)
+    } catch(err) {
+        res.status(500).send()
+    }
+})
+
 app.get("/sentences/additional", (req, res) => {
     try {
         const sentences = getAdditionalSentences()
@@ -140,6 +155,11 @@ app.get("/sentences/additional", (req, res) => {
         res.status(500).send()
     }
 })
+
+
+
+
+
 app.listen(7000, () => {
     console.log("Server is listening...")
 })

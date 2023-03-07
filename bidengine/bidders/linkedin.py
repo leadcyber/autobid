@@ -274,6 +274,7 @@ def apply(driver: webdriver.Chrome, url: str, job_id: str):
                     break
                 else:
                     # raise e
+                    time.sleep(3)
                     continue
         if try_next(modal_element): break
 

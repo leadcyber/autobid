@@ -97,6 +97,7 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
             score = similarity_nm(skill_full_list, skill_category_info[category]["full_skills"]) * skill_category_info[category]["scale"]
         skill_category_info[category]["score"] = score ** 1
     skill_categories = [ (skill_category_info[item]["score"], item) for item in skill_category_info ]
+    print(skill_categories)
 
     current_category_progress = [0] * 6
     total_sentence_count = len(list(filter(lambda x: "exchangable" in x and x["exchangable"] is True, sentences)))
@@ -113,23 +114,32 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
         # Determine in which category should select the sentence
         current_category_index = 0
         max_remain = 0
-        for index, category in enumerate(skill_categories):
+        while True:
+            for index, category in enumerate(skill_categories):
 
-            # Get last sequent sentence count for the same category
-            # For decremental calculation
-            sequent_count = 0
-            selected_categories_len = len(selected_categories)
-            for last in range(selected_categories_len):
-                if selected_categories[selected_categories_len - last - 1] != index:
-                    break
-                sequent_count += 1
+                # Get last sequent sentence count for the same category
+                # For decremental calculation
+                sequent_count = 0
+                selected_categories_len = len(selected_categories)
+                for last in range(selected_categories_len):
+                    if selected_categories[selected_categories_len - last - 1] != index:
+                        break
+                    sequent_count += 1
+                
+                # Get progress of the current category
+                progress = current_category_progress[index] * (1.18 ** sequent_count) / total_sentence_count * total_category_score
+                remain = category[0] - progress
+                if max_remain < remain:
+                    current_category_index = index
+                    max_remain = remain
+            if max_remain > 0:
+                break
+            current_category_progress = [0] * 6
             
-            # Get progress of the current category
-            progress = current_category_progress[index] * (1.1 ** sequent_count) / total_sentence_count * total_category_score
-            remain = category[0] - progress
-            if max_remain < remain:
-                current_category_index = index
-                max_remain = remain
+        if len(skill_category_words[current_category_index]) == 0:
+            current_category_name = skill_categories[current_category_index][1]
+            skill_category_words[current_category_index] = list(map(normalize_skill_name, skill_category_info[current_category_name]["full_skills"])) * 2
+
         current_category_progress[current_category_index] += 1
         selected_categories.append(current_category_index)
         

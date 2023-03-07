@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import _ from 'lodash';
 
 import DownloadIcon from '@mui/icons-material/Download';
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import './jdpage.css'
 import axios from 'axios'
 
@@ -50,6 +51,9 @@ export default function JobPage() {
   const onOpenResume = React.useCallback(() => {
     window.electron.ipcRenderer.sendMessage('openResume', job.id);
   }, [job])
+  const onOpenResumeFolder = React.useCallback(() => {
+    window.electron.ipcRenderer.sendMessage('openResumeFolder', job.id);
+  }, [job])
   const onGenerateResume = React.useCallback(() => {
     if(!job || !pageData) return
     window.electron.ipcRenderer.sendMessage('generateResume', { jobId: job.id, position: job.position, jd: pageData.description });
@@ -84,6 +88,15 @@ export default function JobPage() {
           onClick={onOpenResume}
         >
           Open Resume
+        </Button>
+        &nbsp;
+        <Button
+          color="info"
+          variant="contained"
+          endIcon={<FolderOpenIcon/>}
+          onClick={onOpenResumeFolder}
+        >
+          Open Folder
         </Button>
         &nbsp;
         <Button

@@ -5,6 +5,7 @@ from keras.layers import Embedding
 from keras.layers import GRU, LSTM
 from keras.layers import Conv1D, MaxPooling1D
 import numpy as np
+from tqdm import tqdm
 
 import db
 from .config import EMBEDDING_DIM, MAX_SEQUENCE_LENGTH, MODEL_SAVE_PATH
@@ -83,11 +84,9 @@ def load_data():
     x_data = []
     y_data = []
 
-    jobs = db.job_collection.find({"pageData.description": {"$not": {"$eq": None}}})
-    count = 0
-    for index, job in enumerate(jobs):
-        print(index)
-        count += 1
+    jobs = list(db.job_collection.find({"pageData.description": {"$not": {"$eq": None}}}))
+    count = len(jobs)
+    for index, job in tqdm(enumerate(jobs), desc="Preparing dataset: ", total=count):
         description = job["pageData"]["description"]
         index_occurences = get_required_skill_index_sequence(description, skill_name_list)
 
@@ -96,7 +95,6 @@ def load_data():
             annotation = db.annotation_collection.find_one({ "job": job["_id"] })
             if annotation is None:
                 continue
-            print(annotation["annotation"])
             fit = annotation["annotation"]
         x_data.append(index_occurences)
         y_data.append([0.0, 1.0] if fit else [1.0, 0.0])

@@ -130,8 +130,11 @@ const handleIPC = () => {
   })
   ipcMain.on('openResume', async (event, jobId) => {
     const resumePath = `${RESUME_DB_PATH}/${jobId}/Michael.C Resume.pdf`
-    console.log(resumePath)
     shell.openPath(resumePath);
+  })
+  ipcMain.on('openResumeFolder', async (event, jobId) => {
+    const resumeFolderPath = `${RESUME_DB_PATH}/${jobId}`
+    shell.openPath(resumeFolderPath);
   })
   ipcMain.on('generateResume', async (event, { jobId, position, jd }) => {
     generateResume(jobId, position, jd)
@@ -153,9 +156,7 @@ app.on("window-all-closed", () => {
   // On OS X it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
   console.log("windows all closed")
-  if (process.platform !== "darwin") {
-    app.quit();
-  }
+  app.quit();
 });
 
 app.on("activate", () => {

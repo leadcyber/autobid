@@ -2,8 +2,6 @@ const { getSkillData } = require('./skill_reader')
 const cheerio = require('cheerio')
 
 
-
-
 const getHighlightPositions = (jobDescription, skillData) => {
     let intervals = []
     for(let skillName in skillData) {
