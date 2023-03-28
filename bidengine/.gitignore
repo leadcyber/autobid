@@ -1,7 +1,6 @@
 log
 profiles/*
 env
-bin/*
 .vscode
 .VSCodeCounter
 __pycache__

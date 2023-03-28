@@ -85,8 +85,8 @@ def should_block_image(parse_result):
 def create_direct_driver(profile_name: str, block_image: bool = True) -> webdriver.Chrome:
     chrome_options = Options()
     if block_image is True:
-        chrome_options.add_extension('./bin/Block image 1.1.0.0.crx')
+        chrome_options.add_extension('../bin/Block image 1.1.0.0.crx')
     chrome_options.add_argument('--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints')
     chrome_options.add_argument('user-data-dir=profiles/profile_' + str(config.current_profile_id) + "/" + profile_name)
 
-    return webdriver.Chrome(executable_path="./bin/chromedriver", chrome_options=chrome_options)
+    return webdriver.Chrome(executable_path="../bin/chromedriver", chrome_options=chrome_options)

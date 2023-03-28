@@ -10,4 +10,4 @@ RANK_RESERVATION_RATE = 0.5
 
 TEMP_PATH = f'{WORKSPACE_PATH}/temp'
 
-LIBREOFFICE_PATH = f'{os.getcwd()}/resume/LibreOffice.app'
+LIBREOFFICE_PATH = f'{os.getcwd()}/../bin/LibreOffice.app'
