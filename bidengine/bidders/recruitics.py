@@ -44,7 +44,6 @@ def autofill(field: WebElement, answer):
                     options[option_index].click()
                     return option_value
     return None
-    
 
 
 def pre_step1(driver: webdriver.Chrome, url: str):

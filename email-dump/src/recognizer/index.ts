@@ -20,7 +20,14 @@ const getSentences = (plainText: string) => {
   }
   return sentences.filter(s => s !== "")
 }
-
+export const isJobRelatedContent = (email: EmailRecord) => {
+  const plainText: string = normalizeContent(getPlainContent(email))
+  const sentences = getSentences(plainText)
+  for(let sentence of sentences) {
+    if(/Thank you (for|to)/ig.exec(sentence)) return true
+  }
+  return false
+}
 export const isAppliedContent = (email: EmailRecord) => {
   const plainText: string = normalizeContent(getPlainContent(email))
   const sentences = getSentences(plainText)
@@ -97,7 +104,7 @@ export const parseEmailSubject = async (email: EmailRecord) => {
 export const getCompanyContent = async (email: EmailRecord) => {
   let plainText: string = normalizeContent(getPlainContent(email))
   plainText = plainText.replace(/(?![*#0-9]+)[\p{Emoji}\p{Emoji_Modifier}\p{Emoji_Component}\p{Emoji_Modifier_Base}\p{Emoji_Presentation}]/gu, '')
-  const sentences = getSentences(plainText)
+  let sentences = getSentences(plainText)
   let candidates = []
   for(let sentence of sentences) {
     const newCandidates = await detectInSentence(sentence)
@@ -108,18 +115,20 @@ export const getCompanyContent = async (email: EmailRecord) => {
   }
   if(candidates.length === 0) {
     try {
+      sentences = sentences.slice(0, 5).concat(sentences.slice(sentences.length - 5))
       sentences.push(getEmailSubject(email))
       const senderName = getEmailSenderName(email)
       if(senderName) {
         sentences.push(senderName)
       }
+
       for(let sentence of sentences) {
-        const response: any = await axios.post("http://localhost:5000/email/parse/company", {
+        const response: any = await axios.post("http://localhost:7001/email/parse/company", {
           sentence: sentence
         })
         const newCandidates = response.data.company
         if(newCandidates) {
-          console.log("XXX: ", sentence, newCandidates)
+          console.log("AI: ", sentence, newCandidates)
           candidates.push(...newCandidates)
         }
       }
@@ -153,10 +162,19 @@ export const getCompanyContent = async (email: EmailRecord) => {
   //     }) + "\r\n");
   //   }
   // }
-  candidates = [ ...new Set(candidates) ]
-  // console.log(candidates)
-
-  return candidates.length > 0 ? candidates[0] : ""
+  console.log(candidates)
+  const tc = candidates.reduce((total, current) => {
+    total[current] = (total[current] || 0) + 1
+    return total
+  }, {})
+  const entries = Object.entries(tc)
+  const maxCount = entries.reduce((max, current: any) => {
+    if(max > current[1]) return max
+    return current[1]
+  }, 0)
+  const maxEntry = entries.find(([_, count]) => count === maxCount )
+  if(!maxEntry) return null
+  return maxEntry[0]
 }
 
 export const isLinkedinEasyApplied = (email: EmailRecord) => {

@@ -1,4 +1,4 @@
-const getHighlightLocationPositions = (jobDescription, locationData) => {
+export const getHighlightLocationPositions = (jobDescription, locationData) => {
     let intervals = []
     for(let keyword in locationData) {
         const { pattern, familarity } = locationData[keyword]
@@ -26,7 +26,7 @@ const getHighlightLocationPositions = (jobDescription, locationData) => {
     }
     return intervals
 }
-const getHighlightLocationPositionsWithTags = (jobDescription, locationData) => {
+export const getHighlightLocationPositionsWithTags = (jobDescription, locationData) => {
     const intervals = getHighlightLocationPositions(jobDescription, locationData)
     for(let interval of intervals) {
         const substr = jobDescription.substring(interval[0], interval[1])
@@ -54,7 +54,7 @@ const getHighlightLocationPositionsWithTags = (jobDescription, locationData) => 
 }
 
 
-const getLocationProperties = (jdHtml, locationData) => {
+export const getLocationProperties = (jdHtml, locationData) => {
     const intervals = getHighlightLocationPositionsWithTags(jdHtml, locationData)
     const props = {}
     for(let interval of intervals) {
@@ -62,7 +62,3 @@ const getLocationProperties = (jdHtml, locationData) => {
     }
     return Object.entries(props).sort((a, b) => b[1] - a[1]).map((entry) => ({ keyword: entry[0], count: entry[1], familarity: locationData[entry[0]].familarity }))
 }
-
-exports.getHighlightLocationPositions = getHighlightLocationPositions
-exports.getHighlightLocationPositionsWithTags = getHighlightLocationPositionsWithTags
-exports.getLocationProperties = getLocationProperties

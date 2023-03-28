@@ -77,8 +77,15 @@ def is_profile_free(profile_name: str):
     current_profile_state = profile_state[config.current_profile_id - 1]
     return current_profile_state[profile_name].state == 0
 
-def create_direct_driver(profile_name: str) -> webdriver.Chrome:
+def should_block_image(parse_result):
+    if parse_result.netloc.endswith("lever.co"):
+        return False
+    return True
+
+def create_direct_driver(profile_name: str, block_image: bool = True) -> webdriver.Chrome:
     chrome_options = Options()
+    if block_image is True:
+        chrome_options.add_extension('./bin/Block image 1.1.0.0.crx')
     chrome_options.add_argument('--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints')
     chrome_options.add_argument('user-data-dir=profiles/profile_' + str(config.current_profile_id) + "/" + profile_name)
 

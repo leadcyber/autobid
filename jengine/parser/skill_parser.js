@@ -1,8 +1,7 @@
-const { getSkillData } = require('./skill_reader')
-const cheerio = require('cheerio')
+import cheerio from 'cheerio'
 
 
-const getHighlightPositions = (jobDescription, skillData) => {
+export const getHighlightPositions = (jobDescription, skillData) => {
     let intervals = []
     for(let skillName in skillData) {
         const skill = skillData[skillName]
@@ -31,7 +30,7 @@ const getHighlightPositions = (jobDescription, skillData) => {
                 let included = false
                 for(let interval of intervals) {
                     const [ is, ie, os, oe ] = interval
-                    if((outerStart >= os && outerStart < oe) || (outerEnd > os && outerEnd <= oe)) {
+                    if((innerStart >= is && innerStart < ie) || (innerEnd > is && innerEnd <= ie)) {
                         interval[0] = innerStart
                         interval[1] = innerEnd
                         interval[2] = Math.min(outerStart, os)
@@ -45,7 +44,7 @@ const getHighlightPositions = (jobDescription, skillData) => {
     }
     return intervals
 }
-const getHighlightPositionsWithTags = (jobDescription, skillData) => {
+export const getHighlightPositionsWithTags = (jobDescription, skillData) => {
     const intervals = getHighlightPositions(jobDescription, skillData)
     const taggedIntervals = []
     for(let interval of intervals) {
@@ -149,7 +148,7 @@ const getRequiredSkillsPerSection = (section, skillData) => {
         importances
     }
 }
-const getRequiredSkillGroups = (jdHtml, skillData) => {
+export const getRequiredSkillGroups = (jdHtml, skillData) => {
     const $ = cheerio.load(`<div id="root">${jdHtml}</div>`)
     const sections = $("#root")
     const groups = []
@@ -160,7 +159,7 @@ const getRequiredSkillGroups = (jdHtml, skillData) => {
     }
     return groups
 }
-const getRequiredSkills = (jdHtml, skillData) => {
+export const getRequiredSkills = (jdHtml, skillData) => {
     const $ = cheerio.load(`<div id="root">${jdHtml}</div>`)
     const sections = $("#root")
     const requiredSkills = []
@@ -193,7 +192,3 @@ const getRequiredSkills = (jdHtml, skillData) => {
     }
     return requiredSkills.map(skill => ({ ...skill, importance: skill.importance / maxImportance * 10.0 })).sort((a, b) => b.importance - a.importance)
 }
-exports.getHighlightPositions = getHighlightPositions
-exports.getHighlightPositionsWithTags = getHighlightPositionsWithTags
-exports.getRequiredSkillGroups = getRequiredSkillGroups
-exports.getRequiredSkills = getRequiredSkills

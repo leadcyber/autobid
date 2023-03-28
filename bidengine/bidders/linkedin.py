@@ -357,7 +357,7 @@ def send_message(driver: webdriver.Chrome, url: str, request_connect: bool):
         time.sleep(3)
 
         try:
-            connect_button = driver.find_element(By.CSS_SELECTOR, ".pv-top-card .pv-top-card-v2-ctas > .pvs-profile-actions .pvs-profiltion_elemene-actions__action button li-icon[type='connect']")
+            connect_button = driver.find_element(By.CSS_SELECTOR, ".pv-top-card .pv-top-card-v2-ctas > .pvs-profile-actions button li-icon[type='connect']")
             connect_button.click()
         except:
             actions_element = driver.find_element(By.CSS_SELECTOR, ".pv-top-card .pv-top-card-v2-ctas > .pvs-profile-actions")

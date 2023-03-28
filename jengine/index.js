@@ -1,30 +1,40 @@
-const express = require("express")
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const {
+import express from "express"
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import {
     getSkillData,
     getSkillOccurenceMatrix
-} = require('./parser/skill_reader')
-const { getLocationData } = require("./parser/location_reader")
-const { getAdditionalSentences } = require("./parser/sentence_reader")
-const {
+} from './parser/skill_reader.js'
+import { getLocationData } from "./parser/location_reader.js"
+import { getAdditionalSentences } from "./parser/sentence_reader.js"
+import {
     getRequiredSkills,
     getRequiredSkillGroups,
     getHighlightPositions,
     getHighlightPositionsWithTags,
-} = require('./parser/skill_parser')
-const {
+} from './parser/skill_parser.js'
+import {
     getHighlightLocationPositions,
     getHighlightLocationPositionsWithTags,
     getLocationProperties
-} = require('./parser/location_parser')
-const {
+} from './parser/location_parser.js'
+import {
     getSalaryData
-} = require("./parser/salary_parser")
+} from "./parser/salary_parser.js"
+import {
+    getClipboard
+} from "./parser/util.js"
+
+
+
 
 const app = express()
 app.use(cors())
 app.use(bodyParser())
+
+
+
+
 
 
 app.get("/skill/list", (req, res) => {
@@ -79,6 +89,10 @@ app.post("/skill/measure", (req, res) => {
         res.status(500).send()
     }
 })
+
+
+
+
 
 
 
@@ -155,6 +169,20 @@ app.get("/sentences/additional", (req, res) => {
         res.status(500).send()
     }
 })
+
+
+
+
+
+app.get("/tool/clipboard", async (req, res) => {
+    try {
+        const rtf = await getClipboard()
+        res.json(rtf)
+    } catch(err) {
+        res.status(500).send(err.toString())
+    }
+})
+
 
 
 

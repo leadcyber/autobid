@@ -2,7 +2,7 @@ from webbrowser import Chrome
 from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
-from driver import create_direct_driver, get_free_profile, set_profile_state, is_profile_free
+from driver import create_direct_driver, get_free_profile, set_profile_state, is_profile_free, should_block_image
 from urllib.parse import urlparse
 
 from selenium.webdriver.support.ui import WebDriverWait
@@ -135,7 +135,8 @@ def process_external_bid_thread(parse_result, bid_data):
 
 
     try:
-        driver = create_direct_driver(free_profile_name)
+        to_block = should_block_image(parse_result)
+        driver = create_direct_driver(free_profile_name, to_block)
     except Exception as e:
         profile_lock.release()
         print(f"Unable to launch browser with error: {str(e)}")

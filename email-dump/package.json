@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "yarn esbuild-node && node dist/esbuild/main.js",
+    "pipeline": "esbuild src/pipeline.ts --bundle --platform=node --sourcemap=external --outfile=dist/esbuild/pipeline.js && node dist/esbuild/pipeline.js",
     "mtest": "esbuild src/test.ts --bundle --platform=node --sourcemap=external --outfile=dist/esbuild/test.js && node dist/esbuild/test.js",
     "ntest": "esbuild src/test2.ts --bundle --platform=node --sourcemap=external --outfile=dist/esbuild/test2.js && node dist/esbuild/test2.js",
     "context": "esbuild src/context.ts --bundle --platform=node --sourcemap=external --outfile=dist/esbuild/context.js && node dist/esbuild/context.js",

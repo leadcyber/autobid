@@ -1,21 +1,24 @@
 {
   "name": "jengine",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node --experimental-specifier-resolution=node index.js",
+    "dev": "nodemon ./index.js --exec babel-node -e js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
     "cheerio": "^1.0.0-rc.12",
+    "clipboard-polyfill": "^4.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "js-yaml": "^4.1.0",
     "mongoose": "^6.8.4",
+    "node-clipboardy": "^1.0.3",
     "nodemon": "^2.0.20"
   }
 }

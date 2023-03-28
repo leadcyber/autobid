@@ -40,6 +40,23 @@ const emailSchema = new mongoose.Schema({
   }
 })
 
+const extractSchema = new mongoose.Schema({
+  emailId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Email",
+    index: true
+  },
+  type: {
+    type: String
+  },
+  date: {
+    type: String,
+  },
+  data: {
+    type: Object
+  }
+})
+
 const companySchema = new mongoose.Schema({
   companyName: {
     type: String,
@@ -56,8 +73,8 @@ const jobSchema = new mongoose.Schema({
       type: String
   },
   company: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Company"
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Company"
   },
   position: {
       type: String
@@ -109,5 +126,7 @@ export {
   jobDB
 }
 export const EmailModel = emailDB.model('Email', emailSchema)
+export const ExtractModel = emailDB.model('Extract', extractSchema)
+
 export const JobModel = jobDB.model('Job', jobSchema)
 export const CompanyModel = jobDB.model('Company', companySchema)

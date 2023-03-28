@@ -1,4 +1,4 @@
-import { CompanyModel, EmailModel, JobModel, emailDB, jobDB } from "./schema"
+import { CompanyModel, EmailModel, JobModel, emailDB, jobDB, ExtractModel } from "./schema"
 import { EmailRecord, ScanData } from "../email/email.types"
 import mongoose from 'mongoose'
 
@@ -96,4 +96,20 @@ export const getAllCompanies = async () => {
 export const filterCompany = async (filter: any) => {
   const companies = await CompanyModel.find(filter, { companyName: 1 })
   return companies.map(item => item.companyName)
+}
+
+
+export const addExtraction = async (emailId: string, data: any) => {
+  const ext = new ExtractModel({
+    emailId, data
+  })
+  await ext.save()
+}
+export const addExtractions = async (exts: any) => {
+  await ExtractModel.insertMany(exts)
+}
+export const getLastExtractedDate = async () => {
+  const lastExt = await ExtractModel.find({}, {emailId: 1, date: 1}).sort({ date: -1 }).limit(1)
+  if(lastExt.length == 0) return null
+  return lastExt[0].date!
 }

@@ -3,3 +3,4 @@ Testing/*
 __pycache__/
 env
 resume/LibreOffice.app
+qa_model/*

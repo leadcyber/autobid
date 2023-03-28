@@ -1,4 +1,4 @@
-exports.getSalaryData = (jd) => {
+export const getSalaryData = (jd) => {
     const re = /\$[0-9,.]*/ig
     let match = null
     while ((match = re.exec(jd)) != null) {
