@@ -56,12 +56,15 @@ def _generate_resume_file(headline, summary, positions, sentences, skill_section
                                 run.text = re.sub("{(.*?)}", _interpolate_data, run.text)
     temp_file_id = str(uuid.uuid4())
     temp_docxpath = f'{TEMP_PATH}/{temp_file_id}.docx'
-    temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
     document.save(temp_docxpath)
     os.chmod(temp_docxpath, 0o777)
-    os.system(f'{LIBREOFFICE_PATH}/Contents/MacOS/soffice --headless --convert-to pdf --outdir "{TEMP_PATH}" "{temp_docxpath}"')
-    os.remove(temp_docxpath)
-    shutil.move(temp_pdfpath, path)
+    if path.endswith('pdf'):
+        temp_pdfpath = f'{TEMP_PATH}/{temp_file_id}.pdf'
+        os.system(f'{LIBREOFFICE_PATH}/Contents/MacOS/soffice --headless --convert-to pdf --outdir "{TEMP_PATH}" "{temp_docxpath}"')
+        os.remove(temp_docxpath)
+        shutil.move(temp_pdfpath, path)
+    else:
+        shutil.move(temp_docxpath, path)
     return os.path.abspath(path)
 
 def generate_resume_file(position: str, required_skills, jd: str, path: str) -> str:

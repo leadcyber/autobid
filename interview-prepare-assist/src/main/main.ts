@@ -136,8 +136,11 @@ const handleIPC = () => {
     const resumeFolderPath = `${RESUME_DB_PATH}/${jobId}`
     shell.openPath(resumeFolderPath);
   })
-  ipcMain.on('generateResume', async (event, { jobId, position, jd }) => {
-    generateResume(jobId, position, jd)
+  ipcMain.on('generatePdfResume', async (event, { jobId, position, jd }) => {
+    generateResume(jobId, position, jd, 'pdf')
+  })
+  ipcMain.on('generateDocResume', async (event, { jobId, position, jd }) => {
+    generateResume(jobId, position, jd, 'doc')
   })
   ipcMain.on('openExternalUrl', async (event, url) => {
     shell.openExternal(url);

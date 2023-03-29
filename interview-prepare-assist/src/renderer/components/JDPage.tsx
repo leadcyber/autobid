@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import _ from 'lodash';
 
 import DownloadIcon from '@mui/icons-material/Download';
+import LaunchIcon from '@mui/icons-material/Launch';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
 import './jdpage.css'
 import axios from 'axios'
@@ -54,9 +55,13 @@ export default function JobPage() {
   const onOpenResumeFolder = React.useCallback(() => {
     window.electron.ipcRenderer.sendMessage('openResumeFolder', job.id);
   }, [job])
-  const onGenerateResume = React.useCallback(() => {
+  const onGeneratePdfResume = React.useCallback(() => {
     if(!job || !pageData) return
-    window.electron.ipcRenderer.sendMessage('generateResume', { jobId: job.id, position: job.position, jd: pageData.description });
+    window.electron.ipcRenderer.sendMessage('generatePdfResume', { jobId: job.id, position: job.position, jd: pageData.description });
+  }, [job, pageData])
+  const onGenerateDocResume = React.useCallback(() => {
+    if(!job || !pageData) return
+    window.electron.ipcRenderer.sendMessage('generateDocResume', { jobId: job.id, position: job.position, jd: pageData.description });
   }, [job, pageData])
 
   return (
@@ -82,15 +87,17 @@ export default function JobPage() {
       <hr/>
       <div className="resume-board">
         <Button
+          size="small"
           color="info"
           variant="contained"
-          endIcon={<DownloadIcon/>}
+          endIcon={<LaunchIcon/>}
           onClick={onOpenResume}
         >
-          Open Resume
+          Open
         </Button>
         &nbsp;
         <Button
+          size="small"
           color="info"
           variant="contained"
           endIcon={<FolderOpenIcon/>}
@@ -100,12 +107,23 @@ export default function JobPage() {
         </Button>
         &nbsp;
         <Button
+          size="small"
           color="primary"
           variant="contained"
           endIcon={<DownloadIcon/>}
-          onClick={onGenerateResume}
+          onClick={onGeneratePdfResume}
         >
-          Generate Resume
+          Gen. PDF
+        </Button>
+        &nbsp;
+        <Button
+          size="small"
+          color="primary"
+          variant="contained"
+          endIcon={<DownloadIcon/>}
+          onClick={onGenerateDocResume}
+        >
+          Gen. DOC
         </Button>
       </div>
     </div>
