@@ -4,7 +4,7 @@
 
 .resume-wrapper {
   padding: 10px 20px;
-  height: calc(100vh - 25px);
+  height: calc(100vh - 125px);
   overflow-y: scroll;
 }
 
@@ -64,4 +64,14 @@
   margin-top: -5px;
   margin-bottom: 0px;
   font-size: 13px;
+}
+
+
+.resume-board {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f6f8;
 }

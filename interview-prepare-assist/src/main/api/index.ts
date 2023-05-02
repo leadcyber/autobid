@@ -78,7 +78,7 @@ export const getRequiredSkills = async (jobDescription: string | undefined) => {
   }
 }
 export const generateResume = async (jobId: string, position: string, description: string, ext: string) => {
-  const downloadPath = path.join(os.homedir(), "downloads", `${jobId}.${ext}`)
+  const downloadPath = path.join(os.homedir(), "downloads", `Michael.C Resume.${ext}`)
   try {
     await axios.post(`${workspaceSetting.pyServiceURL}/resume/generate/file`, {
       position,
@@ -89,4 +89,8 @@ export const generateResume = async (jobId: string, position: string, descriptio
   } catch(err: any) {
     console.log(`[bidder-interface-error]: ${err.response.status}`)
   }
+}
+export const downloadJD = async (jd: string) => {
+  const downloadPath = path.join(os.homedir(), "downloads", `jd.html`)
+  fs.writeFileSync(downloadPath, jd)
 }

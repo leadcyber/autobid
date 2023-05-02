@@ -1,4 +1,5 @@
-from skill.utils import get_skill_list, get_required_skill_groups, get_required_skills
+from skill.utils import get_skill_list, get_required_skill_groups, get_required_skills, normalize_skill_name
+
 import re
 import math
 from .config import MAX_SEQUENCE_LENGTH
@@ -55,23 +56,17 @@ def predetermine_jd_fitness(jd: str):
         return False
     return None
 
-def to_understandable_skill_name(full_name):
-    skill_name = full_name.lower().replace(" ", "-").replace(".", "")
-    if skill_name in alternative:
-        skill_name = alternative[skill_name]
-    return skill_name
-
-def get_understandable_skill_list():
+def get_embedding_skill_list():
     skills = get_skill_list()
     skill_name_list = []
     for index, full_name in enumerate(skills):
-        skill_name = to_understandable_skill_name(full_name)
+        skill_name = normalize_skill_name(full_name)
         skill_name_list.append(skill_name)
     return list(set(skill_name_list))
 
 def get_required_skill_index_sequence(jd: str, skill_name_list):
     groups = get_required_skill_groups(jd)
-    occurences = [ to_understandable_skill_name(item["skillName"]) for sub_list in groups for item in sub_list ]
+    occurences = [ normalize_skill_name(item["skillName"]) for sub_list in groups for item in sub_list ]
     index_occurences = [ skill_name_list.index(occurence) + 1 for occurence in occurences ]
     if len(index_occurences) < MAX_SEQUENCE_LENGTH:
         index_occurences.extend([0] * (MAX_SEQUENCE_LENGTH - len(index_occurences)))

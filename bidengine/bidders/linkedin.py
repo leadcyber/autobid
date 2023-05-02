@@ -206,25 +206,19 @@ def fill_form(driver: webdriver.Chrome, modal_element: WebElement, url: str, job
 
 def apply(driver: webdriver.Chrome, url: str, job_id: str):
     apply_button = None
-    print("Q")
     while True:
         apply_button_wrappers = driver.find_elements(By.CLASS_NAME, "jobs-apply-button--top-card")
-        print("P")
         if len(apply_button_wrappers) > 0:
             try:
                 apply_button = apply_button_wrappers[0].find_element(By.TAG_NAME, "button")
             except:
                 time.sleep(1)
                 continue
-            print("T")
             break
         else:
             already_elements = driver.find_elements(By.CSS_SELECTOR, ".jobs-s-apply .artdeco-inline-feedback--success")
-            print("X")
             already_elements.extend(driver.find_elements(By.CSS_SELECTOR, ".jobs-unified-top-card .jobs-details-top-card__apply-error"))
-            print("Y")
             already_elements.extend(driver.find_elements(By.CSS_SELECTOR, ".post-apply-timeline .post-apply-timeline__entity"))
-            print("Z")
             if len(already_elements) > 0:
                 return
         time.sleep(.5)
@@ -250,12 +244,8 @@ def apply(driver: webdriver.Chrome, url: str, job_id: str):
     previous_page = ""
 
     while True:
-        print("passed4")
         modal_element = wait_for_next_step(driver)
-        print("passed5")
-        print("On page:", previous_page)
         modal_element = get_modal(driver)
-        print("passed6")
         is_log = True
         while True:
             try:

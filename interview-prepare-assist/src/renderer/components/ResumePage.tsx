@@ -3,6 +3,11 @@ import { AppContext } from '../context/AppContext'
 import DocViewer, { MSDocRenderer } from "react-doc-viewer";
 import axios from 'axios'
 
+import DownloadIcon from '@mui/icons-material/Download';
+import LaunchIcon from '@mui/icons-material/Launch';
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import Button from '@mui/material/Button';
+
 import './resumepage.css'
 
 const PY_SERVICE_URL = "http://localhost:7001"
@@ -16,7 +21,6 @@ export default function ResumePage() {
   React.useEffect(() => {
     const position = job.position;
     const jd = pageData?.description || "";
-    console.log(job?.position);
     (async () => {
       try {
         const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/metadata`, { position, jd })
@@ -40,7 +44,6 @@ export default function ResumePage() {
     (async () => {
       try {
         const response = await axios.post(`${PY_SERVICE_URL}/resume/generate/sentences/detail`, { position, jd })
-        console.log(response.data)
         setSentences(response.data)
       } catch(err) {
         console.log("PyService not reachable.")
@@ -54,6 +57,21 @@ export default function ResumePage() {
     else total.push(current + total[total.length - 1])
     return total
   }, [])
+
+  const onOpenResume = React.useCallback(() => {
+    window.electron.ipcRenderer.sendMessage('openResume', job.id);
+  }, [job])
+  const onOpenResumeFolder = React.useCallback(() => {
+    window.electron.ipcRenderer.sendMessage('openResumeFolder', job.id);
+  }, [job])
+  const onGeneratePdfResume = React.useCallback(() => {
+    if(!job || !pageData) return
+    window.electron.ipcRenderer.sendMessage('generatePdfResume', { jobId: job.id, position: job.position, jd: pageData.description });
+  }, [job, pageData])
+  const onGenerateDocResume = React.useCallback(() => {
+    if(!job || !pageData) return
+    window.electron.ipcRenderer.sendMessage('generateDocResume', { jobId: job.id, position: job.position, jd: pageData.description });
+  }, [job, pageData])
 
   return (
     <div className="panel-resume">
@@ -86,7 +104,7 @@ export default function ResumePage() {
                 {sentence.metadata &&
                   <div className="resume-sentence-metadata">
                     <p className="resume-sentence-score">
-                      {`${sentence.metadata.similarity.toFixed(3)} = ${sentence.metadata.vector_similarity.toFixed(3)} * ${sentence.metadata.focus_efficiency.toFixed(3)} * ${sentence.metadata.sentence_quality}`}
+                      {`${sentence.metadata.similarity.toFixed(3)} = ${sentence.metadata.vector_similarity.toFixed(3)} * ${sentence.metadata.sentence_quality}`}
                     </p>
                     <p className="resume-sentence-relation">
                       {`${sentence.metadata.among.join(" ")}  <=>  ${sentence.metadata.relations.join(" ")}`}
@@ -97,6 +115,47 @@ export default function ResumePage() {
             </>
           ))}
         </div>
+      </div>
+      <div className="resume-board">
+        <Button
+          size="small"
+          color="info"
+          variant="contained"
+          endIcon={<LaunchIcon/>}
+          onClick={onOpenResume}
+        >
+          Open
+        </Button>
+        &nbsp;
+        <Button
+          size="small"
+          color="info"
+          variant="contained"
+          endIcon={<FolderOpenIcon/>}
+          onClick={onOpenResumeFolder}
+        >
+          Open Folder
+        </Button>
+        &nbsp;
+        <Button
+          size="small"
+          color="primary"
+          variant="contained"
+          endIcon={<DownloadIcon/>}
+          onClick={onGeneratePdfResume}
+        >
+          Gen. PDF
+        </Button>
+        &nbsp;
+        <Button
+          size="small"
+          color="primary"
+          variant="contained"
+          endIcon={<DownloadIcon/>}
+          onClick={onGenerateDocResume}
+        >
+          Gen. DOC
+        </Button>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import url from "url"
 import path from "path"
 import { workspaceSetting } from '../config/constant'
 import fs from 'fs'
-import { Job, JobState, PageData, FetchedJob, FetchMode, RequiredSkill, LocationKeyword } from '../../job.types'
+import { Job, JobState, PageData, FetchedJob, FetchMode, RequiredSkill, BlockerKeyword } from '../../job.types'
 import { addNewJobs, getNewlyFoundJobs } from '../db'
 import { myConsole } from '../util/myconsole'
 import yaml from 'js-yaml'
@@ -227,12 +227,12 @@ export const getRequiredSkills = async (jobDescription: string | undefined) => {
     return []
   }
 }
-export const getLocationKeywords = async (jobDescription: string | undefined) => {
+export const getBlockerKeywords = async (jobDescription: string | undefined) => {
   if(!jobDescription) return []
   try {
-    const response = await axios.post(`${workspaceSetting.serviceURL}/location/measure`, {jd:jobDescription})
-    const locationKeywords: any[] = response.data
-    return locationKeywords as LocationKeyword[]
+    const response = await axios.post(`${workspaceSetting.serviceURL}/blocker/measure`, {jd:jobDescription})
+    const blockerKeywords: any[] = response.data
+    return blockerKeywords as BlockerKeyword[]
   } catch(err) {
     return []
   }

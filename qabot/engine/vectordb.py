@@ -12,28 +12,16 @@ persist_directory = 'qdb'
 
 docs = []
 
-introductions = []
-try:
-    with open(f'{WORKSPACE_PATH}/introduction.yaml', "r") as stream:
-        introductions = yaml.safe_load(stream) or []
-except: pass
-print(introductions)
-docs = [ Document(page_content=introduction, metadata={ "title": "intro" }) for introduction in introductions ]
-
-
 skills = []
 try:
     with open(f'{WORKSPACE_PATH}/skills.yaml', "r") as stream:
         skill_data = yaml.safe_load(stream)["skills"] or {}
         for key in skill_data:
             value = skill_data[key]
-            skills.append(f'I have {value["exp"]} years of {key} experience.')
+            if "embedding" in value:
+                skills.append(value["embedding"])
 except: pass
 docs.extend([ Document(page_content=skill, metadata={ "title": "skill" }) for skill in skills ])
-
-docs.append(Document(page_content="I am available at any time to have an phone call for 5 minutes.", metadata={ "title": "availibility" }))
-docs.append(Document(page_content="I am available for the 30 minutes video interview at any time.", metadata={ "title": "availibility" }))
-docs.append(Document(page_content="I am available for the technical interview at any time.", metadata={ "title": "availibility" }))
 
 embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
 

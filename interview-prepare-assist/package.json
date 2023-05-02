@@ -5,11 +5,9 @@
     "boilerplate",
     "react",
     "typescript",
-    "ts",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "job",
+    "linkedin",
+    "assistant"
   ],
   "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
   "bugs": {
@@ -21,17 +19,11 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
+    "name": "Application DB Assistant",
+    "email": "mikchielli@gmail.com",
     "url": "https://electron-react-boilerplate.js.org"
   },
-  "contributors": [
-    {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
-    }
-  ],
+  "contributors": [],
   "main": "./src/main/main.ts",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
@@ -204,8 +196,8 @@
     "webpack-merge": "^5.8.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "JobDBMS",
+    "appId": "org.erb.JobDBMS",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [

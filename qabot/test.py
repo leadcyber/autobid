@@ -3,19 +3,18 @@ from langchain.vectorstores import Chroma
 from langchain.document_loaders import UnstructuredHTMLLoader
 from langchain.docstore.document import Document
 from config import openai_api_key, WORKSPACE_PATH
-import yaml
-import os
+from langchain.llms import OpenAI
+from langchain.chains.question_answering import load_qa_chain
 
 
-loader = UnstructuredHTMLLoader("example_data/fake-content.html")
-data = loader.load()
+loader = UnstructuredHTMLLoader("example_data/jd.html")
+docs = loader.load()
+print(docs)
 
-
-embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-
-def load_db():
-    db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
-    return db
-def save_db():
-    db = Chroma.from_documents(docs, embeddings, persist_directory=persist_directory)
-    return db
+openai = OpenAI(temperature=0, openai_api_key=openai_api_key)
+chain = load_qa_chain(openai, chain_type="map_reduce", verbose=False)
+print("Input your query.")
+while True:
+    query = input()
+    res = chain.run(input_documents=docs, question=query)
+    print(res)

@@ -90,7 +90,8 @@ def process_operation(operations):
                 action.key_up(Keys.ENTER)
                 action.key_up(Keys.SHIFT)
                 action.perform()
-        message_box.send_keys(Keys.ENTER)
+        if len(operations) > 0:
+            message_box.send_keys(Keys.ENTER)
     except Exception as e:
         print(e)
 

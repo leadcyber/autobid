@@ -65,7 +65,7 @@ export type RequiredSkill = {
   level: number,
   importance: number
 }
-export type LocationKeyword = {
+export type BlockerKeyword = {
   keyword: string,
   count: number,
   familarity: number

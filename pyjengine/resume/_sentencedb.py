@@ -10,7 +10,7 @@ def get_sentence_db():
 
     current_timestamp = time.time()
     if sentence_db is None or current_timestamp - last_load_time > SENTENCE_DB_CACHE_TTL:
-        with open(f'{RESUME_TEMPLATE_PATH}/addition_data.yaml', "r") as stream:
+        with open(f'{RESUME_TEMPLATE_PATH}/sentence_db.yaml', "r") as stream:
             sentence_db = yaml.safe_load(stream)
         last_load_time = current_timestamp
     return sentence_db

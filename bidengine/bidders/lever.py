@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from utils.answers import get_answer, is_correct_answer
+from utils.answers import get_answer, is_correct_answer, is_resume_question
 from utils.logger import log_unknown_question
 import time
 import selenium
@@ -99,6 +99,8 @@ def bid(driver: webdriver.Chrome, url: str, job_id: str):
         if question == "":
             continue
         answer = get_answer(PLATFORM, question, job_id)
+        if not is_resume_question(question):
+            break
         if answer is None:
             log_unknown_question(PLATFORM, question, url, job_id)
             unknown_questions.append(question)

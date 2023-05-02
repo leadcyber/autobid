@@ -3,8 +3,7 @@ from skill.skill_tree import get_skill_tree, get_skill_relation_value
 from .utils import get_most_relevant_template
 from ._template import get_template_data
 from ._sentencedb import get_sentence_db
-from job_familarity_model.word2vec import word_vect, similarity_n1, similarity_nm
-from job_familarity_model.utils import to_understandable_skill_name
+from job_familarity_model.word2vec import similarity_nm
 import math
 from .config import RANK_RESERVATION_RATE
 import re
@@ -67,13 +66,13 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
 
 
     skill_category_info = {
-        "frontend": { "score": 0.03, "skills": [], "full_skills": [], "scale": 1 },
+        "frontend": { "score": 0.03, "skills": [], "full_skills": [], "scale": 1.3 },
         "backend":  { "score": 0.02, "skills": [], "full_skills": [], "scale": 1 },
         "dev":      { "score": 0.01, "skills": [], "full_skills": [], "scale": 0.3 },
         "cloud":    { "score": 0, "skills": [], "full_skills": [], "scale": 1 },
         "database": { "score": 0, "skills": [], "full_skills": [], "scale": 1 },
         "mobile":   { "score": 0, "skills": [], "full_skills": [], "scale": 1 },
-        "blockchain":   { "score": 0, "skills": [], "full_skills": [], "scale": 0.5 }
+        "blockchain":   { "score": 0, "skills": [], "full_skills": [], "scale": 1 }
     }
     # Generate skill section
     skill_groups = get_required_skill_groups(jd)
@@ -94,7 +93,7 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
     for category in skill_category_info:
         score = 0
         if len(skill_category_info[category]["full_skills"]) > 0:
-            score = similarity_nm(skill_full_list, skill_category_info[category]["full_skills"]) * skill_category_info[category]["scale"]
+            score = similarity_nm(skill_full_list, skill_category_info[category]["full_skills"]) ** 2 * skill_category_info[category]["scale"]
         skill_category_info[category]["score"] = score ** 1
     skill_categories = [ (skill_category_info[item]["score"], item) for item in skill_category_info ]
     print(skill_categories)
@@ -135,6 +134,7 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
             if max_remain > 0:
                 break
             current_category_progress = [0] * 6
+        print(max_remain)
             
         if len(skill_category_words[current_category_index]) == 0:
             current_category_name = skill_categories[current_category_index][1]
@@ -154,15 +154,12 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
             new_sentences = generate_template_sentences(sentence_template)
             for new_sentence in new_sentences:
                 relations = new_sentence["relation"]
-                vector_similarity = similarity_nm(skill_category_words[current_category_index], relations)
-                relation_count = len(relations)
-                focus_efficiency = 1 / (1 + math.exp(relation_count * 1/2 - 4))
-                similarity = vector_similarity * focus_efficiency * new_sentence_quality
+                vector_similarity = similarity_nm(skill_category_words[current_category_index], relations) ** 2
+                similarity = vector_similarity * new_sentence_quality
                 if best_candidate_sentence["similarity"] < similarity:
                     best_candidate_sentence = {
                         "similarity": similarity,
                         "vector_similarity": float(vector_similarity),
-                        "focus_efficiency": focus_efficiency,
                         "sentence_quality": new_sentence_quality,
                         "among": skill_category_words[current_category_index][:],
                         "relations": relations,
@@ -183,6 +180,6 @@ def generate_detailed_resume_sentences(position: str, required_skills, jd: str) 
     
     return final_sentences
 
-def generate_resume_sentences(position: str, required_skills, jd: str) -> str:
+def generate_resume_sentences(position: str, required_skills, jd: str) -> list:
     sentences = generate_detailed_resume_sentences(position, required_skills, jd)
     return [ sentence["content"] for sentence in sentences ]

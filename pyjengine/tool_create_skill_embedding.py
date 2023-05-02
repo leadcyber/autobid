@@ -1,0 +1,1 @@
+from job_familarity_model import create_embedding

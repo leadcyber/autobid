@@ -2,10 +2,10 @@
   "Password": "Kevin.Mitnick.45"
 
   "job-title-1": "Lead Front-End Engineer"
-  "company-1": "SoluLab"
+  "company-1": "Meta"
   "location-1": "New York"
-  "job-date-from-1": "02/2020"
-  "job-date-to-1": "08/2022"
+  "job-date-from-1": "02/2021"
+  "job-date-to-1": "03/2023"
   "role-description-1": |
     - Led a team of 7 senior frontend developers in a fully remote working environment, achieved the successful product release in time by managing the team in deadline-driven Agile scrum.
     - Orchestrated the enterprise-level web app using React/TypeScript stack with the latest React features including concurrent rendering and automatic batching resulting performance upgrade to 110.7%.
@@ -18,7 +18,7 @@
   "company-2": "Debut InfoTech"
   "location-2": "New York"
   "job-date-from-2": "09/2016"
-  "job-date-to-2": "01/2020"
+  "job-date-to-2": "01/2021"
   "role-description-2": |
     - Designed the architecture of the microservice-based backend system, used AWS Lambda + API Gateway, RabbitMQ and Redis cache server to minimize the work in individual task runners.
     - Anticipated technical issues at the product level and proactively made architectural and design decisions.
@@ -28,7 +28,7 @@
 
 
   "job-title-3": "Software Engineer"
-  "company-3": "AimLeaps"
+  "company-3": "SoluLab"
   "location-3": "New Jersey"
   "job-date-from-3": "12/2014"
   "job-date-to-3": "09/2016"

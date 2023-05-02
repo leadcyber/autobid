@@ -31,8 +31,8 @@ export const getHighlightPositions = (jobDescription, skillData) => {
                 for(let interval of intervals) {
                     const [ is, ie, os, oe ] = interval
                     if((innerStart >= is && innerStart < ie) || (innerEnd > is && innerEnd <= ie)) {
-                        interval[0] = innerStart
-                        interval[1] = innerEnd
+                        interval[0] = Math.min(innerStart, is)
+                        interval[1] = Math.max(innerEnd, ie)
                         interval[2] = Math.min(outerStart, os)
                         interval[3] = Math.max(outerEnd, oe)
                         included = true

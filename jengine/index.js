@@ -5,7 +5,7 @@ import {
     getSkillData,
     getSkillOccurenceMatrix
 } from './parser/skill_reader.js'
-import { getLocationData } from "./parser/location_reader.js"
+import { getBlockerData } from "./parser/blocker_reader.js"
 import { getAdditionalSentences } from "./parser/sentence_reader.js"
 import {
     getRequiredSkills,
@@ -14,10 +14,10 @@ import {
     getHighlightPositionsWithTags,
 } from './parser/skill_parser.js'
 import {
-    getHighlightLocationPositions,
-    getHighlightLocationPositionsWithTags,
-    getLocationProperties
-} from './parser/location_parser.js'
+    getHighlightBlockerPositions,
+    getHighlightBlockerPositionsWithTags,
+    getBlockerProperties
+} from './parser/blocker_parser.js'
 import {
     getSalaryData
 } from "./parser/salary_parser.js"
@@ -96,29 +96,29 @@ app.post("/skill/measure", (req, res) => {
 
 
 
-app.post("/location/highlights", (req, res) => {
+app.post("/blocker/highlights", (req, res) => {
     try {
-        const locationData = getLocationData()
-        const locationPositions = getHighlightLocationPositions(req.body.jd, locationData)
-        res.json(locationPositions)
+        const blockerData = getBlockerData()
+        const blockerPositions = getHighlightBlockerPositions(req.body.jd, blockerData)
+        res.json(blockerPositions)
     } catch(err) {
         res.status(500).send()
     }
 })
-app.post("/location/highlights/tagged", (req, res) => {
+app.post("/blocker/highlights/tagged", (req, res) => {
     try {
-        const locationData = getLocationData()
-        const locationPositions = getHighlightLocationPositionsWithTags(req.body.jd, locationData)
-        res.json(locationPositions)
+        const blockerData = getBlockerData()
+        const blockerPositions = getHighlightBlockerPositionsWithTags(req.body.jd, blockerData)
+        res.json(blockerPositions)
     } catch(err) {
         res.status(500).send()
     }
 })
-app.post("/location/measure", (req, res) => {
+app.post("/blocker/measure", (req, res) => {
     try {
-        const locationData = getLocationData()
-        const locationProperties = getLocationProperties(req.body.jd, locationData)
-        res.json(locationProperties)
+        const blockerData = getBlockerData()
+        const blockerProperties = getBlockerProperties(req.body.jd, blockerData)
+        res.json(blockerProperties)
     } catch(err) {
         res.status(500).send()
     }
@@ -141,9 +141,9 @@ app.post("/jd/mark", (req, res) => {
             text = `${text.slice(0, interval[0])}<span class='highlight-skill'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
         }
 
-        const locationData = getLocationData()
-        const locationPositions = getHighlightLocationPositionsWithTags(text, locationData)
-        intervals = locationPositions.sort((a, b) => b[0] - a[0])
+        const blockerData = getBlockerData()
+        const blockerPositions = getHighlightBlockerPositionsWithTags(text, blockerData)
+        intervals = blockerPositions.sort((a, b) => b[0] - a[0])
         for(let interval of intervals) {
             text = `${text.slice(0, interval[0])}<span class='position-${interval[2].toLowerCase()}'>${text.slice(interval[0], interval[1])}</span>${text.slice(interval[1])}`
         }

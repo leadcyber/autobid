@@ -29,7 +29,7 @@
   word-wrap: break-word ;
 }
 
-.resume-board {
+.jd-control-board {
   height: 100px;
   display: flex;
   flex-direction: row;

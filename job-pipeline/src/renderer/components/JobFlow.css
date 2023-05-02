@@ -1,0 +1,13 @@
+.flow-container {
+  flex: 1;
+  position: relative;
+  height: 100%;
+}
+
+
+.zoom-pane {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  z-index: 1;
+}

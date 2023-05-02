@@ -1,0 +1,12 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+body {
+  font-family: "Roboto","Helvetica","Arial",sans-serif;
+  margin: 0;
+}
+
+.MuiDateRangeCalendar-root > :first-child {
+  display: none !important;
+}

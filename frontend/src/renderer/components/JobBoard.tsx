@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import { DataGrid, GridRowsProp, GridSelectionModel, GridCellParams } from '@mui/x-data-grid';
-import { Job, JobState, JobRow, PageData, RequiredSkill, LocationKeyword } from '../../job.types';
+import { Job, JobState, JobRow, PageData, RequiredSkill, BlockerKeyword } from '../../job.types';
 import _ from 'lodash';
 
 import AddIcon from '@mui/icons-material/Add';
@@ -69,7 +69,7 @@ export default function CheckboxSelectionGrid() {
   const [ relatedCount, setRelatedCount ] = useState<any>(null)
   const [ requiredSkills, setRequiredSkills ] = useState<any[]>([])
   const [ familarity, setFamilarity ] = useState<any[]>([])
-  const [ locationKeywords, setLocationKeywords ] = useState<any[]>([])
+  const [ blockerKeywords, setBlockerKeywords ] = useState<any[]>([])
 
   const { showJD } = useContext(AppContext)
 
@@ -104,14 +104,14 @@ export default function CheckboxSelectionGrid() {
         isSupported: boolean,
         isApplied: boolean,
         _requiredSkills: Array<any>,
-        _locationKeywords: Array<any>
+        _blockerKeywords: Array<any>
       ) => {
       setPageDataLoading(false)
       setPageData(_pageData);
       setAlreadyApplied(isApplied)
       setAutofillSupport(isSupported)
       setRequiredSkills(_requiredSkills);
-      setLocationKeywords(_locationKeywords);
+      setBlockerKeywords(_blockerKeywords);
 
       let jd = _pageData?.description || "";
 
@@ -242,6 +242,9 @@ export default function CheckboxSelectionGrid() {
     setAlreadyApplied(true)
     setDrawOpen(false)
   }, [ selectedJob, pageData ])
+
+  const minBlocker = blockerKeywords.reduce((min, current) => min > current.familarity ? current.familarity : min, 15)
+  const minBlockerClass = minBlocker == 15 ? "blank" : minBlocker >= 8 ? "success" : minBlocker < 5 ? "error" : "warning"
 
   return (
     <>
@@ -417,15 +420,12 @@ export default function CheckboxSelectionGrid() {
                       <span className="familarity-good">{familarity[1] * 100 | 0}</span>&nbsp;:&nbsp;
                       <span className="familarity-bad">{familarity[0] * 100 | 0}</span>
                     </div>
-                    {locationKeywords.map(({keyword, count, familarity}: LocationKeyword) =>
+                    {blockerKeywords.map(({keyword, count, familarity}: BlockerKeyword) =>
                         <Chip
                           key={keyword}
                           label={`${keyword} ${count}`}
                           size="medium"
-                          color={
-                            familarity >= 8 ? "success":
-                            familarity < 5 ? "error": "warning"
-                          }
+                          color={ familarity >= 8 ? "success" : familarity < 5 ? "error" : "warning" }
                           sx={{
                             marginTop: "12px",
                             transform: "scale(1.3)",
@@ -485,6 +485,7 @@ export default function CheckboxSelectionGrid() {
           </Box>
         </div>
       </div>
+      <div className={`color-flag ${minBlockerClass}`}></div>
       <Drawer
         anchor="right"
         open={drawOpen}

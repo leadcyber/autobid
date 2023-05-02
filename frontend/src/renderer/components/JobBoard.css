@@ -150,6 +150,30 @@
   background-color: #eee;
 }
 .jd-pad {
+  overflow: scroll;
   padding: 60px;
   flex: 1;
+}
+
+.color-flag {
+  z-index: 1201;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: 30px solid;
+  border-top-color: transparent !important;
+  border-left-color: transparent !important;
+  transition: all 0.25s;
+}
+.color-flag.blank {
+  border-color: #ffffff00;
+}
+.color-flag.success {
+  border-color: #2caa8b;
+}
+.color-flag.warning {
+  border-color: #f0c630;
+}
+.color-flag.error {
+  border-color: #8e0000;
 }

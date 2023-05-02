@@ -94,13 +94,13 @@ export const disconnect = async() => {
 }
 
 export const getJobList = async (query: any, limit: number, _alreadyApplied: boolean) => {
-  const companyRegExp = query.company?.length ? new RegExp(query.company, "ig") : null
+  const companyRegExp = query.company
   delete query["company"]
   const jobDocs = await Jobs.find({ $and: [
     {available: true},
     {alreadyApplied: _alreadyApplied},
     {$not: {pageData: null} },
-    ...Object.entries(query).map(([key, value]) => ({ [key]: new RegExp(value as string, "ig")})),
+    ...Object.entries(query).map(([key, value]) => ({ [key]: value})),
   ] }).sort({
     scannedDate: -1,
   }).populate("company")

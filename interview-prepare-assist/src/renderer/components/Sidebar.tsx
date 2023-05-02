@@ -35,19 +35,44 @@ export default ({ onSelectJob }: any) => {
   const handleSearch = React.useCallback((evt: any) => {
     evt.preventDefault()
     const formData = new FormData(evt.target)
+    let _id: any = formData.get("id")?.toString()
+    let position: any = formData.get("position")?.toString()
+    let company: any = formData.get("company")?.toString()
+    let content: any = formData.get("content")?.toString()
+    let recruiter: any = formData.get("recruiter")?.toString()
+
+    const rawQuery: any = {
+      _id,
+      position,
+      company,
+      content,
+      recruiter
+    }
+    for(let key in rawQuery) {
+      if(rawQuery[key] === null)
+        delete rawQuery[key]
+    }
+
+    _id = _id.length > 0 ? _id : null
+    position = position.length > 0 ? new RegExp(position, "ig") : null
+    company = company.length > 0 ? new RegExp(company, "ig") : null
+    content = content.length > 0 ? new RegExp(content, "ig") : null
+    recruiter = recruiter.length > 0 ? new RegExp(recruiter, "ig") : null
+
     const query: any = {
-      position: formData.get("position"),
-      company: formData.get("company"),
-      "pageData.description": formData.get("content"),
-      "pageData.recruiter.name": formData.get("recruiter"),
+      _id,
+      position,
+      company,
+      "pageData.description": content,
+      "pageData.recruiter.name": recruiter,
     }
     for(let key in query) {
-      if(query[key].length == 0)
+      if(query[key] === null)
         delete query[key]
     }
     setLoading(true)
     window.electron.ipcRenderer.sendMessage('query', query);
-    setRawQuery(JSON.stringify(query, null, 3))
+    setRawQuery(JSON.stringify(rawQuery, null, 3))
   }, [])
   const handleJobSelect = React.useCallback((job: Job) => {
     onSelectJob(job)
@@ -57,6 +82,10 @@ export default ({ onSelectJob }: any) => {
       <nav aria-label="main mailbox folders">
         <form onSubmit={handleSearch}>
           <List>
+            <ListItem>
+              <ListItemText primary="JobID" />
+              <Input name="id"/>
+            </ListItem>
             <ListItem>
               <ListItemText primary="Position" />
               <Input name="position"/>

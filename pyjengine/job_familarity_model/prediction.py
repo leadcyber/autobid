@@ -1,13 +1,13 @@
 import numpy as np
 import keras
 from .config import MODEL_SAVE_PATH, FITLEVEL_POSITION_PATH
-from .utils import predetermine_jd_fitness, get_required_skill_index_sequence, get_understandable_skill_list, get_title_score
+from .utils import predetermine_jd_fitness, get_required_skill_index_sequence, get_embedding_skill_list, get_title_score
 import json
 
 model = keras.models.load_model(MODEL_SAVE_PATH)
 model.summary()
 
-skill_name_list = get_understandable_skill_list()
+skill_name_list = get_embedding_skill_list()
 
 def is_proper_position(title: str):
     fit_level_file = open(FITLEVEL_POSITION_PATH)

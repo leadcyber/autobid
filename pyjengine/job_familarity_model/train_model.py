@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 import db
 from .config import EMBEDDING_DIM, MAX_SEQUENCE_LENGTH, MODEL_SAVE_PATH
-from .utils import get_required_skill_index_sequence, to_understandable_skill_name, predetermine_jd_fitness, get_understandable_skill_list
+from .utils import get_required_skill_index_sequence, predetermine_jd_fitness, get_embedding_skill_list
 
 from .word2vec import word_vect
 
@@ -47,6 +47,8 @@ def Build_Model_RCNN_Text(word_index, embeddings_index, nclasses):
     model.add(MaxPooling1D(pool_size=pool_size))
     model.add(Conv1D(filters, kernel_size, activation='relu'))
     model.add(MaxPooling1D(pool_size=pool_size))
+    model.add(Conv1D(filters, kernel_size, activation='relu'))
+    model.add(MaxPooling1D(pool_size=pool_size))
     model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
     model.add(LSTM(gru_node, return_sequences=True, recurrent_dropout=0.2))
     model.add(LSTM(gru_node, recurrent_dropout=0.2))
@@ -69,7 +71,7 @@ def load_data():
     word_index = {}
     embeddings_index = {}
 
-    skill_name_list = get_understandable_skill_list()
+    skill_name_list = get_embedding_skill_list()
     
     for index, skill_name in enumerate(skill_name_list):
         word_index[skill_name] = index + 1

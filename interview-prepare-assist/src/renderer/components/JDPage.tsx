@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { AppContext } from '../context/AppContext'
-import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import _ from 'lodash';
 
@@ -49,20 +48,11 @@ export default function JobPage() {
     window.electron.ipcRenderer.sendMessage('getQA', job.id);
   }, [job])
 
-  const onOpenResume = React.useCallback(() => {
-    window.electron.ipcRenderer.sendMessage('openResume', job.id);
-  }, [job])
-  const onOpenResumeFolder = React.useCallback(() => {
-    window.electron.ipcRenderer.sendMessage('openResumeFolder', job.id);
-  }, [job])
-  const onGeneratePdfResume = React.useCallback(() => {
+  const onDownloadJD = React.useCallback(() => {
     if(!job || !pageData) return
-    window.electron.ipcRenderer.sendMessage('generatePdfResume', { jobId: job.id, position: job.position, jd: pageData.description });
+    window.electron.ipcRenderer.sendMessage('downloadJD', { jd: pageData.description });
   }, [job, pageData])
-  const onGenerateDocResume = React.useCallback(() => {
-    if(!job || !pageData) return
-    window.electron.ipcRenderer.sendMessage('generateDocResume', { jobId: job.id, position: job.position, jd: pageData.description });
-  }, [job, pageData])
+
 
   return (
     <div className="panel-description">
@@ -85,45 +75,15 @@ export default function JobPage() {
         </div>
       </div>
       <hr/>
-      <div className="resume-board">
-        <Button
-          size="small"
-          color="info"
-          variant="contained"
-          endIcon={<LaunchIcon/>}
-          onClick={onOpenResume}
-        >
-          Open
-        </Button>
-        &nbsp;
-        <Button
-          size="small"
-          color="info"
-          variant="contained"
-          endIcon={<FolderOpenIcon/>}
-          onClick={onOpenResumeFolder}
-        >
-          Open Folder
-        </Button>
-        &nbsp;
+      <div className="jd-control-board">
         <Button
           size="small"
           color="primary"
           variant="contained"
           endIcon={<DownloadIcon/>}
-          onClick={onGeneratePdfResume}
+          onClick={onDownloadJD}
         >
-          Gen. PDF
-        </Button>
-        &nbsp;
-        <Button
-          size="small"
-          color="primary"
-          variant="contained"
-          endIcon={<DownloadIcon/>}
-          onClick={onGenerateDocResume}
-        >
-          Gen. DOC
+          JD Html
         </Button>
       </div>
     </div>

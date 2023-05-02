@@ -6,10 +6,9 @@
     "react",
     "typescript",
     "ts",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "linkedin",
+    "job",
+    "crawler"
   ],
   "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
   "bugs": {
@@ -21,17 +20,11 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
+    "name": "LinkedIn Crawler developer",
+    "email": "mikchielli@gmail.com",
     "url": "https://electron-react-boilerplate.js.org"
   },
-  "contributors": [
-    {
-      "name": "Amila Welihinda",
-      "email": "amilajack@gmail.com",
-      "url": "https://github.com/amilajack"
-    }
-  ],
+  "contributors": [],
   "main": "./src/main/main.ts",
   "scripts": {
     "build": "concurrently \"npm run build:main\" \"npm run build:renderer\"",
@@ -202,8 +195,8 @@
     "webpack-merge": "^5.8.0"
   },
   "build": {
-    "productName": "ElectronReact",
-    "appId": "org.erb.ElectronReact",
+    "productName": "LinkedInCrawler",
+    "appId": "org.erb.LinkedInCrawler",
     "asar": true,
     "asarUnpack": "**\\*.{node,dll}",
     "files": [
