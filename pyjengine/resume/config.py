@@ -1,4 +1,4 @@
-from config import WORKSPACE_PATH
+from autobid.env import WORKSPACE_PATH
 import os
 
 RESUME_TEMPLATE_PATH = f'{WORKSPACE_PATH}/resume'

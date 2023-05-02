@@ -4,11 +4,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import yaml
-from config import WORKSPACE_PATH, SERVICE_PORT
+from config import INTERNAL_SERVICE_PORT
 import time
 from threading import Thread
 from plyer import notification
-
+from autobid.env import WORKSPACE_PATH
 
 def create_direct_driver(block_image: bool = True) -> webdriver.Chrome:
     chrome_options = Options()
@@ -58,7 +58,7 @@ for shortcut in chats:
         item.addEventListener('click', () => window.shortcut_queue.push(arguments[1]))
         arguments[0].appendChild(item);
         return item
-    '''.replace("{PORT}", str(SERVICE_PORT)), wrapper, shortcut)
+    ''', wrapper, shortcut)
     shortcut_element = driver.execute_script('''
         const item = document.createElement('p');
         item.setAttribute('class', 'ext-shortcut-item-title')

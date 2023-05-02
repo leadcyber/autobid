@@ -5,7 +5,7 @@ import resume
 import emailparser
 import json
 from skill.utils import get_required_skills
-from config import PY_SERVICE_PORT
+from autobid.env import PY_SERVICE_PORT
 from job_familarity_model.prediction import is_proper_position, is_proper_jd, get_jd_rate
 from job_familarity_model.utils import get_jd_score
 

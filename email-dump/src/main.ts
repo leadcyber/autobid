@@ -1,8 +1,9 @@
 import { connectEmailDB, disconnectEmailDB } from './db';
 import { sync, authenticateGmail } from './email/sync'
+import { workspacePath } from './config';
 
-const credentialFilePath = "/Volumes/Data/local_db/email/client_secret_594838840696-46892s5m1p8g8tul7rscavcegm1hk79n.apps.googleusercontent.com.json";
-const cachedCredentialPath = "/Volumes/Data/local_db/email/mikchielli.cache.json";
+const credentialFilePath = `${workspacePath}/email/client_secret_594838840696-46892s5m1p8g8tul7rscavcegm1hk79n.apps.googleusercontent.com.json`;
+const cachedCredentialPath = `${workspacePath}/email/mikchielli.cache.json`;
 
 (async () => {
     console.log("Authorizing")

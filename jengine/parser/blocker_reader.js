@@ -1,7 +1,8 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
+import { WORKSPACE_PATH } from '../config'
 
-const blockerPath = "/Volumes/Data/local_db/blocker.yaml"
+const blockerPath = `${WORKSPACE_PATH}/blocker.yaml`
 
 export const getBlockerData = () => {
     let fileBuffer = fs.readFileSync(blockerPath, 'utf8')

@@ -1,0 +1,1 @@
+export const WORKSPACE_PATH = '/Volumes/Data/local_db'

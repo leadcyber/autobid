@@ -3,6 +3,7 @@ from flask import Flask, request
 from urllib import request as urlrequest, parse
 from config import config
 from threading import Thread
+from autobid.env import BIDDER_PORT, DASHBOARD_URL
 
 handlers = {}
 def register_api_handler(h):
@@ -11,7 +12,7 @@ def register_api_handler(h):
 
 def send_to_dashboard(data):
     request_body = json.dumps({"data": data}).encode()
-    req = urlrequest.Request(f'{config.DASHBOARD_URL}/bidder', data=request_body) # this will make the method "POST"
+    req = urlrequest.Request(f'{DASHBOARD_URL}/bidder', data=request_body) # this will make the method "POST"
     req.add_header('Content-Type', 'application/json')
     response = urlrequest.urlopen(req)
 
@@ -37,7 +38,7 @@ def invoke():
 def listen_bidder_interface():
     def ipc_thread_handler():
         print("Listening to bidder port.")
-        app.run(port=config.BIDDER_PORT)
+        app.run(port=BIDDER_PORT)
     
     global ipc_thread
     ipc_thread = Thread(target=ipc_thread_handler)

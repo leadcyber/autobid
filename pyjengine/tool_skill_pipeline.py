@@ -3,6 +3,7 @@ from db import job_collection
 from tqdm import tqdm
 from skill.utils import get_required_skill_groups, get_skill_list
 import yaml
+from config import WORKSPACE_PATH
 
 print("Calculating skill occurence matrix...")
 jobs = list(job_collection.find({"pageData.description": {"$not": {"$eq": None}}}))
@@ -34,7 +35,7 @@ for job in tqdm(jobs, desc="Analysing: ", total=count):
             embed[required_skill][target_skill] += (1.0 - 0.5 ** in_group_count) * in_group_weight
             embed[required_skill][target_skill] += (1.0 - 0.5 ** out_group_count) * out_group_weight
     
-with open('/Volumes/Data/local_db/skill_occurence.yaml', 'w') as file:
+with open(f'{WORKSPACE_PATH}/skill_occurence.yaml', 'w') as file:
     documents = yaml.dump(embed, file)
 
 print("Creating embedding...")

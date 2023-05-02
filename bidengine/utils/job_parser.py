@@ -2,14 +2,13 @@ from logging.handlers import RotatingFileHandler
 from nis import match
 import re
 import json
-import yaml
 from functools import reduce
 from urllib import request, parse
-from config import config
+from autobid.env import WORKSPACE_PATH, JS_SERVICE_URL
 
-FITLEVEL_POSITION_PATH = "/Volumes/Data/local_db/fitlevel_position.json"
-FITLEVEL_CONTENT_PATH = "/Volumes/Data/local_db/fitlevel_content.json"
-SKILL_PATH = "/Volumes/Data/local_db/skills.yaml"
+FITLEVEL_POSITION_PATH = f"{WORKSPACE_PATH}/fitlevel_position.json"
+FITLEVEL_CONTENT_PATH = f"{WORKSPACE_PATH}/fitlevel_content.json"
+SKILL_PATH = f"{WORKSPACE_PATH}/skills.yaml"
 
 def normalize_skill_name(skill_name):
     return skill_name.lower().replace(" ", "").replace("-", "").replace("*", "").replace("/", "").replace(".", "").strip()
@@ -46,24 +45,24 @@ def is_proper_job_detail(detail: str):
     return score >= 35
 
 def get_skill_list():
-    req = request.Request(f'{config.SERVICE_URL}/skill/list', method="GET") # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/list', method="GET") # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 def get_skill_occurence_matrix():
-    req = request.Request(f'{config.SERVICE_URL}/skill/occurence/matrix', method="GET") # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/occurence/matrix', method="GET") # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 def get_required_skills(jd: str):
     request_body = parse.urlencode({"jd": jd}).encode()
-    req = request.Request(f'{config.SERVICE_URL}/skill/measure', data=request_body) # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/measure', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 def get_required_skill_groups(jd: str):
     request_body = parse.urlencode({"jd": jd}).encode()
-    req = request.Request(f'{config.SERVICE_URL}/skill/measure/groups', data=request_body) # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/measure/groups', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 

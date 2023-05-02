@@ -1,5 +1,6 @@
 from utils.job_parser import get_required_skills, get_skill_occurence_matrix, compile_skill_tree, get_skill_relation_value, normalize_skill_name, get_allowed_nodes, select_skill_section_items
-from config.config import WORKSPACE_PATH, DEFAULT_RESUME_PATH, DEFAULT_COVER_LETTER_PATH, LOG_RESUME_PATH, PY_SERVICE_URL
+from autobid.env import WORKSPACE_PATH, DEFAULT_RESUME_PATH, DEFAULT_COVER_LETTER_PATH, PY_SERVICE_URL
+from config.config import LOG_RESUME_PATH
 from utils.db import job_collection
 from bson.objectid import ObjectId
 from datetime import datetime

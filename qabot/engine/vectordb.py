@@ -3,7 +3,7 @@ from langchain.vectorstores import Chroma
 from langchain.chains import VectorDBQA
 from langchain.chat_models import ChatOpenAI
 from langchain.docstore.document import Document
-from config import openai_api_key, WORKSPACE_PATH
+from autobid.env import OPENAI_API_KEY, WORKSPACE_PATH
 import yaml
 import os
 
@@ -23,7 +23,7 @@ try:
 except: pass
 docs.extend([ Document(page_content=skill, metadata={ "title": "skill" }) for skill in skills ])
 
-embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
 
 def load_db():
     db = Chroma(persist_directory=persist_directory, embedding_function=embeddings)

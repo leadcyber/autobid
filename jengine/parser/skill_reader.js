@@ -1,8 +1,9 @@
 import fs from 'fs'
 import yaml from 'js-yaml'
+import { WORKSPACE_PATH } from '../config'
 
-const skillPath = "/Volumes/Data/local_db/skills.yaml"
-const skillOccurencePath = "/Volumes/Data/local_db/skill_occurence.yaml"
+const skillPath = `${WORKSPACE_PATH}/skills.yaml`
+const skillOccurencePath = `${WORKSPACE_PATH}/skill_occurence.yaml`
 
 export const getSkillData = () => {
     let skillBuffer = fs.readFileSync(skillPath, 'utf8')

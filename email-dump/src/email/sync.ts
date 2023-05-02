@@ -11,8 +11,10 @@ import { emailExist, removeUncompletedScan } from '../db'
 
 import { EmailRecord, ScanData } from './email.types'
 
+import { workspacePath } from '../config'
+
 const SCOPES = ['https://mail.google.com/', 'email']
-const LATEST_SCAN_PATH = "/Volumes/Data/local_db/email/latest_scan.txt"
+const LATEST_SCAN_PATH = `${workspacePath}/email/latest_scan.txt`
 
 export const authenticateGmail = async (credentialFilePath: string, cachedCredentialPath: string): Promise<OAuth2Client> => {
     if(fs.existsSync(cachedCredentialPath)) {

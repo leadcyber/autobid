@@ -9,7 +9,7 @@ import glvar
 import os
 from webinterface import register_api_handler, listen_bidder_interface
 from urllib.parse import urlparse
-from config.config import WORKSPACE_PATH
+from autobid.env import WORKSPACE_PATH
 
 pressed_keys = set()
 triggered = []

@@ -1,5 +1,5 @@
 from urllib import request, parse
-from config import SERVICE_URL
+from autobid.env import JS_SERVICE_URL
 import json
 from functools import reduce
 
@@ -9,24 +9,24 @@ def normalize_skill_name(skill_name):
 
 def get_required_skills(jd: str):
     request_body = parse.urlencode({"jd": jd}).encode()
-    req = request.Request(f'{SERVICE_URL}/skill/measure', data=request_body) # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/measure', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 def get_required_skill_groups(jd: str):
     request_body = parse.urlencode({"jd": jd}).encode()
-    req = request.Request(f'{SERVICE_URL}/skill/measure/groups', data=request_body) # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/measure/groups', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 
 def get_skill_list():
-    req = request.Request(f'{SERVICE_URL}/skill/list', method="GET") # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/list', method="GET") # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
 def get_skill_occurence_matrix():
-    req = request.Request(f'{SERVICE_URL}/skill/occurence/matrix', method="GET") # this will make the method "POST"
+    req = request.Request(f'{JS_SERVICE_URL}/skill/occurence/matrix', method="GET") # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
