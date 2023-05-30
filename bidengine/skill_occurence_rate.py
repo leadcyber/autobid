@@ -12,7 +12,8 @@ for job in jobs:
     count += 1
     print(count)
     description = job["pageData"]["description"]
-    groups = get_required_skill_groups(description)
+    position = job["position"]
+    groups = get_required_skill_groups(description, position)
     occurences = [item for sub_list in groups for item in sub_list]
     required_skills_set = set([ occurence["skillName"] for occurence in occurences ])
     required_skills = list(required_skills_set)

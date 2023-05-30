@@ -1,6 +1,7 @@
 from config import config
-from driver import create_direct_driver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from driver import create_direct_driver
 import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -10,13 +11,12 @@ from selenium.webdriver.remote.webelement import WebElement
 from utils import logger, db
 from utils.job_parser import is_proper_job_detail, is_proper_job_title, is_proper_job_detail, get_required_skills
 from datetime import datetime
-from utils.resume import get_most_relevant_template, get_most_relevant_headline, generate_resume_by_data
-from selenium.webdriver.common.keys import Keys
+from utils.resume import get_most_relevant_headline, generate_resume_by_data
 
 PLATFORM = "indeed"
 
 config.current_profile_id = 1
-driver = create_direct_driver("indeed")
+driver = create_direct_driver("indeed", False)
 
 DEFAULT_RESUME_FILE_NAME = "Resume-Michael-Chilelli.pdf"
 
@@ -143,173 +143,95 @@ def iterate_job_board():
             except: break
         except: pass
 
-    job_list_element = driver.find_element(By.CLASS_NAME, "jobsearch-ResultsList")
-    job_item_elements = job_list_element.find_elements(By.XPATH, "*")
-
     board_window_before = driver.current_window_handle
+        
+    while True:
+        apply_windows = [x for x in driver.window_handles if x != board_window_before]
+        if len(apply_windows) > 0:
+            apply_window = apply_windows[0]
+            driver.switch_to.window(apply_window)
+            break
+        time.sleep(1)
 
-
-    for job_item_element in job_item_elements:
-        try:
-            result_content_element = job_item_element.find_element(By.CSS_SELECTOR, "td[class='resultContent']")
-        except:
-            continue
-        job_title_element = result_content_element.find_element(By.TAG_NAME, "h2")
-        job_link_element = job_title_element.find_element(By.TAG_NAME, "a")
-
-        # Check if the job title is proper
-        job_title = job_link_element.text
-        print("\n", job_title)
-        if not is_proper_job_title(job_title):
-            continue
-        driver.execute_script("arguments[0].click()", job_link_element)
-        time.sleep(8)
-
-
-        # Parse detail page
-        detail_element = WebDriverWait(driver, 10000).until(lambda dr: dr.find_element(By.ID, "jobDescriptionText"))
-        # detail_element = driver.find_element(By.ID, "jobDescriptionText")
-        company_wrapper_element = driver.find_element(By.CLASS_NAME, "jobsearch-InlineCompanyRating")
-        company_element = None
-        try:
-            company_element = company_wrapper_element.find_element(By.TAG_NAME, "a")
-        except:
-            try:
-                company_element = company_wrapper_element.find_element(By.CLASS_NAME, "jobsearch-InlineCompanyRating-companyHeader")
-            except:
-                pass
-        company_name = company_element.text
-
-        # Display job detail
-        # print("title", job_title)
-        # print("company", company_element.text)
-        # print("salary", salary_element.text)
-
-        # Check if it is proper to bid
-        job_detail_html = detail_element.get_attribute('innerHTML')
-        # print(job_detail)
-        if not is_proper_job_detail(job_detail_html):
-            driver.switch_to.window(board_window_before)
-            continue
-
-        # job = db.job_collection.insert_one({
-        #     "category": "React&Frontend",
-        #     "company": company_name,
-        #     "position": job_title,
-        #     "postedAgo": "1 minutes ago",
-        #     "postedDate": datetime.now(),
-        #     "scannedDate": datetime.now(),
-        #     "copiedDate": datetime.now(),
-        #     "location": "",
-        #     "salary": "",
-        # })
-
-        # Click apply button
-        button_element = None
-        try:
-            button_wrapper_element = driver.find_element(By.CLASS_NAME, "jobsearch-IndeedApplyButton-buttonWrapper")
-            button_element = button_wrapper_element.find_element(By.TAG_NAME, "button")
-            if button_element.get_attribute("disabled") == "true":
-                continue
-        except:
-            button_wrapper_element = driver.find_element(By.ID, "applyButtonLinkContainer")
-            link_element = button_wrapper_element.find_element(By.TAG_NAME, "a")
-            external_url = link_element.get_attribute("href")
-            print(f"Detected external site {external_url}")
-            logger.log_indeed_external(external_url)
-            continue
-
-        # Close detail page
-        apply_window = None
+    # Start filling forms
+    previous_page_title_element_id = None
+    is_completed = False
+    closed = False
+    detail_url = "https://indeed.com"
+    resume_composed = False
+    while True:
+        page = None
+        continue_button = None
         while True:
-            driver.execute_script("arguments[0].click()", button_element)
-            time.sleep(1)
-            apply_windows = [x for x in driver.window_handles if x != board_window_before]
-            if len(apply_windows) > 0:
-                apply_window = apply_windows[0]
-                driver.switch_to.window(apply_window)
+            if apply_window not in driver.window_handles:
+                closed = True
                 break
-
-        # Start filling forms
-        previous_page_title_element_id = None
-        is_completed = False
-        closed = False
-        detail_url = "https://indeed.com"
-        resume_composed = False
-        while True:
-            page = None
-            continue_button = None
-            while True:
+            try:
+                page = driver.find_element(By.CLASS_NAME, "ia-PageAnimation")
+                page_title_element = page.find_element(By.TAG_NAME, "h1")
+            except:
                 if apply_window not in driver.window_handles:
                     closed = True
                     break
-                try:
-                    page = driver.find_element(By.CLASS_NAME, "ia-PageAnimation")
-                    page_title_element = page.find_element(By.TAG_NAME, "h1")
-                except:
-                    if apply_window not in driver.window_handles:
-                        closed = True
-                        break
-                    if driver.current_url.endswith("/post-apply"):
-                        is_completed = True
-                        break
-                    continue
-                try:
-                    page_title = page_title_element.text
-                    page_title_element_id = page_title_element.id
-                except:
-                    page_title = None
-                    page_title_element_id = None
-                continue_button = page.find_element(By.CLASS_NAME, "ia-continueButton")
-                # print(continue_button.get_attribute("disabled"))
-                if previous_page_title_element_id != page_title_element_id:
-                # if not continue_button.get_attribute("disabled"):
+                if driver.current_url.endswith("/post-apply"):
+                    is_completed = True
                     break
-                time.sleep(1)
-            if closed:
+                continue
+            try:
+                page_title = page_title_element.text
+                page_title_element_id = page_title_element.id
+            except:
+                page_title = None
+                page_title_element_id = None
+            continue_button = page.find_element(By.CLASS_NAME, "ia-continueButton")
+            # print(continue_button.get_attribute("disabled"))
+            if previous_page_title_element_id != page_title_element_id:
+            # if not continue_button.get_attribute("disabled"):
                 break
-            if is_completed:
-                break
-            previous_page_title_element_id = page_title_element_id
-            time.sleep(2)
-            # Research page element again after few seconds
-            page = driver.find_element(By.CLASS_NAME, "ia-PageAnimation")
-            headline = get_most_relevant_headline(job_title)
-            
-            print("on-page: ", page_title)
-            if page_title.startswith("Please review"):
-                if review_application(page, headline, resume_composed):
-                    time.sleep(2)
-                    continue
+            time.sleep(1)
+        if closed:
+            break
+        if is_completed:
+            break
+        previous_page_title_element_id = page_title_element_id
+        time.sleep(2)
+        # Research page element again after few seconds
+        page = driver.find_element(By.CLASS_NAME, "ia-PageAnimation")
+        headline = get_most_relevant_headline(job_title)
+        
+        print("on-page: ", page_title)
+        if page_title.startswith("Please review"):
+            if review_application(page, headline, resume_composed):
+                time.sleep(2)
+                continue
 
-            is_log = True
-            while True:
-                try:
-                    if "resume" in page_title:
-                        resume_composed = True
-                        add_resume(page, job_title, job_detail)
-                    elif "relevant experience" in page_title:
-                        fill_relevant_experience(page, headline)
-                    else:
-                        autofill_page(page, detail_url)
-                    continue_button.click()
+        is_log = True
+        while True:
+            try:
+                if "resume" in page_title:
+                    resume_composed = True
+                    add_resume(page, job_title, job_detail)
+                elif "relevant experience" in page_title:
+                    fill_relevant_experience(page, headline)
+                else:
+                    autofill_page(page, detail_url)
+                continue_button.click()
+                break
+            except Exception as e:
+                print(f"\nBid failed on {detail_url} with following error.\n'{str(e)}'!")
+                if is_log is True:
+                    logger.log_bid(detail_url, False, str(e))
+                is_log = False
+                if str(e).startswith("Has unknown question"):
+                    time.sleep(10)
+                    continue
+                else:
                     break
-                except Exception as e:
-                    print(f"\nBid failed on {detail_url} with following error.\n'{str(e)}'!")
-                    if is_log is True:
-                        logger.log_bid(detail_url, False, str(e))
-                    is_log = False
-                    if str(e).startswith("Has unknown question"):
-                        time.sleep(10)
-                        continue
-                    else:
-                        break
-                        
-            time.sleep(2)
-        if not closed:
-            driver.close()
-        driver.switch_to.window(board_window_before)
-    time.sleep(1)
+                    
+        time.sleep(2)
+    if not closed:
+        driver.close()
+    driver.switch_to.window(board_window_before)
 
 def try_next_page():
     try:

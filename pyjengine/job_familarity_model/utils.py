@@ -52,7 +52,7 @@ def predetermine_jd_fitness(jd: str):
     score = get_jd_score(jd)
     if score >= 7.5:
         return True
-    if score <= 4.8:
+    if score <= 4:
         return False
     return None
 

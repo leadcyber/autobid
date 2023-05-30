@@ -62,13 +62,12 @@ const IOSSwitch = styled((props: SwitchProps) => (
     }),
   },
 }));
-const FETCH_STATES = [ FetchMode.LAZY, FetchMode.NORMAL, FetchMode.CRAZY ]
+const FETCH_STATES = [ FetchMode.LAZY, FetchMode.NORMAL, FetchMode.CRAZY, FetchMode.ETERNAL ]
 
 export default () => {
   const [fetchMode, setFetchMode] = useState(1);
   const handleChange = useCallback(
     (event: React.SyntheticEvent, newValue: number) => {
-      // console.log(newValue)
       window.electron.ipcRenderer.sendMessage('setFetchMode', FETCH_STATES[newValue]);
     },
     []
@@ -84,9 +83,10 @@ export default () => {
   return (
     <>
       <Tabs value={fetchMode} onChange={handleChange}>
-          <Tab label="lazy" sx={{ minWidth: "40px",   padding: "10px 11px" }}/>
-          <Tab label="normal" sx={{ minWidth: "40px", padding: "10px 11px" }}/>
-          <Tab label="crazy" sx={{ minWidth: "40px",  padding: "10px 11px" }}/>
+          <Tab label="lazy" sx={{ minWidth: "30px",   padding: "10px 4px", fontSize: 12 }}/>
+          <Tab label="normal" sx={{ minWidth: "30px", padding: "10px 4px", fontSize: 12 }}/>
+          <Tab label="crazy" sx={{ minWidth: "30px",  padding: "10px 4px", fontSize: 12 }}/>
+          <Tab label="eternal" sx={{ minWidth: "30px",  padding: "10px 4px", fontSize: 12 }}/>
         </Tabs>
     </>
   );

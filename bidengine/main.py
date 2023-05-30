@@ -1,15 +1,13 @@
-import json
 from pynput import keyboard
 import pyperclip
 from threading import Thread
 import router
-from threading import Thread
 from config import config
 import glvar
-import os
 from webinterface import register_api_handler, listen_bidder_interface
 from urllib.parse import urlparse
 from autobid.env import WORKSPACE_PATH
+from utils.resume import generate_resume_to_file
 
 pressed_keys = set()
 triggered = []
@@ -39,9 +37,16 @@ def request_bid(bid_data):
     
     if bid_data is not None:
         bid_queue.append(bid_data)
+
 def request_bid_from_clipboard():
     copied_str = pyperclip.paste()
     request_bid({ "url": copied_str, "autoMode": False, "exceptionMode": False, "requestConnect": False})
+
+def request_generate_resume_from_clipboard_jd(position):
+    copied_jd = pyperclip.paste()
+    print(copied_jd)
+    generate_resume_to_file(position, copied_jd, '/Users/snyper/Downloads/Michael.C Resume.pdf')
+
 def request_rebid():
     if latest_bid_thread is not None:
         print("Attempting rebid...")
@@ -59,9 +64,9 @@ def set_current_profile(id: int):
 COMBINATIONS = [
     { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl_l, keyboard.KeyCode(char='e') }, "handler": request_rebid },
     { "keys": { keyboard.Key.cmd_r, keyboard.KeyCode(char='e') }, "handler": request_bid_from_clipboard },
-    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='1') }, "handler": lambda: set_current_profile(1) },
-    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='2') }, "handler": lambda: set_current_profile(2) },
-    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='3') }, "handler": lambda: set_current_profile(3) },
+    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='1') }, "handler": lambda: request_generate_resume_from_clipboard_jd("Senior Front End Engineer") },
+    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='2') }, "handler": lambda: request_generate_resume_from_clipboard_jd("Senior Full Stack Engineer") },
+    { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='3') }, "handler": lambda: request_generate_resume_from_clipboard_jd("Senior Software Engineer") },
     { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='4') }, "handler": lambda: set_current_profile(4) },
     { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='5') }, "handler": lambda: set_current_profile(5) },
     { "keys": { keyboard.Key.cmd_r, keyboard.Key.ctrl, keyboard.KeyCode(char='6') }, "handler": lambda: set_current_profile(6) },

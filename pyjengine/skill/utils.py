@@ -7,14 +7,16 @@ def normalize_skill_name(skill_name):
     return skill_name.lower().replace(" ", "").replace("-", "").replace("*", "").replace("/", "").replace(".", "").strip()
 
 
-def get_required_skills(jd: str):
-    request_body = parse.urlencode({"jd": jd}).encode()
+def get_required_skills(jd: str, position: str = ""):
+    wrapped_jd = f"<p>{position}<br/>{position}</p>{jd}"
+    request_body = parse.urlencode({"jd": wrapped_jd}).encode()
     req = request.Request(f'{JS_SERVICE_URL}/skill/measure', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())
 
-def get_required_skill_groups(jd: str):
-    request_body = parse.urlencode({"jd": jd}).encode()
+def get_required_skill_groups(jd: str, position: str = ""):
+    wrapped_jd = f"<p>{position}<br/>{position}</p>{jd}"
+    request_body = parse.urlencode({"jd": wrapped_jd}).encode()
     req = request.Request(f'{JS_SERVICE_URL}/skill/measure/groups', data=request_body) # this will make the method "POST"
     response = request.urlopen(req)
     return json.loads(response.read())

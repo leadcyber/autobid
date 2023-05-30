@@ -13,7 +13,7 @@ for index, job in enumerate(jobs):
     position = job["position"]
     description = job["pageData"]["description"]
 
-    required_skills = get_required_skills(description)
+    required_skills = get_required_skills(description, position)
     sentences = generate_resume_sentences(position, required_skills, description)
 
     found = False

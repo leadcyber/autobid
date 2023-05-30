@@ -33,7 +33,6 @@ import moment from 'moment'
 import axios from 'axios'
 
 import "./JobBoard.css"
-import { CurrencyYenTwoTone } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 
 export const serviceURL = "http://localhost:7000"

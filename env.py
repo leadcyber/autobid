@@ -1,7 +1,7 @@
 WORKSPACE_PATH = '/Volumes/Data/local_db'
 
-DEFAULT_RESUME_PATH = '/Volumes/Work/resume/pure_frontend/Resume-Michael-Chilelli.pdf'
-DEFAULT_COVER_LETTER_PATH = '/Volumes/Work/resume/pure_frontend/MC-cover-letter.pdf'
+DEFAULT_RESUME_PATH = f'{WORKSPACE_PATH}/resume/default/Resume-Michael-Chilelli.pdf'
+DEFAULT_COVER_LETTER_PATH = '{WORKSPACE_PATH}/resume/default/MC-cover-letter.pdf'
 
 JS_SERVICE_URL = "http://localhost:7000"
 PY_SERVICE_URL = "http://localhost:7001"

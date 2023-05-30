@@ -100,7 +100,7 @@ def bid(driver: webdriver.Chrome, url: str, job_id: str):
             continue
         answer = get_answer(PLATFORM, question, job_id)
         if not is_resume_question(question):
-            break
+            continue
         if answer is None:
             log_unknown_question(PLATFORM, question, url, job_id)
             unknown_questions.append(question)
@@ -124,9 +124,9 @@ def bid(driver: webdriver.Chrome, url: str, job_id: str):
                 current_question_elements.remove(elm)
         question_elements.extend(current_question_elements)
 
-    additions = form_element.find_elements(By.CLASS_NAME, "application-additional")
-    if len(additions) > 0:
-        autofill(additions[0], get_answer(PLATFORM, "Cover letter", job_id))
+    # additions = form_element.find_elements(By.CLASS_NAME, "application-additional")
+    # if len(additions) > 0:
+    #     autofill(additions[0], get_answer(PLATFORM, "Cover letter", job_id))
             
     if len(unknown_questions) > 0:
         raise Exception("Has unknown question: \n" + "\n".join(unknown_questions))

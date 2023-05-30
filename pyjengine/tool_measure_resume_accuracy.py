@@ -9,14 +9,14 @@ for index, job in enumerate(jobs):
     position = job["position"]
     description = job["pageData"]["description"]
 
-    groups = get_required_skill_groups(description)
+    groups = get_required_skill_groups(description, position)
     occurences1 = [ normalize_skill_name(item["skillName"]) for sub_list in groups for item in sub_list ]
 
-    required_skills = get_required_skills(description)
+    required_skills = get_required_skills(description, position)
     sentences = generate_resume_sentences(position, required_skills, description)
 
     r_description = "\n".join([ f"<p>{sentence}</p>" for sentence in sentences ])
-    groups = get_required_skill_groups(r_description)
+    groups = get_required_skill_groups(r_description, position)
     occurences2 = [ normalize_skill_name(item["skillName"]) for sub_list in groups for item in sub_list ]
 
     similarity = similarity_nm(occurences1, occurences2)

@@ -78,5 +78,6 @@ export enum BidState {
 export enum FetchMode {
   LAZY,
   NORMAL,
-  CRAZY
+  CRAZY,
+  ETERNAL
 }

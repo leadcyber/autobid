@@ -47,8 +47,11 @@ const FETCH_INFO = {
   [ FetchMode.LAZY ]: { timeout: 1000 * 60 * 15, limit: [ 0.5, 0.2, 0.3 ] },
   [ FetchMode.NORMAL ]: { timeout: 1000 * 60 * 3, limit: [ 0, 0, 1 ] },
   [ FetchMode.CRAZY ]: { timeout: 1000, limit: [ 0.5, 0.1, 0.4 ] },
+  [ FetchMode.ETERNAL ]: { timeout: 100, limit: [ 0.5, 0.1, 0.4 ] },
 }
 let currentFetchMode = FetchMode.NORMAL
+
+let fetchTimeoutHandler: any = null
 
 const getJobScore = (position: string): number => {
   if(!fitLevel) return 0
@@ -107,7 +110,7 @@ export const getFamilarity = (jobDescription: string | undefined): number => {
 
 export const setFetchMode = (mode: FetchMode) => {
   if(currentFetchMode != mode) {
-    const modeStr = ["lazy", "normal", "crazy"][mode]
+    const modeStr = ["lazy", "normal", "crazy", "eternal"][mode]
     myConsole.log(`[fetch-mode]: Switching to ${modeStr} mode`)
     console.log(`[fetch-mode]: Switching to ${modeStr} mode`)
   }
@@ -115,6 +118,7 @@ export const setFetchMode = (mode: FetchMode) => {
 }
 export const getFetchMode = () => currentFetchMode
 
+let _repeatFetch: any = null
 export const createLinkedInListener = async (
   onNewJobsFound: any,
   onAutobidableJobsFound:any,
@@ -194,14 +198,23 @@ export const createLinkedInListener = async (
   }
 
   async function repeatFetch() {
+    fetchTimeoutHandler = null
     try {
       setFetchStep("started")
       await fetch()
     } catch(err) {}
-    setTimeout(repeatFetch, FETCH_INFO[currentFetchMode].timeout)
+    fetchTimeoutHandler = setTimeout(repeatFetch, FETCH_INFO[currentFetchMode].timeout)
     setFetchStep("lazy")
   }
+  _repeatFetch = repeatFetch
   repeatFetch()
+}
+
+export const resetFetchTimeout = () => {
+  if(fetchTimeoutHandler != null) {
+    clearTimeout(fetchTimeoutHandler)
+    _repeatFetch()
+  }
 }
 
 export const getPageData = async (job: Job): Promise<PageData> => {

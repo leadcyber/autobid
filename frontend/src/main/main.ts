@@ -20,7 +20,8 @@ import {
   getFetchMode,
   getFamilarity,
   getRequiredSkills,
-  getBlockerKeywords
+  getBlockerKeywords,
+  resetFetchTimeout
 } from './api'
 import {
   deleteAll,
@@ -101,10 +102,12 @@ const awakeFetchMode = () => {
     mainWindow?.webContents.send('fetchMode', FetchMode.NORMAL)
   }
   clearTimeout(lazyTimeout)
-  lazyTimeout = setTimeout(() => {
-    setFetchMode(FetchMode.LAZY)
-    mainWindow?.webContents.send('fetchMode', FetchMode.LAZY)
-  }, 1000 * 60 * 15)
+  if(getFetchMode() !== FetchMode.ETERNAL) {
+    lazyTimeout = setTimeout(() => {
+      setFetchMode(FetchMode.LAZY)
+      mainWindow?.webContents.send('fetchMode', FetchMode.LAZY)
+    }, 1000 * 60 * 15)
+  }
 }
 awakeFetchMode()
 
@@ -259,6 +262,10 @@ const handleIPC = () => {
   })
   ipcMain.on('setFetchMode', async (event, mode: FetchMode) => {
     setFetchMode(mode)
+    if(mode === FetchMode.ETERNAL) {
+      clearTimeout(lazyTimeout)
+    }
+    resetFetchTimeout()
     event.reply('fetchMode', mode)
   })
 
