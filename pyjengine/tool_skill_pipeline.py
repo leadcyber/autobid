@@ -3,7 +3,7 @@ from db import job_collection
 from tqdm import tqdm
 from skill.utils import get_required_skill_groups, get_skill_list
 import yaml
-from config import WORKSPACE_PATH
+from autobid.env import WORKSPACE_PATH
 
 print("Calculating skill occurence matrix...")
 jobs = list(job_collection.find({"pageData.description": {"$not": {"$eq": None}}}))
@@ -42,5 +42,5 @@ with open(f'{WORKSPACE_PATH}/skill_occurence.yaml', 'w') as file:
 print("Creating embedding...")
 import job_familarity_model.create_embedding
 
-print("Training skill model...")
-import job_familarity_model.train_model
+# print("Training skill model...")
+# import job_familarity_model.train_model
